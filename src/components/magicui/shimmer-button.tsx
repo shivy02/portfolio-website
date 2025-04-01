@@ -21,8 +21,8 @@ export const ShimmerButton = React.forwardRef<
     {
       shimmerSize = "0.05em",
       shimmerDuration = "3s",
-      borderRadius = "100px",
-      background = "rgba(0, 0, 0, 1)",
+      borderRadius = "200px",
+      background = "oklch(0.13 0.028 261.692)",
       className,
       children,
       ...props
@@ -41,7 +41,7 @@ export const ShimmerButton = React.forwardRef<
     const shimmerColor = mounted
       ? resolvedTheme === "dark"
         ? "#ffffff"
-        : "#000000"
+        : "gray"
       : "transparent"; // Use a fallback color during SSR
 
     return (
@@ -57,7 +57,7 @@ export const ShimmerButton = React.forwardRef<
           } as CSSProperties
         }
         className={cn(
-          "group relative z-0 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-gray-200 dark:border-white/10 px-2 py-1 text-white bg-background [border-radius:var(--radius)] dark:text-black",
+          "group relative z-0 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-gray-200 dark:border-white/10 px-2 py-1 text-white fill-background [background:var(--background)] [border-radius:var(--radius)] dark:text-neutral-300",
           "transform-gpu transition-transform duration-300 ease-in-out active:translate-y-px",
           className,
         )}
@@ -84,7 +84,7 @@ export const ShimmerButton = React.forwardRef<
           className={cn(
             "insert-0 absolute size-full",
 
-            "rounded-2xl px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_#ffffff1f]",
+            "rounded-2xl px-4 py-1.5 text-sm font-medium",
 
             // transition
             "transform-gpu transition-all duration-300 ease-in-out",

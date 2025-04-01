@@ -50,21 +50,21 @@ export default function Hero() {
                     />
                 </BackgroundGradient>
 
-                <ShimmerButton className="shadow-2xl z-10 mt-6 bg-background flex">
+                <ShimmerButton className=" z-10 mt-6 flex">
                     <div className="relative flex items-center justify-center">
                         <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse mr-2"></div>
                     </div>
-                    <span className="whitespace-pre-wrap text-center font-light leading-none tracking-tighter text-gray-500 dark:text-gray-400 dark:from-white dark:to-slate-900/10 text-xs sm:text-sm">
+                    <span className="whitespace-pre-wrap text-center font-light leading-none tracking-tighter text-neutral-800 dark:text-neutral-400 dark:from-white dark:to-slate-900 text-xs sm:text-sm">
                         Available for work
                     </span>
                 </ShimmerButton>
 
-                <p className="flex z-10 bg-gradient-to-b from-neutral-200 to-neutral-500 bg-clip-text py-8 text-4xl font-bold text-transparent sm:text-5xl md:text-6xl lg:text-7xl text-center">
+                <p className="flex z-10 bg-gradient-to-b from-neutral-200 to-neutral-600 dark:to-neutral-500 bg-clip-text py-8 text-4xl font-bold text-transparent sm:text-5xl md:text-6xl lg:text-7xl text-center">
                     Hi I&#39;m Shivam
                 </p>
 
-                <p className="text-center">
-                    This is filler text blah blah blah Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eligendi repudiandae neque voluptatem consectetur ab? Incidunt ut, dignissimos ex maiores accusamus omnis nesciunt ab quaerat quas dolore exercitationem impedit dolor.
+                <p className="text-center text-neutral-600 dark:text-neutral-300">
+                    This is filler text blah blah blah Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eligendi repudiandae neque voluptatem consectetur ab?
                 </p>
 
 
