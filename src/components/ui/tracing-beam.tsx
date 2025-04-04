@@ -4,7 +4,6 @@ import {
   motion,
   useTransform,
   useScroll,
-  useVelocity,
   useSpring,
 } from "motion/react";
 import { cn } from "@/lib/utils";
@@ -51,7 +50,7 @@ export const TracingBeam = ({
       ref={ref}
       className={cn("relative mx-auto h-full w-full max-w-4xl", className)}
     >
-      <div className="absolute top-4 -left-4 md:-left-18">
+      <div className="absolute top-8 -left-12 md:-left-16">
         <motion.div
           transition={{
             duration: 0.2,

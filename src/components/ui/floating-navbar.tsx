@@ -9,9 +9,11 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 // import Image from "next/image";
-import { ModeToggle } from "../mode-toggle";
+import { ModeToggle } from "../theme-toggle";
 import { useTheme } from "next-themes";
 import { AnimatedLogo } from "./logo-animation"
+import { useRouter } from "next/navigation"; // Import useRouter
+
 
 export const FloatingNav = ({
   navItems,
@@ -30,6 +32,8 @@ export const FloatingNav = ({
   // const logoSrc = resolvedTheme === "dark" ? "/logo-dark.svg" : "/logo-light.svg";
   const {scrollY } = useScroll();
   const [visible, setVisible] = useState(true);
+  const router = useRouter(); // Initialize useRouter
+
 
   useEffect(() => {
     setMounted(true);
@@ -54,6 +58,12 @@ export const FloatingNav = ({
     }
   });
 
+  const handleLogoClick = () => {
+    router.push("/"); // Navigate to the home page
+  };
+
+  
+
   return (
     <AnimatePresence mode="wait">
       {visible && (
@@ -70,7 +80,7 @@ export const FloatingNav = ({
             duration: 0.2,
           }}
           className={cn(
-            "flex max-w-4xl w-full justify-self-center backdrop-blur-lg fixed top-4 inset-x-0 mx-auto dark:border-white/[0.2] md:rounded-lg dark:bg-background/30 bg-white/30 z-[5000] pr-4 pl-6 py-2 items-center justify-between",
+            "flex max-w-4xl w-full justify-self-center backdrop-blur-lg fixed top-0 sm:top-4 inset-x-0 mx-auto dark:border-white/[0.2] md:rounded-lg dark:bg-background/20 bg-white/30 z-[5000] pr-4 pl-6 py-2 items-center justify-between",
             className
           )}
           
@@ -81,6 +91,7 @@ export const FloatingNav = ({
               <AnimatedLogo
               theme={resolvedTheme === "dark" ? "dark" : "light"}
               className="w-6 h-6 sm:w-7 sm:h-7"
+              onClick={handleLogoClick}
             />
             )}
           </div>
@@ -106,13 +117,12 @@ export const FloatingNav = ({
             )}
           </div>
   
-          {/* Contact button on the right */}
           <div className="flex items-center">
-            <button className="border text-xs md:text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 mr-2 rounded-md">
-              <span>Contact Me</span>
+            {/* <button className="border text-xs md:text-sm font-medium relative border-gray-300 dark:border-white/[0.2] text-black dark:text-white px-2 py-1 mr-2 rounded-lg">
+              <span className="text-neutral-500 dark:text-neutral-300">Contact Me</span>
               <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-purple-500 to-transparent h-px" />
-            </button>
-            <ModeToggle/>
+            </button> */}
+            <ModeToggle />
           </div>
         </motion.div>
       )}
