@@ -4,6 +4,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

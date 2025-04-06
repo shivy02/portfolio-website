@@ -8,7 +8,7 @@ export const experienceData = [
     date: "Feb 2020 - Jun 2021",
     description:
       "Hello asdfasdf a Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam itaque obcaecati, odio blanditiis ullam iste tempora commodi quidem ea incidunt, sint officia voluptatum accusantium, dolorem sunt expedita veritatis atque. Amet?",
-    location: "Hanscom Air Force Base, USA",
+    location: "Hanscom Air Force Base, MA",
     skills: ["Microsoft Azure", "Powershell", "Azure DevOps", "CI/CD"],
   },
   {

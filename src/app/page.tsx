@@ -17,7 +17,7 @@ export default function Home() {
       <div className="z-1 absolute top-0 left-[calc(50%-15rem)] transform -translate-x-1/2 -translate-y-4/5 w-[70vw] h-[60vh] md:w-100 md:h-100 bg-orange-300/40 rounded-full blur-3xl mixed-blend-multiply"></div>
       <div className="z-1 absolute top-0 left-[calc(50%+15rem)] transform -translate-x-1/2 -translate-y-4/5 w-[70vw] h-[60vh] md:w-100 md:h-100 bg-blue-300/40 rounded-full blur-3xl mixed-blend-multiply"></div> */}
 
-      <div className="z-1 absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-6/7 w-[60vw] h-[80vh] md:w-[50vw] md:h[90vh] rounded-full blur-3xl bg-gradient-to-r via-purple-400/70 from-orange-400/70 to-blue-400/70 dark:via-purple-400/50 dark:from-orange-400/50 dark:to-blue-400/50 mixed-blend-multiply"></div>
+      <div className="z-1 absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-6/7 w-[60vw] h-[80vh] md:w-[40vw] md:h-[90vh] lg:w-[40vw] lg:h-[90vh] rounded-full blur-3xl bg-gradient-to-r via-purple-400/70 from-orange-400/70 to-blue-400/70 dark:via-purple-400/50 dark:from-orange-400/50 dark:to-blue-400/50 mixed-blend-multiply"></div>
 
       <div className="mx-auto flex flex-col items-center overflow-hidden">
 

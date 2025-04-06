@@ -6,10 +6,16 @@ import { BackgroundGradient } from "./ui/background-gradient";
 import { Meteors } from "./magicui/meteors"
 import { ShimmerButton } from "./magicui/shimmer-button";
 import {IconMail, IconBrandLinkedin, IconBrandGithub} from "@tabler/icons-react"
+import { useState } from "react";
 
 
 export default function Hero() {
+    const [wiggleIcon, setWiggleIcon] = useState<string | null>(null);
 
+    const handleIconClick = (iconName: string) => {
+      setWiggleIcon(iconName); // Set the clicked icon to wiggle
+      setTimeout(() => setWiggleIcon(null), 600); // Remove the wiggle class after the animation duration
+    };
     return (     
         <div className=" pt-32 pb-22 sm:pt-64 sm:pb-32 relative flex h-full w-full max-w-4xl items-center justify-center bg-white dark:bg-background overflow-hidden">
             <div className="relative z-1 flex-col">
@@ -33,7 +39,8 @@ export default function Hero() {
                     {/* available for work button */}
                     <ShimmerButton className="z-10 my-6">
                         <div className="relative flex items-center justify-center">
-                            <div className="h-2 w-2 rounded-full border-1 border-green-700/80 bg-green-500 animate-pulse mr-2"></div>
+                            <div className="absolute h-1.5 w-1.5 rounded-full border-1 border-green-700/80 bg-green-500 animate-ping mr-2"></div>
+                            <div className="relative h-1.5 w-1.5 rounded-full border-1 border-green-700/80 bg-green-500 animate-pulse mr-2"></div>
                         </div>
                         <span className="whitespace-pre-wrap text-center font-medium leading-none tracking-tight text-neutral-600 dark:text-neutral-300 text-xs sm:text-sm">
                             Available for work
@@ -45,15 +52,31 @@ export default function Hero() {
                     <p className="z-50 leading-none subpixel-antialiased bg-gradient-to-b from-neutral-200 dark:from-neutral-50 to-neutral-700 dark:to-neutral-400 bg-clip-text py-2 text-5xl sm:6xl font-bold text-transparent md:text-7xl lg:text-7xl text-center whitespace-nowrap">
                         Hi. I&#39;m Shivam
                     </p>
-                    
+
                     {/* hero text */}
                     <p className="text-sm leading-none subpixel-antialiased font-semibold tracking-tight sm:text-xl text-center text-neutral-500 dark:text-neutral-300">
                         A Full-Stack Developer who likes building things!
                     </p>
                     <div className="flex flex-row items-center justify-center space-x-4 my-8">
-                        <IconMail className="text-neutral-500 dark:text-neutral-100"/> 
-                        <IconBrandLinkedin className="text-neutral-500 dark:text-neutral-100"/> 
-                        <IconBrandGithub className="text-neutral-500 dark:text-neutral-100"/> 
+                        <IconMail
+                            className={`text-neutral-500 dark:text-neutral-200 ${wiggleIcon === "mail" ? "animate-wiggle scale-140" : ""
+                                } hover:scale-140 hover:animate-wiggle transition-transform duration-300`}
+                            onClick={() => handleIconClick("mail")}
+                        />
+
+                        {/* LinkedIn Icon */}
+                        <IconBrandLinkedin
+                            className={`text-neutral-500 dark:text-neutral-200 ${wiggleIcon === "linkedin" ? "animate-wiggle scale-140" : ""
+                                } hover:scale-140 hover:animate-wiggle transition-transform duration-300`}
+                            onClick={() => handleIconClick("linkedin")}
+                        />
+
+                        {/* GitHub Icon */}
+                        <IconBrandGithub
+                            className={`text-neutral-500 dark:text-neutral-200 ${wiggleIcon === "github" ? "animate-wiggle scale-140" : ""
+                                } hover:scale-140 hover:animate-wiggle transition-transform duration-300`}
+                            onClick={() => handleIconClick("github")}
+                        />
                     </div>
                 </div>
             </div>

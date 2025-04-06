@@ -59,7 +59,7 @@ export default function Experience() {
   }: ExperienceItemProps) => {
     return (
       <div className="p-4 border rounded-lg my-4">
-        <div className="flex flex-row space-x-4">
+        <div className="flex flex-row space-x-2">
           <Image
             src={image}
             width={100}
@@ -67,16 +67,15 @@ export default function Experience() {
             alt={`${company} logo`}
             className="h-9 w-9 rounded-md mt-1"
           />
-
-          <div className="flex flex-col pb-2 space-y-1">
+          <div className="flex flex-col pb-2">
             <p className="font-bold text-balance text-sm sm:text-base text-neutral-700 dark:text-neutral-50">
               {role}
               <span className="mx-1"> • </span>
               {company}
             </p>
-            <p className="text-xs text-balance sm:text-sm font-normal text-neutral-500 dark:text-neutral-400 px-0.5">
+            <p className="text-xs text-balance sm:text-sm font-normal text-neutral-500 dark:text-neutral-400 ">
               {date}
-              <span className="mx-1"> • </span>
+              <span className="mx-0.5"> • </span>
               {location}
             </p>
           </div>
