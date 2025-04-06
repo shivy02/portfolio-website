@@ -5,20 +5,19 @@ import profilePicHover from "@/images/profile-color.jpg"
 import { BackgroundGradient } from "./ui/background-gradient";
 import { Meteors } from "./magicui/meteors"
 import { ShimmerButton } from "./magicui/shimmer-button";
-
+import {IconMail, IconBrandLinkedin, IconBrandGithub} from "@tabler/icons-react"
 
 
 export default function Hero() {
 
-
     return (     
-        <div className="relative flex h-[25rem] sm:h-[40rem] w-full max-w-4xl items-center justify-center bg-white dark:bg-background overflow-hidden">
-            <div className="relative z-1 flex-col h-[300px] items-center justify-center w-full max-w-4xl mt-24">
+        <div className=" pt-32 pb-22 sm:pt-64 sm:pb-32 relative flex h-full w-full max-w-4xl items-center justify-center bg-white dark:bg-background overflow-hidden">
+            <div className="relative z-1 flex-col">
                 <div className="relative flex flex-col items-center justify-center">
                     {/* meteor effect */}
                     <Meteors number={30} angle={130} />
                     {/* gradient for profile picture glow */}
-                    <BackgroundGradient className="w-25 h-25 ">
+                    <BackgroundGradient className="h-18 w-18 sm:w-22 sm:h-22 ">
                         <Image
                             src={profilePic}
                             alt="Profile Picture"
@@ -48,9 +47,14 @@ export default function Hero() {
                     </p>
                     
                     {/* hero text */}
-                    <p className="text-sm leading-none subpixel-antialiased font-semibold tracking-tight sm:text-lg text-center text-neutral-500 dark:text-neutral-300">
+                    <p className="text-sm leading-none subpixel-antialiased font-semibold tracking-tight sm:text-xl text-center text-neutral-500 dark:text-neutral-300">
                         A Full-Stack Developer who likes building things!
                     </p>
+                    <div className="flex flex-row items-center justify-center space-x-4 my-8">
+                        <IconMail className="text-neutral-500 dark:text-neutral-100"/> 
+                        <IconBrandLinkedin className="text-neutral-500 dark:text-neutral-100"/> 
+                        <IconBrandGithub className="text-neutral-500 dark:text-neutral-100"/> 
+                    </div>
                 </div>
             </div>
         </div>

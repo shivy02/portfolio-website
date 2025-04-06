@@ -26,8 +26,14 @@ export const Meteors = ({
     [],
   );
 
-  useEffect(() => {
-    const styles = [...new Array(number)].map(() => ({
+    useEffect(() => {
+      // Adjust the number of meteors based on screen width
+      const adjustedNumber =
+        window.innerWidth < 640 // Tailwind's `sm` breakpoint
+          ? Math.floor(number / 3) // Render half the meteors on small screens
+          : number;
+  
+    const styles = [...new Array(adjustedNumber)].map(() => ({
       "--angle": angle + "deg",
       top: -5,
       left: `calc(-50% + ${Math.floor(Math.random() * window.innerWidth)}px)`,
