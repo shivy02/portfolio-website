@@ -37,12 +37,11 @@ export const ShimmerButton = React.forwardRef<
       setMounted(true); // Set mounted to true after the component is mounted
     }, []);
 
-    // Dynamically set shimmerColor based on the theme
     const shimmerColor = mounted
       ? resolvedTheme === "dark"
         ? "#ffffff"
         : "gray"
-      : "transparent"; // Use a fallback color during SSR
+      : "transparent"; 
 
     return (
       <button
@@ -57,7 +56,7 @@ export const ShimmerButton = React.forwardRef<
           } as CSSProperties
         }
         className={cn(
-          "inset-0 group relative z-0 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-gray-200 dark:border-white/10 px-2 py-1 text-white fill-background [background:var(--background)] [border-radius:var(--radius)] dark:text-neutral-300",
+          "inset-0 group relative z-0 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-gray-200 dark:border-white/10 px-2 py-1 text-white [background:var(--background)] [border-radius:var(--radius)] dark:text-neutral-300",
           "transform-gpu transition-transform duration-300 ease-in-out active:translate-y-px",
           className,
         )}
@@ -84,7 +83,7 @@ export const ShimmerButton = React.forwardRef<
           className={cn(
             "insert-0 absolute size-full",
 
-            "rounded-2xl px-4 py-1.5 text-sm font-medium",
+            "rounded-2xl px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_#ffffff1f]",
 
             // transition
             "transform-gpu transition-all duration-300 ease-in-out",

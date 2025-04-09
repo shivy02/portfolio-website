@@ -6,7 +6,7 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 export default function Dashboard() {
   return (
     <div className="max-w-4xl">
-    <ul className="grid grid-cols-1 grid-rows-none gap-4 sm:p-8 p-0 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
+    <ul className="grid grid-cols-1 grid-rows-none gap-4 p-4 sm:p-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
       
       <GridItem
         area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
@@ -57,7 +57,7 @@ interface GridItemProps {
 const GridItem = ({ area, icon, title, description }: GridItemProps) => {
   return (
     <li className={`min-h-[14rem] list-none ${area}`}>
-      <div className="relative mx-8 sm:mx-auto h-full rounded-md border p-2 md:rounded-2xl md:p-2">
+      <div className="relative mx-auto h-full rounded-xl border p-2 md:rounded-2xl md:p-2">
         <GlowingEffect
           spread={40}
           glow={true}
@@ -65,7 +65,7 @@ const GridItem = ({ area, icon, title, description }: GridItemProps) => {
           proximity={64}
           inactiveZone={0.01}
         />
-        <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-lg border-0.75 p-4 dark:shadow-[0px_0px_27px_0px_#2D2D2D] md:p-6">
+        <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-lg border-0.75 p-4 shadow-[0px_0px_12px_0px_#ebecf0] dark:shadow-[0px_0px_27px_0px_#2D2D2D] md:p-6">
           <div className="relative flex flex-1 flex-col justify-between gap-3">
             <div className="w-fit rounded-md border border-gray-600 p-2">
               {icon}

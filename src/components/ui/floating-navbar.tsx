@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { ModeToggle } from "../theme-toggle";
 import { useTheme } from "next-themes";
 import { AnimatedLogo } from "./logo-animation"
-import { useRouter } from "next/navigation"; // Import useRouter
+import { useRouter } from "next/navigation"; 
 
 
 export const FloatingNav = ({
@@ -85,7 +85,7 @@ export const FloatingNav = ({
             duration: 0.2,
           }}
           className={cn(
-            "flex max-w-4xl w-full justify-self-center border-b-2 border-border/10 shadow-xs backdrop-blur-lg fixed top-0 sm:top-4 inset-x-0 mx-auto md:rounded-lg dark:bg-background/10 sm:dark:bg-background/20 bg-white/30 z-[5000] pr-4 pl-6 py-4 items-center justify-between",
+            "flex max-w-4xl w-full justify-self-center border-border/10 shadow-xs backdrop-blur-lg fixed top-0 sm:top-4 inset-x-0 mx-auto md:rounded-lg dark:bg-background/10 sm:dark:bg-background/20 bg-white/30 z-[5000] pr-4 pl-6 py-4 items-center justify-between",
             className
           )}
           

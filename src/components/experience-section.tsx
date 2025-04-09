@@ -3,15 +3,11 @@
 import { TracingBeam } from "./ui/tracing-beam"
 import Image from "next/image";
 import { experienceData } from "../data/data"
-import { GlowingEffect } from "@/components/ui/glowing-effect";
-
 
 export default function Experience() {
   return (
-    <div className="flex p-6 max-h-full flex-col space-y-4 mb-24 max-w-4xl w-full">
-
+    <div className="flex p-4 max-h-full flex-col space-y-4 mb-24 max-w-4xl w-full">
       {/* <p className="text-2xl font-bold mx-8 md:ml-4 lg:ml-0 text-neutral-700 dark:text-neutral-50">Experience</p> */}
-
       {/* Heading */}
       <div className="flex justify-center">
         <div className="inline-block bg-gradient-to-b from-neutral-300 dark:from-neutral-50 dark:to-neutral-500 to-neutral-500 rounded-md px-2 py-1">
@@ -68,7 +64,7 @@ export default function Experience() {
             className="h-9 w-9 rounded-md mt-1"
           />
           <div className="flex flex-col mb-2">
-            <p className="font-bold leading-relaxed text-pretty text-sm sm:text-base text-neutral-700 dark:text-neutral-50">
+            <p className="font-bold leading-relaxed text-balance text-sm sm:text-base text-neutral-700 dark:text-neutral-50">
               {role}
               <span className="mx-1"> • </span>
               {company}
@@ -81,7 +77,7 @@ export default function Experience() {
           </div>
         </div>
         <p className="text-left text-sm sm:text-base text-neutral-600 dark:text-neutral-300">
-          {description}
+          {description}˜
         </p>
         <div className="mt-4 flex flex-row flex-wrap gap-y-2 gap-x-2">
           {skills.map((skill, index) => (
