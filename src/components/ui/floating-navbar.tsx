@@ -108,7 +108,7 @@ export const FloatingNav = ({
               key={`link=${idx}`}
               onClick={() => handleScroll(navItem.link)} // Call handleScroll with the section `id`
               className={cn(
-                "relative font-medium dark:text-neutral-400 items-center flex space-x-1 text-neutral-500 dark:hover:text-neutral-50 hover:text-neutral-950 transition-colors duration-300"
+                "relative font-medium dark:text-zinc-400 items-center flex space-x-1 text-zinc-500 dark:hover:text-zinc-50 hover:text-zinc-950 transition-colors duration-300"
               )}
             >
               <span className="block sm:hidden">{navItem.icon}</span>
@@ -120,7 +120,7 @@ export const FloatingNav = ({
   
           <div className="flex items-center">
             {/* <button className="border text-xs md:text-sm font-medium relative border-gray-300 dark:border-white/[0.2] text-black dark:text-white px-2 py-1 mr-2 rounded-lg">
-              <span className="text-neutral-500 dark:text-neutral-300">Contact Me</span>
+              <span className="text-zinc-500 dark:text-zinc-300">Contact Me</span>
               <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-purple-500 to-transparent h-px" />
             </button> */}
             {/* <ModeToggle /> */}
