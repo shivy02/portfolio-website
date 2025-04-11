@@ -76,17 +76,17 @@ export const navData = [
   {
     name: "Experience",
     link: "experience",
-    icon: <IconHome className="subpixel-antialiased h-5 w-5 text-neutral-500 hover:text-neutral-950 dark:text-neutral-300 hover:dark:text-neutral-50 hover:animate-wiggle animate-wiggle transition-colors duration-300" />,
+    icon: <IconHome className="subpixel-antialiased h-5 w-5 text-neutral-500 hover:text-neutral-950 dark:text-neutral-300 hover:dark:text-neutral-50 hover:animate-wiggle animate-wiggle transition-colors duration-100" />,
   },
   {
     name: "Dashboard",
     link: "dashboard",
-    icon: <IconUser className="subpixel-antialiased h-5 w-5 text-neutral-500 dark:text-neutral-300 hover:text-neutral-950 hover:dark:text-neutral-50 hover:animate-wiggle animate-wiggle transition-colors duration-300" />,
+    icon: <IconUser className="subpixel-antialiased h-5 w-5 text-neutral-500 dark:text-neutral-300 hover:text-neutral-950 hover:dark:text-neutral-50 hover:animate-wiggle animate-wiggle transition-colors duration-100" />,
   },
   {
     name: "Projects",
     link: "/projects",
-    icon: <IconMessage className="subpixel-antialiased h-5 w-5 text-neutral-500 hover:text-neutral-950 dark:text-neutral-300 hover:dark:text-neutral-50 hover:animate-wiggle animate-wiggle transition-colors duration-300" />
+    icon: <IconMessage className="subpixel-antialiased h-5 w-5 text-neutral-500 hover:text-neutral-950 dark:text-neutral-300 hover:dark:text-neutral-50 hover:animate-wiggle animate-wiggle transition-colors duration-100" />
 
   },
 ];

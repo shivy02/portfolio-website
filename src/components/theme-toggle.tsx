@@ -12,14 +12,14 @@ export function ModeToggle() {
       {/* Sun Icon for Light Mode */}
       <IconSun
         onClick={() =>  setTheme(theme === "dark" ? "light" : "dark")}
-        className="absolute cursor-pointer h-5 w-5 text-neutral-500 dark:hidden hover:text-neutral-950 animate-wiggle hover:animate-wiggle transition-colors duration-300"
+        className="absolute cursor-pointer h-5 w-5 text-neutral-500 dark:text-neutral-300 dark:hidden hover:text-neutral-950 animate-wiggle hover:animate-wiggle transition-colors duration-300"
         aria-label="Switch to Light Mode"
       />
 
       {/* Moon Icon for Dark Mode */}
       <IconMoonStars
         onClick={() =>  setTheme(theme === "dark" ? "light" : "dark")}
-        className="absolute cursor-pointer h-5 w-5 hidden dark:block text-neutral-300 hover:text-neutral-50 animate-wiggle hover:animate-wiggle transition-colors duration-300"
+        className="absolute cursor-pointer h-5 w-5 hidden text-neutral-500 dark:block dark:text-neutral-300 hover:text-neutral-50 animate-wiggle hover:animate-wiggle transition-colors duration-300"
         aria-label="Switch to Dark Mode"
       />
     </div>

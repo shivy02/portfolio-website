@@ -27,7 +27,7 @@ export default function Hero() {
         handleIconClick("mail");
     }
     return (
-        <div className=" pt-32 pb-22 sm:pt-64 sm:pb-32 relative flex h-full w-full max-w-4xl items-center justify-center bg-white dark:bg-background overflow-hidden">
+        <div className=" pt-32 pb-22 sm:pt-64 sm:pb-32 relative flex h-full w-full max-w-4xl items-center justify-center overflow-hidden">
             <TooltipProvider>
                 <div className="relative z-1 flex-col">
                     <div className="relative flex flex-col items-center justify-center">

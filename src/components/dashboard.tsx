@@ -10,35 +10,35 @@ export default function Dashboard() {
       
       <GridItem
         area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
-        icon={<Box className="h-4 w-4 text-black dark:text-neutral-400" />}
+        icon={<Box className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />}
         title="Do things the right way"
         description="Running out of copy so I'll write anything."
       />
  
       <GridItem
         area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
-        icon={<Settings className="h-4 w-4 text-black dark:text-neutral-400" />}
+        icon={<Settings className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />}
         title="The best Portfolio ever."
         description="Yes, it's true. I'm not even kidding. Ask my mom if you don't believe me."
       />
  
       <GridItem
         area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
-        icon={<Lock className="h-4 w-4 text-black dark:text-neutral-400" />}
+        icon={<Lock className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />}
         title="You should kiss Shivam"
         description="It's the best kiss you'll ever spend"
       />
  
       <GridItem
         area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
-        icon={<Sparkles className="h-4 w-4 text-black dark:text-neutral-400" />}
+        icon={<Sparkles className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />}
         title="This card is also built by yours truly"
         description="I'm not even kidding. Ask my mom if you don't believe me."
       />
  
       <GridItem
         area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
-        icon={<Search className="h-4 w-4 text-black dark:text-neutral-400" />}
+        icon={<Search className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />}
         title="Coming soon"
         description="I'm writing the code as I record this, no shit."
       />
@@ -67,7 +67,7 @@ const GridItem = ({ area, icon, title, description }: GridItemProps) => {
         />
         <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-lg border-0.75 p-4 shadow-[0px_0px_12px_0px_#ebecf0] dark:shadow-[0px_0px_27px_0px_#2D2D2D] md:p-6">
           <div className="relative flex flex-1 flex-col justify-between gap-3">
-            <div className="w-fit rounded-md border border-gray-600 p-2">
+            <div className="w-fit rounded-md border border-gray-300 dark:border-gray-600 p-2">
               {icon}
             </div>
             <div className="space-y-3">
