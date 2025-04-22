@@ -22,7 +22,7 @@ export const ShimmerButton = React.forwardRef<
       shimmerSize = "0.05em",
       shimmerDuration = "3s",
       borderRadius = "200px",
-      background = "oklch(0.13 0.028 261.692)",
+      background,
       className,
       children,
       ...props
@@ -40,7 +40,7 @@ export const ShimmerButton = React.forwardRef<
     const shimmerColor = mounted
       ? resolvedTheme === "dark"
         ? "#ffffff"
-        : "gray"
+        : "#ffffff"
       : "transparent"; 
 
     return (
@@ -56,7 +56,7 @@ export const ShimmerButton = React.forwardRef<
           } as CSSProperties
         }
         className={cn(
-          "inset-0 group relative z-0 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border border-gray-200 dark:border-white/10 px-2 py-1 text-white [background:var(--background)] [border-radius:var(--radius)] dark:text-zinc-300",
+          "inset-0 group relative z-50 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border px-2 py-1 text-white bg-zinc-200 dark:[background:var(--bg)] [border-radius:var(--radius)] dark:text-zinc-300",
           "transform-gpu transition-transform duration-300 ease-in-out active:translate-y-px",
           className,
         )}
@@ -71,7 +71,7 @@ export const ShimmerButton = React.forwardRef<
           )}
         >
           {/* spark */}
-          <div className="absolute inset-0 h-[100cqh] animate-shimmer-slide [aspect-ratio:1] [border-radius:0] [mask:none]">
+          <div className="absolute inset-0 h-[100cqh] animate-shimmer-slide [aspect-ratio:2] [border-radius:0] [mask:none]">
             {/* spark before */}
             <div className="absolute -inset-full w-auto rotate-0 animate-spin-around [background:conic-gradient(from_calc(270deg-(var(--spread)*0.5)),transparent_0,var(--shimmer-color)_var(--spread),transparent_var(--spread))] [translate:0_0]" />
           </div>

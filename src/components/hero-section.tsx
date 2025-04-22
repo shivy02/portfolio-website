@@ -18,48 +18,39 @@ import {
 
 export default function Hero() {
 
-    const [wiggleIcon, setWiggleIcon] = useState<string | null>(null);
+const [wiggleIcon, setWiggleIcon] = useState<string | null>(null);
 
-    const handleIconClick = (iconName: string) => {
-        setWiggleIcon(iconName);
-        setTimeout(() => setWiggleIcon(null), 600);
+const handleIconClick = (iconName: string) => {
+    setWiggleIcon(iconName);
+    setTimeout(() => setWiggleIcon(null), 600);
     };
 
     const handleShimmerButtonClick = () => {
         handleIconClick("mail");
     }
     return (
-        <div className=" pt-32 pb-22 sm:pt-64 sm:pb-32 relative flex h-full w-full max-w-4xl items-center justify-center overflow-hidden">
+        <div className="pt-32 pb-22 sm:pt-64 sm:pb-32 relative flex h-full w-full max-w-4xl items-center justify-center overflow-hidden">
             <TooltipProvider>
                 <BlurFade delay={0.25} inView>
-                    <div className="relative z-1 flex-col">
+                    <div className="relative flex-col space-y-4">
                         <div className="relative flex flex-col items-center justify-center">
                             <Meteors number={25} angle={130} />
-                            <BackgroundGradient className="h-18 w-18 sm:w-22 sm:h-22 ">
+                            <BackgroundGradient className="z-50 h-16 w-16 sm:w-20 sm:h-20 ">
                                 <Image
                                     src={profilePic}
                                     alt="Profile Picture"
-                                    className="absolute rounded-full transition-opacity duration-200 opacity-100 group-hover:opacity-0"
+                                    className="absolute z-50 rounded-full transition-opacity duration-200 opacity-100 group-hover:opacity-0"
                                 />
                                 <Image
                                     src={profilePicHover}
                                     alt="Profile Picture Hover"
-                                    className="absolute rounded-full transition-opacity duration-200 opacity-0 group-hover:opacity-100"
+                                    className="absolute z-50 rounded-full transition-opacity duration-200 opacity-0 group-hover:opacity-100"
                                 />
                             </BackgroundGradient>
-                            <ShimmerButton onClick={handleShimmerButtonClick} className="z-10 my-6">
-                                <div className="relative flex items-center justify-center">
-                                    <div className="absolute h-1.5 w-1.5 rounded-full border-1 border-green-600/80 bg-green-500 animate-ping mr-2"></div>
-                                    <div className="relative h-1.5 w-1.5 rounded-full border-1 border-green-600/80 bg-green-500 animate-pulse mr-2"></div>
-                                </div>
-                                <span className="whitespace-pre-wrap text-center font-medium leading-none tracking-tight text-zinc-600 dark:text-zinc-300 text-xs sm:text-sm">
-                                    Available for work
-                                </span>
-                            </ShimmerButton>
                         </div>
-                        <div className="w-full space-y-2">
+                        <div className="w-full space-y-8">
                             <BlurFade delay={0.25 * 1} inView>
-                                <p className="z-50 subpixel-antialiased bg-gradient-to-b from-zinc-200 dark:from-zinc-50 to-zinc-700 dark:to-zinc-400 bg-clip-text space-y-2 text-5xl sm:text-7xl font-bold text-transparent text-center whitespace-nowrap">
+                                <p className="z-50 subpixel-antialiased leading-snug bg-gradient-to-b from-zinc-200 dark:from-zinc-50 to-zinc-700 dark:to-zinc-400 bg-clip-text text-5xl sm:text-7xl font-bold text-transparent text-center whitespace-nowrap">
                                     Hi. I&#39;m Shivam
                                 </p>
                                 <p className="text-sm subpixel-antialiased font-medium sm:text-xl text-center text-zinc-500 dark:text-zinc-300">
@@ -67,7 +58,17 @@ export default function Hero() {
                                 </p>
                             </BlurFade>
                             <BlurFade delay={0.25 * 2} direction="up"inView>
-                                <div className="flex flex-row items-center justify-center space-x-6 my-8">
+                            <div className="z-1 space-y-6 flex flex-col items-center justify-center">
+                            <ShimmerButton onClick={handleShimmerButtonClick} className="z-50">
+                                <div className="z-50 relative flex items-center justify-center">
+                                    <div className="absolute h-1.5 w-1.5 rounded-full border-1 border-green-600/80 bg-green-500 animate-ping mr-1.5"></div>
+                                    <div className="relative h-1 w-1 rounded-full border-1 border-green-600/80 bg-green-500 animate-pulse mr-1.5"></div>
+                                </div>
+                                <span className="whitespace-pre-wrap text-center font-semibold leading-none text-zinc-500 dark:text-zinc-300 text-[10px] sm:text-xs">
+                                    Open to Work
+                                </span>
+                            </ShimmerButton>
+                                <div className="flex flex-row items-center justify-center space-x-6">
                                     <Tooltip>
                                         <TooltipTrigger>
                                             <IconMail
@@ -104,6 +105,7 @@ export default function Hero() {
                                             Github
                                         </TooltipContent>
                                     </Tooltip>
+                                </div>
                                 </div>
                             </BlurFade>
                         </div>

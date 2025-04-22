@@ -6,38 +6,38 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 export default function Dashboard() {
   return (
     <div className="max-w-4xl">
-    <ul className="grid grid-cols-1 grid-rows-none gap-4 p-4 sm:p-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
+    <ul className="grid grid-cols-1 grid-rows-none gap-4 p-4 sm:p-4 sm:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
       
       <GridItem
-        area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
+        area="sm:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
         icon={<Box className="h-4 w-4 text-zinc-500 dark:text-zinc-400" />}
         title="Do things the right way"
         description="Running out of copy so I'll write anything."
       />
  
       <GridItem
-        area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
+        area="sm:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
         icon={<Settings className="h-4 w-4 text-zinc-500 dark:text-zinc-400" />}
-        title="The best Portfolio ever."
+        title="The best Portfolio ever."  
         description="Yes, it's true. I'm not even kidding. Ask my mom if you don't believe me."
       />
  
       <GridItem
-        area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
+        area="sm:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
         icon={<Lock className="h-4 w-4 text-zinc-500 dark:text-zinc-400" />}
         title="You should kiss Shivam"
         description="It's the best kiss you'll ever spend"
       />
  
       <GridItem
-        area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
+        area="sm:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
         icon={<Sparkles className="h-4 w-4 text-zinc-500 dark:text-zinc-400" />}
         title="This card is also built by yours truly"
         description="I'm not even kidding. Ask my mom if you don't believe me."
       />
  
       <GridItem
-        area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
+        area="sm:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
         icon={<Search className="h-4 w-4 text-zinc-500 dark:text-zinc-400" />}
         title="Coming soon"
         description="I'm writing the code as I record this, no shit."

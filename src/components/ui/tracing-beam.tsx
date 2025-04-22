@@ -62,7 +62,7 @@ export const TracingBeam = ({
                 ? "none"
                 : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
           }}
-          className="border-netural-200 ml-[27px] flex h-4 w-4 items-center justify-center rounded-full border shadow-sm"
+          className="border-netural-200 ml-[30px] sm:ml-[27px] flex h-2.5 w-2.5 sm:h-4 sm:w-4 items-center justify-center rounded-full border shadow-sm"
         >
           <motion.div
             transition={{
@@ -73,7 +73,7 @@ export const TracingBeam = ({
               backgroundColor: scrollYProgress.get() > 0 ? "white" : "#10b981",
               borderColor: scrollYProgress.get() > 0 ? "white" : "#059669",
             }}
-            className="h-2 w-2 rounded-full border animate-pulse border-zinc-300 bg-white"
+            className="h-1 w-1 sm:h-2 sm:w-2 rounded-full border animate-pulse border-zinc-300 bg-white"
           />
         </motion.div>
         <svg

@@ -8,7 +8,6 @@ import { BlurFade } from "@/components/magicui/blur-fade";
 
 const BLUR_FADE_DELAY = 0.15;
 
-
 export default function Home() {
   return (
     <div className="relative min-h-screen w-full bg-background">
