@@ -29,7 +29,7 @@ const handleIconClick = (iconName: string) => {
         handleIconClick("mail");
     }
     return (
-        <div className="pt-32 pb-22 sm:pt-64 sm:pb-32 relative flex h-full w-full max-w-4xl items-center justify-center overflow-hidden">
+        <div className="pt-32 pb-16 sm:pt-64 sm:pb-32 relative flex items-center justify-center overflow-hidden">
             <TooltipProvider>
                 <BlurFade delay={0.25} inView>
                     <div className="relative flex-col space-y-4">

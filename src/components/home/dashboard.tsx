@@ -2,12 +2,18 @@
  
 import { Box, Lock, Search, Settings, Sparkles } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { IconLayoutDashboard } from "@tabler/icons-react";
  
 export default function Dashboard() {
   return (
-    <div className="max-w-4xl">
-    <ul className="grid grid-cols-1 grid-rows-none gap-4 p-4 sm:p-4 sm:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
-      
+    <div className="flex flex-col">
+      <div className="flex justify-center mb-8">
+                <div className="flex items-center">
+                    <IconLayoutDashboard className="h-5 w-5 text-secondary-foreground mr-2" />
+                    <p className="text-xl font-bold text-secondary-foreground">Dashboard</p>
+                </div>
+            </div>
+    <ul className="grid grid-cols-1 grid-rows-none gap-4 sm:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
       <GridItem
         area="sm:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
         icon={<Box className="h-4 w-4 text-zinc-500 dark:text-zinc-400" />}
