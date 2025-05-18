@@ -1,5 +1,5 @@
 "use client";
-import React, { JSX, useState, useEffect} from "react";
+import React, { JSX, useState, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
@@ -7,12 +7,12 @@ import {
   useMotionValueEvent,
 } from "motion/react";
 import { cn } from "@/lib/utils";
-// import Link from "next/link";
-// import Image from "next/image";
 import { ModeToggle } from "../theme-toggle";
 import { useTheme } from "next-themes";
-import { AnimatedLogo } from "./logo-animation"
-import { useRouter } from "next/navigation"; 
+import { AnimatedLogo } from "../ui/logo-animation"
+import { useRouter } from "next/navigation";
+// import Link from "next/link";
+// import Image from "next/image";
 
 
 export const FloatingNav = ({
@@ -29,7 +29,7 @@ export const FloatingNav = ({
 
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const {scrollY } = useScroll();
+  const { scrollY } = useScroll();
   const [visible, setVisible] = useState(true);
   const router = useRouter(); // Initialize useRouter
 
@@ -39,7 +39,7 @@ export const FloatingNav = ({
   }, []);
 
   useMotionValueEvent(scrollY, "change", (current) => {
-    
+
     if (typeof current === "number") {
       const previous = scrollY.getPrevious();
       const direction = previous !== undefined ? current - previous : 0;
@@ -67,7 +67,7 @@ export const FloatingNav = ({
     router.push("/"); // Navigate to the home page
   };
 
-  
+
 
   return (
     <AnimatePresence mode="wait">
@@ -88,42 +88,37 @@ export const FloatingNav = ({
             "flex max-w-4xl w-full justify-self-center border-border/10 shadow-xs backdrop-blur-lg fixed top-0 sm:top-4 inset-x-0 mx-auto md:rounded-lg dark:bg-background/10 sm:dark:bg-background/20 bg-white/30 z-[5000] pr-4 pl-6 py-4 items-center justify-between",
             className
           )}
-          
+
         >
           {/* Logo on the left */}
           <div className="flex items-center mr-16">
-          {mounted && (
+            {mounted && (
               <AnimatedLogo
-              theme={resolvedTheme === "dark" ? "dark" : "light"}
-              className="w-6 h-6 sm:w-7 sm:h-7"
-              onClick={handleLogoClick}
-            />
+                theme={resolvedTheme === "dark" ? "dark" : "light"}
+                className="w-6 h-6 sm:w-7 sm:h-7"
+                onClick={handleLogoClick}
+              />
             )}
           </div>
-  
+
           {/* Links in the center */}
           <div className="flex space-x-6 ml-auto mr-4">
-          {navItems.map((navItem, idx) => (
-            <button
-              key={`link=${idx}`}
-              onClick={() => handleScroll(navItem.link)} // Call handleScroll with the section `id`
-              className={cn(
-                "relative font-medium dark:text-zinc-400 items-center flex space-x-1 text-zinc-500 dark:hover:text-zinc-50 hover:text-zinc-950 transition-colors duration-300"
-              )}
-            >
-              <span className="block sm:hidden">{navItem.icon}</span>
-              <span className="hidden sm:block text-sm">{navItem.name}</span>
-            </button>
-          ))}
-             <ModeToggle />
+            {navItems.map((navItem, idx) => (
+              <button
+                key={`link=${idx}`}
+                onClick={() => handleScroll(navItem.link)} // Call handleScroll with the section `id`
+                className={cn(
+                  "relative font-medium dark:text-zinc-400 items-center flex space-x-1 text-zinc-500 dark:hover:text-zinc-50 hover:text-zinc-950 transition-colors duration-300"
+                )}
+              >
+                <span className="block sm:hidden">{navItem.icon}</span>
+                <span className="hidden sm:block text-sm">{navItem.name}</span>
+              </button>
+            ))}
+            <ModeToggle />
           </div>
-  
+
           <div className="flex items-center">
-            {/* <button className="border text-xs md:text-sm font-medium relative border-gray-300 dark:border-white/[0.2] text-black dark:text-white px-2 py-1 mr-2 rounded-lg">
-              <span className="text-zinc-500 dark:text-zinc-300">Contact Me</span>
-              <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-purple-500 to-transparent h-px" />
-            </button> */}
-            {/* <ModeToggle /> */}
           </div>
         </motion.div>
       )}

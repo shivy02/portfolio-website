@@ -13,22 +13,22 @@ export default function Home() {
   return (
     <div className="relative min-h-screen w-full bg-background">
       <div className="mx-auto flex flex-col items-center overflow-hidden ">
-        <BlurFade delay={BLUR_FADE_DELAY * 1} inView>
+        <BlurFade delay={BLUR_FADE_DELAY} inView>
           <section id="hero">
             <Hero />
           </section>
         </BlurFade>
-        <BlurFade delay={BLUR_FADE_DELAY * 2} inView>
+        <BlurFade delay={BLUR_FADE_DELAY} inView>
           <section id="experience">
             <Experience />
           </section>
         </BlurFade>
-        <BlurFade delay={BLUR_FADE_DELAY * 3} inView>
+        <BlurFade delay={BLUR_FADE_DELAY} inView>
           <section id="dashboard">
             <Dashboard />
           </section>
         </BlurFade>
-        <BlurFade delay={BLUR_FADE_DELAY * 3} inView>
+        <BlurFade delay={BLUR_FADE_DELAY} inView>
           <section id="projects">
             <Projects />
           </section>

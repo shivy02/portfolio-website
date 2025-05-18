@@ -50,10 +50,10 @@ const handleIconClick = (iconName: string) => {
                         </div>
                         <div className="w-full space-y-8">
                             <BlurFade delay={0.25 * 1} inView>
-                                <p className="z-50 subpixel-antialiased leading-snug bg-gradient-to-b from-zinc-200 dark:from-zinc-50 to-zinc-700 dark:to-zinc-400 bg-clip-text text-5xl sm:text-7xl font-bold text-transparent text-center whitespace-nowrap">
+                                <p className="z-50 subpixel-antialiased leading-snug bg-gradient-to-b from-zinc-200 dark:from-zinc-50 to-zinc-900 dark:to-zinc-300 bg-clip-text text-5xl sm:text-7xl font-bold text-transparent text-center whitespace-nowrap">
                                     Hi. I&#39;m Shivam
                                 </p>
-                                <p className="text-sm subpixel-antialiased font-medium sm:text-xl text-center text-zinc-500 dark:text-zinc-300">
+                                <p className="text-sm subpixel-antialiased font-medium sm:text-lg text-center text-secondary-foreground">
                                     A Full-Stack Developer who likes building things!
                                 </p>
                             </BlurFade>
@@ -64,7 +64,7 @@ const handleIconClick = (iconName: string) => {
                                     <div className="absolute h-1.5 w-1.5 rounded-full border-1 border-green-600/80 bg-green-500 animate-ping mr-1.5"></div>
                                     <div className="relative h-1 w-1 rounded-full border-1 border-green-600/80 bg-green-500 animate-pulse mr-1.5"></div>
                                 </div>
-                                <span className="whitespace-pre-wrap text-center font-semibold leading-none text-zinc-500 dark:text-zinc-300 text-[10px] sm:text-xs py-1">
+                                <span className="whitespace-pre-wrap text-center font-semibold leading-none text-zinc-500 dark:text-zinc-300 text-[10px] sm:text-xs py-[0.5]">
                                     Available
                                 </span>
                             </ShimmerButton>
@@ -72,7 +72,7 @@ const handleIconClick = (iconName: string) => {
                                     <Tooltip>
                                         <TooltipTrigger>
                                             <IconMail
-                                                className={`text-zinc-500 dark:text-zinc-200 ${wiggleIcon === "mail" ? "animate-wiggle scale-150 transition-transform duration-200" : ""
+                                                className={`text-secondary-foreground ${wiggleIcon === "mail" ? "animate-wiggle scale-150 transition-transform duration-200" : ""
                                                     } hover:scale-130 hover:animate-wiggle transition-transform duration-300`}
                                                 onClick={() => handleIconClick("mail")}
                                             />
@@ -84,7 +84,7 @@ const handleIconClick = (iconName: string) => {
                                     <Tooltip>
                                         <TooltipTrigger>
                                             <IconBrandLinkedin
-                                                className={`text-zinc-500 dark:text-zinc-200 ${wiggleIcon === "linkedin" ? "animate-wiggle scale-150 transition-transform duration-200" : ""
+                                                className={`text-secondary-foreground ${wiggleIcon === "linkedin" ? "animate-wiggle scale-150 transition-transform duration-200" : ""
                                                     } hover:scale-130 hover:animate-wiggle transition-transform duration-300`}
                                                 onClick={() => handleIconClick("linkedin")}
                                             />
@@ -96,7 +96,7 @@ const handleIconClick = (iconName: string) => {
                                     <Tooltip>
                                         <TooltipTrigger>
                                             <IconBrandGithub
-                                                className={`text-zinc-500 dark:text-zinc-200 ${wiggleIcon === "github" ? "animate-wiggle scale-150 transition-transform duration-200" : ""
+                                                className={`text-secondary-foreground ${wiggleIcon === "github" ? "animate-wiggle scale-150 transition-transform duration-200" : ""
                                                     } hover:scale-130 hover:animate-wiggle transition-transform duration-300`}
                                                 onClick={() => handleIconClick("github")}
                                             />
