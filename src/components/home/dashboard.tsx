@@ -1,19 +1,20 @@
 "use client";
 
 import React from "react";
-// import { Box, Lock, Search, Settings, Sparkles } from "lucide-react";
-import { IconMapPin } from "@tabler/icons-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { IconLayoutDashboard, IconTool, IconLink, IconCoffee, IconClockHour4} from "@tabler/icons-react";
+import { IconLayoutDashboard, IconTool, IconLink, IconCoffee, IconClockHour4, IconMapPin } from "@tabler/icons-react";
 import { Globe } from "@/components/magicui/globe";
 import styles from "./dashboard.module.css";
 import { SectionHeading } from "../layout/section-heading";
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import { contactLinks } from "@/data/data";
+import { Marquee } from "@/components/magicui/marquee";
 
 
-// ...existing code...
 export default function Dashboard() {
+
+  const dashboardIconClass = "h-4 w-4 sm:h-5 sm:w-5 text-primary";
+
   return (
     <div className="flex flex-col w-full">
       <SectionHeading icon={<IconLayoutDashboard className="h-5 w-5 text-secondary-foreground" />}>
@@ -23,27 +24,27 @@ export default function Dashboard() {
         className={`grid w-full gap-4 ${styles.dashboardGrid}`}>
         <GridItem
           area="location"
-          icon={<IconMapPin className="h-5 w-5 text-primary" />}
+          icon={<IconMapPin className={dashboardIconClass} />}
           title="Greater Boston, MA"
         >
           <Globe />
         </GridItem>
         <GridItem
           area="tools"
-          icon={<IconTool className="h-5 w-5 text-primary" />}
+          icon={<IconTool className={dashboardIconClass} />}
           title="Tools"
         >
         </GridItem>
         <GridItem
           area="contact"
-          icon={<IconLink className="h-5 w-5 text-primary" />}
+          icon={<IconLink className={dashboardIconClass} />}
           title="Contact Me"
         >
           <ContactMe />
         </GridItem>
         <GridItem
           area="hours"
-          icon={<IconClockHour4 className="h-5 w-5 text-primary" />}
+          icon={<IconClockHour4 className={dashboardIconClass} />}
           title="Hours Coding"
         >
           <NumberTicker
@@ -51,11 +52,10 @@ export default function Dashboard() {
             className="whitespace-pre-wrap text-3xl font-semibold tracking-tighter text-muted-foreground"
           />
         </GridItem>
-      
         <GridItem
           area="coffees"
-          icon={<IconCoffee className="h-5 w-5 text-primary" />}
-          title="Coffees Consumed"
+          icon={<IconCoffee className={dashboardIconClass} />}
+          title="Coffees Drank"
         >
           <NumberTicker
             value={1134}
@@ -67,8 +67,6 @@ export default function Dashboard() {
   );
 }
 
-
-
 interface GridItemProps {
   area: string;
   icon: React.ReactNode;
@@ -79,7 +77,7 @@ interface GridItemProps {
 const GridItem = ({ area, icon, title, children }: GridItemProps) => {
   return (
     <li
-      className="min-h-[8rem] w-full list-none"
+      className="min-h-[2rem] w-full list-none"
       style={{ gridArea: area }}
     >
       <div className="relative mx-auto h-full rounded-xl border p-2 md:rounded-2xl md:p-2">
@@ -91,12 +89,12 @@ const GridItem = ({ area, icon, title, children }: GridItemProps) => {
           inactiveZone={0.01}
         />
         <div className="relative flex h-full flex-col justify-between gap-4 overflow-hidden rounded-lg border-0.75 p-4 shadow-[0px_0px_12px_0px_#ebecf0] dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
-          <div className="relative flex flex-row items-center gap-3">
+          <div className="relative flex flex-row items-center gap-2 sm:gap-3">
             <div className="pt-0">
               {icon}
             </div>
             <div className="space-y-2">
-              <h3 className="pt-0.5 text-sm text-start font-semibold text-black dark:text-white">
+              <h3 className="pt-0.5 text-xs sm:text-base text-start font-semibold text-black dark:text-white">
                 {title}
               </h3>
             </div>
@@ -124,13 +122,31 @@ const ContactMe = () => {
         >
           {React.cloneElement(icon, {
             className:
-              "h-5 w-5 text-muted-foreground transition-all group-hover:h-6 group-hover:w-6 group-hover:text-white",
+              "h-5 w-5 text-muted-foreground transition-all group-hover:h-6 group-hover:w-6 group-hover:text-primary",
           })}
-          <span className="text-muted-foreground transition-all group-hover:text-white group-hover:font-bold">
+          <span className="text-muted-foreground transition-all group-hover:text-primary group-hover:font-bold">
             {label}
           </span>
         </a>
       ))}
+    </div>
+  );
+};
+
+const ToolsMarquee = () => {
+  const toolsDarkMode = [
+    { name: "React", icon: <IconLayoutDashboard className="h-5 w-5 text-secondary-foreground" /> },
+    { name: "Next.js", icon: <IconLayoutDashboard className="h-5 w-5 text-secondary-foreground" /> },
+    { name: "Tailwind CSS", icon: <IconLayoutDashboard className="h-5 w-5 text-secondary-foreground" /> },
+    { name: "TypeScript", icon: <IconLayoutDashboard className="h-5 w-5 text-secondary-foreground" /> },
+    { name: "Node.js", icon: <IconLayoutDashboard className="h-5 w-5 text-secondary-foreground" /> },
+  ]
+
+  return (
+    <div>
+      <Marquee pauseOnHover className="[--duration:20s]" >
+
+      </Marquee>
     </div>
   );
 };

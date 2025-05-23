@@ -13,8 +13,6 @@ import { BlurFade } from "../magicui/blur-fade";
 import { projectData } from "../../data/data"
 import { IconBrush } from "@tabler/icons-react";
 import { SectionHeading } from "@/components/layout/section-heading";
-// import Markdown from "react-markdown";
-
 
 export default function Projects() {
     return (
@@ -45,7 +43,6 @@ export default function Projects() {
         </div>
     );
 }
-
 interface Props {
     title: string;
     href?: string;
@@ -63,7 +60,7 @@ interface Props {
     className?: string;
 }
 
-export function ProjectCard({ title, href, description, dates, tags, link, image, video, links, className }: Props) {
+export function ProjectCard({ title, href, description, tags, link, image, video, links, className }: Props) {
     return (
         <Card
             className={
@@ -81,7 +78,7 @@ export function ProjectCard({ title, href, description, dates, tags, link, image
                         loop
                         muted
                         playsInline
-                        className="pointer-events-none mx-auto h-full w-full object-cover object-top" // needed because random black line at bottom of video
+                        className="pointer-events-none mx-auto h-55 w-full object-cover object-top" // needed because random black line at bottom of video
                     />
                 )}
                 {image && (
@@ -96,22 +93,21 @@ export function ProjectCard({ title, href, description, dates, tags, link, image
             </Link>
             <CardHeader className="px-2">
                 <div className="space-y-1">
-                    <CardTitle className="mt-1 text-base">{title}</CardTitle>
-                    <time className="text-xs">{dates}</time>
+                    <CardTitle className="mt-2 text-base">{title}</CardTitle>
                     <div className="hidden text-xs underline print:visible">
                         {link?.replace("https://", "").replace("www.", "").replace("/", "")}
                     </div>
-                    <div className="prose max-w-full text-pretty     text-sm mt-2 text-muted-foreground dark:prose-invert">
+                    <div className="prose max-w-full text-pretty text-sm mt-2 text-muted-foreground dark:prose-invert">
                         {description}
                     </div>
                 </div>
             </CardHeader>
             <CardContent className="mt-2 flex flex-col px-2">
                 {tags && tags.length > 0 && (
-                    <div className="mt-2 flex flex-wrap gap-1">
+                    <div className="mt-2 flex flex-wrap gap-2">
                         {tags?.map((tag) => (
                             <Badge
-                                className="px-1 py-1 text-[12px]"
+                                className="px-1 py-0.5 text-[12px]"
                                 variant="secondary"
                                 key={tag}
                             >

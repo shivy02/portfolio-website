@@ -1,4 +1,4 @@
-import {IconHome, IconUser, IconMessage, IconBrandGithub, IconWorld, IconBrush, IconBriefcase2, IconLayoutDashboard, IconBrandLinkedin, IconMail, IconBrandInstagram} from "@tabler/icons-react"
+import {IconHome, IconBrandGithub, IconWorld, IconBrush, IconBriefcase2, IconLayoutDashboard, IconBrandLinkedin, IconMail, IconBrandInstagram} from "@tabler/icons-react"
 
 export const experienceData = [
   {
@@ -106,7 +106,7 @@ export const projectData = [
 export const contactLinks = [
   {
     href: "mailto:your@email.com",
-    label: "Mail",
+    label: "Email",
     icon: <IconMail className="h-5 w-5" />,
     aria: "Email",
   },
@@ -150,6 +150,5 @@ export const navData = [
     name: "Projects",
     link: "projects",
     icon: <IconBrush className="subpixel-antialiased h-5 w-5 text-zinc-500 hover:text-zinc-950 dark:text-zinc-300 hover:dark:text-zinc-50 hover:animate-wiggle animate-wiggle transition-colors duration-100" />
-
   },
 ];

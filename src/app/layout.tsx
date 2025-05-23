@@ -45,7 +45,7 @@ export default function RootLayout({
             fill={false}
             width={0}
             height={0}
-            className="z-1 absolute max-w-4xl top-0 left-1/2 transform -translate-x-1/2 -translate-y-4/7 w-[140vw] h-[80vh] pointer-events-none select-none"
+            className="z-1 blur-lg absolute max-w-4xl top-0 left-1/2 transform -translate-x-1/2 -translate-y-4/7 w-full pointer-events-none select-none"
             aria-hidden="true"
             priority
           />
