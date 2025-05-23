@@ -6,7 +6,7 @@ import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { Meteors } from "@/components/magicui/meteors"
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     Tooltip,
     TooltipContent,
@@ -20,6 +20,9 @@ export default function Hero() {
 
     const [wiggleIcon, setWiggleIcon] = useState<string | null>(null);
 
+    const [status, setStatus] = useState<"Available" | "Away">("Away");
+    const [dotColor, setDotColor] = useState<"green" | "amber">("amber");
+
     const handleIconClick = (iconName: string) => {
         setWiggleIcon(iconName);
         setTimeout(() => setWiggleIcon(null), 600);
@@ -28,6 +31,36 @@ export default function Hero() {
     const handleShimmerButtonClick = () => {
         handleIconClick("email");
     }
+
+    useEffect(() => {
+        const updateStatus = () => {
+            // Get the current time in Boston time zone
+            const now = new Date();
+            const bostonTime = new Intl.DateTimeFormat("en-US", {
+                timeZone: "America/New_York",
+                hour: "numeric",
+                hour12: false,
+            }).format(now);
+
+            const currentHour = parseInt(bostonTime, 10);
+
+            // Check if the current hour is between 9 AM and 6 PM
+            if (currentHour >= 8 && currentHour < 18) {
+                setStatus("Available");
+                setDotColor("green");
+            } else {
+                setStatus("Away");
+                setDotColor("amber");
+            }
+        };
+
+        updateStatus();
+        const interval = setInterval(updateStatus, 60 * 1000); // Update every minute
+
+        return () => clearInterval(interval); // Cleanup interval on unmount
+    }, []);
+
+
     return (
         <div className="pt-32 pb-16 sm:pt-56 relative flex items-center justify-center overflow-hidden">
             <TooltipProvider>
@@ -39,6 +72,7 @@ export default function Hero() {
                                 <Image
                                     src={profilePic}
                                     alt="Profile Picture"
+                                    priority
                                     className="absolute z-50 rounded-full transition-opacity duration-200 opacity-100 group-hover:opacity-0"
                                 />
                                 <Image
@@ -53,7 +87,7 @@ export default function Hero() {
                                 <p className="z-50 subpixel-antialiased leading-snug bg-gradient-to-b from-zinc-200 dark:from-zinc-50 to-zinc-950 dark:to-zinc-300 bg-clip-text text-5xl sm:text-7xl font-bold text-transparent text-center whitespace-nowrap">
                                     Hi. I&#39;m Shivam
                                 </p>
-                                <p className="text-sm subpixel-antialiased font-medium sm:text-lg text-center text-secondary-foreground">
+                                <p className="text-sm subpixel-antialiased font-medium sm:text-xl text-center text-secondary-foreground">
                                     A Software Engineer who likes building things!
                                 </p>
                             </BlurFade>
@@ -61,13 +95,25 @@ export default function Hero() {
                                 <div className="z-1 space-y-6 flex flex-col items-center justify-center">
                                     <ShimmerButton onClick={handleShimmerButtonClick} className="z-50">
                                         <div className="z-50 relative flex items-center justify-center">
-                                            <div className="absolute h-1.5 w-1.5 rounded-full border-1 border-green-600/80 bg-green-500 animate-ping mr-1.5"></div>
-                                            <div className="relative h-1 w-1 rounded-full border-1 border-green-600/80 bg-green-500 animate-pulse mr-1.5"></div>
+                                            {/* Pulsing Dot */}
+                                            <div
+                                                className={`absolute h-1.5 w-1.5 rounded-full border-1 ${dotColor === "green"
+                                                        ? "border-green-600/80 bg-green-500 animate-ping"
+                                                        : "border-orange-600/80 bg-orange-500 animate-ping"
+                                                    } mr-1.5`}
+                                            ></div>
+                                            <div
+                                                className={`relative h-1 w-1 rounded-full border-1 ${dotColor === "green"
+                                                        ? "border-green-600/80 bg-green-500 animate-pulse"
+                                                        : "border-orange-600/80 bg-orange-500 animate-pulse"
+                                                    } mr-1.5`}
+                                            ></div>
                                         </div>
-                                        <span className="whitespace-pre-wrap text-center font-semibold leading-none text-muted-foreground text-[10px] sm:text-xs py-[0.5]">
-                                            Available
+                                        {/* Status Text */}
+                                        <span className="whitespace-pre-wrap text-center font-semibold leading-none text-muted-foreground text-[10px] sm:text-sm py-[0.5]">
+                                            {status}
                                         </span>
-                                    </ShimmerButton >
+                                    </ShimmerButton>
                                     <ContactIcons wiggleIcon={wiggleIcon} handleIconClick={handleIconClick} />
                                 </div>
                             </BlurFade>

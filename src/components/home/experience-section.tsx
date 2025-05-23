@@ -79,6 +79,7 @@ export const ExperienceItem = ({
           width={100}
           height={100}
           alt={`${company} logo`}
+          priority
           className="h-8 w-8 rounded-sm sm:h-10 sm:w-10 sm:rounded-md mt-1"
         />
         <div className="flex flex-col mb-2">

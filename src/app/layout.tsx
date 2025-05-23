@@ -38,14 +38,13 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <FloatingNav navItems={navData} />
-          {/* <div className="z-1 absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-6/7 w-[60vw] h-[80vh] md:w-[40vw] md:h-[90vh] lg:w-[40vw] lg:h-[90vh] rounded-full blur-2xl sm:blur-3xl bg-gradient-to-r via-purple-400/80 from-orange-400/80 to-blue-400/80 dark:from-orange-400/60 dark:via-purple-400/60 dark:to-blue-400/60 mixed-blend-multiply" /> */}
           <Image
             src="/background-ellipse2.svg"
             alt=""
             fill={false}
             width={0}
             height={0}
-            className="z-1 blur-lg absolute max-w-4xl top-0 left-1/2 transform -translate-x-1/2 -translate-y-4/7 w-full pointer-events-none select-none"
+            className="z-1 blur-lg absolute max-w-4xl top-0 left-1/2 transform -translate-x-1/2 -translate-y-5/9 w-full pointer-events-none select-none"
             aria-hidden="true"
             priority
           />
