@@ -13,6 +13,7 @@ module.exports = {
         "shimmer-slide":
         "shimmer-slide var(--speed) ease-in-out infinite alternate",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
+        "spin-grow": "spin-grow 0.3s ease-in-out",
         wiggle: "wiggle 0.8s ease-out 1",
       },
       keyframes: {
@@ -53,6 +54,10 @@ module.exports = {
           "60%": { transform: "rotate(10deg)" },
           "80%": { transform: "rotate(-5deg)" },
           "100%": { transform: "rotate(0deg)" }, 
+        },
+        "spin-grow": {
+          "0%": { transform: "scale(0.5) rotate(0deg)" },
+          "100%": { transform: "scale(1) rotate(360deg)" },
         },
       },
     },

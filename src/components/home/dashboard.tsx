@@ -1,8 +1,8 @@
 "use client";
 
-import React, {useState, useEffect, useMemo} from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { IconLayoutDashboard, IconTool, IconLink, IconCoffee, IconClockHour4, IconMapPin, IconBrandSpotify, IconHeart} from "@tabler/icons-react";
+import { IconLayoutDashboard, IconTool, IconLink, IconCoffee, IconClockHour4, IconMapPin, IconBrandSpotify, IconHeart } from "@tabler/icons-react";
 import { Globe } from "@/components/magicui/globe";
 import styles from "./dashboard.module.css";
 import { SectionHeading } from "../layout/section-heading";
@@ -10,10 +10,10 @@ import { NumberTicker } from "@/components/magicui/number-ticker";
 import { contactLinks } from "@/data/data";
 import { Marquee } from "@/components/magicui/marquee";
 import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
 } from "@/components/ui/tooltip"
 import Image from "next/image";
 import { toolsData } from "@/data/data";
@@ -22,7 +22,7 @@ import { useTheme } from "next-themes";
 
 export default function Dashboard() {
 
-  const dashboardIconClass = "h-4 w-4 sm:h-5 sm:w-5 text-primary";
+  const dashboardIconClass = "h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary";
 
   return (
     <div className="flex flex-col w-full">
@@ -43,13 +43,13 @@ export default function Dashboard() {
           icon={<IconBrandSpotify className={dashboardIconClass} />}
           title="Last Played"
         >
-          </GridItem>
-          <GridItem
+        </GridItem>
+        <GridItem
           area="favorite"
           icon={<IconHeart className={dashboardIconClass} />}
           title="Favorite Language"
         >
-          </GridItem>
+        </GridItem>
         <GridItem
           area="tools"
           icon={<IconTool className={dashboardIconClass} />}
@@ -183,7 +183,6 @@ const ToolsMarquee = () => {
   const { theme, resolvedTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
 
-  // Memoize the processed tools data to avoid recalculating on every render
   const processedToolsData = useMemo(() => {
     return toolsData.map(({ name, icon, themeDependent }) => ({
       name,
@@ -202,8 +201,8 @@ const ToolsMarquee = () => {
   return (
     <div className="relative overflow-hidden">
       {/* Fading effect */}
-      <div className="fade-mask-left transition-colors duration-400" />
-      <div className="fade-mask-right transition-colors duration-400" />
+      <div className="fade-mask-left transition-all duration-400" />
+      <div className="fade-mask-right transition-all duration-400" />
       <Marquee pauseOnHover className="[--duration:20s]">
         <div className="flex items-center gap-6">
           {processedToolsData.map(({ name, icon }) => (

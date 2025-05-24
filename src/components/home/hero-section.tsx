@@ -6,7 +6,7 @@ import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { Meteors } from "@/components/magicui/meteors"
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
     Tooltip,
     TooltipContent,
@@ -20,8 +20,7 @@ export default function Hero() {
 
     const [wiggleIcon, setWiggleIcon] = useState<string | null>(null);
 
-    const [status, setStatus] = useState<"Available" | "Away">("Away");
-    const [dotColor, setDotColor] = useState<"green" | "amber">("amber");
+    const { status, dotColor } = getStatus();
 
     const handleIconClick = (iconName: string) => {
         setWiggleIcon(iconName);
@@ -32,42 +31,13 @@ export default function Hero() {
         handleIconClick("email");
     }
 
-    useEffect(() => {
-        const updateStatus = () => {
-            // Get the current time in Boston time zone
-            const now = new Date();
-            const bostonTime = new Intl.DateTimeFormat("en-US", {
-                timeZone: "America/New_York",
-                hour: "numeric",
-                hour12: false,
-            }).format(now);
-
-            const currentHour = parseInt(bostonTime, 10);
-
-            // Check if the current hour is between 9 AM and 6 PM
-            if (currentHour >= 8 && currentHour < 18) {
-                setStatus("Available");
-                setDotColor("green");
-            } else {
-                setStatus("Away");
-                setDotColor("amber");
-            }
-        };
-
-        updateStatus();
-        const interval = setInterval(updateStatus, 60 * 1000); // Update every minute
-
-        return () => clearInterval(interval); // Cleanup interval on unmount
-    }, []);
-
-
     return (
         <div className="pt-32 pb-16 sm:pt-56 relative flex items-center justify-center overflow-hidden">
             <TooltipProvider>
-                <BlurFade delay={0.25} inView>
+                <BlurFade delay={0.005} inView>
                     <div className="relative flex-col space-y-6">
                         <div className="relative flex flex-col items-center justify-center">
-                            <Meteors number={20} angle={130} />
+                            <Meteors number={30} angle={130} />
                             <BackgroundGradient className="z-50 h-16 w-16 sm:w-20 sm:h-20 ">
                                 <Image
                                     src={profilePic}
@@ -83,7 +53,7 @@ export default function Hero() {
                             </BackgroundGradient>
                         </div>
                         <div className="w-full space-y-8">
-                            <BlurFade delay={0.25 * 1} inView>
+                            <BlurFade delay={0.005 * 1} inView>
                                 <p className="z-50 subpixel-antialiased leading-snug bg-gradient-to-b from-zinc-200 dark:from-zinc-50 to-zinc-950 dark:to-zinc-300 bg-clip-text text-5xl sm:text-7xl font-bold text-transparent text-center whitespace-nowrap">
                                     Hi. I&#39;m Shivam
                                 </p>
@@ -91,11 +61,10 @@ export default function Hero() {
                                     A Software Engineer who likes building things!
                                 </p>
                             </BlurFade>
-                            <BlurFade delay={0.25 * 2} direction="down" inView>
+                            <BlurFade delay={0.005 * 2} direction="down" inView>
                                 <div className="z-1 space-y-6 flex flex-col items-center justify-center">
                                     <ShimmerButton onClick={handleShimmerButtonClick} className="z-50">
                                         <div className="z-50 relative flex items-center justify-center">
-                                            {/* Pulsing Dot */}
                                             <div
                                                 className={`absolute h-1.5 w-1.5 rounded-full border-1 ${dotColor === "green"
                                                         ? "border-green-600/80 bg-green-500 animate-ping"
@@ -109,7 +78,6 @@ export default function Hero() {
                                                     } mr-1.5`}
                                             ></div>
                                         </div>
-                                        {/* Status Text */}
                                         <span className="whitespace-pre-wrap text-center font-semibold leading-none text-muted-foreground text-[10px] sm:text-sm py-[0.5]">
                                             {status}
                                         </span>
@@ -125,13 +93,30 @@ export default function Hero() {
     );
 }
 
+const getStatus = () => {
+  const now = new Date();
+  const bostonTime = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    hour: "numeric",
+    hour12: false,
+  }).format(now);
+
+  const currentHour = parseInt(bostonTime, 10);
+
+  // Check if the current hour is between 8 AM and 6 PM
+  if (currentHour >= 8 && currentHour < 18) {
+    return { status: "Available", dotColor: "green" };
+  } else {
+    return { status: "Away", dotColor: "amber" };
+  }
+};
+
+
 const iconClass = (label: string, wiggleIcon: string | null) =>
     `text-secondary-foreground ${wiggleIcon === label.toLowerCase()
         ? "animate-wiggle scale-150 transition-transform duration-200"
         : ""
     } hover:scale-130 hover:animate-wiggle transition-transform duration-300`;
-
-// const filteredLinks = contactLinks.filter(link => link.label !== "Instagram");
 
 function ContactIcons({
     wiggleIcon,
