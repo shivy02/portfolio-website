@@ -38,7 +38,7 @@ export default function Hero() {
                     <div className="relative flex-col space-y-6">
                         <div className="relative flex flex-col items-center justify-center">
                             <Meteors number={30} angle={130} />
-                            <BackgroundGradient className="z-50 h-16 w-16 sm:w-20 sm:h-20 ">
+                            <BackgroundGradient className="z-50 h-16 w-16 sm:w-20 sm:h-20 md:w-24 md:h-24 ">
                                 <Image
                                     src={profilePic}
                                     alt="Profile Picture"
@@ -54,10 +54,10 @@ export default function Hero() {
                         </div>
                         <div className="w-full space-y-8">
                             <BlurFade delay={0.005 * 1} inView>
-                                <p className="z-50 subpixel-antialiased leading-snug bg-gradient-to-b from-zinc-200 dark:from-zinc-50 to-zinc-950 dark:to-zinc-300 bg-clip-text text-5xl sm:text-7xl font-bold text-transparent text-center whitespace-nowrap">
+                                <p className="z-50 subpixel-antialiased leading-snug bg-gradient-to-b from-zinc-200 dark:from-zinc-50 to-zinc-950 dark:to-zinc-300 bg-clip-text text-6xl sm:text-7xl font-bold text-transparent text-center whitespace-nowrap">
                                     Hi. I&#39;m Shivam
                                 </p>
-                                <p className="text-sm subpixel-antialiased font-medium sm:text-xl text-center text-secondary-foreground">
+                                <p className="text-base subpixel-antialiased font-medium sm:text-2xl text-center text-secondary-foreground">
                                     A Software Engineer who likes building things!
                                 </p>
                             </BlurFade>
@@ -69,16 +69,16 @@ export default function Hero() {
                                                 className={`absolute h-1.5 w-1.5 rounded-full border-1 ${dotColor === "green"
                                                         ? "border-green-600/80 bg-green-500 animate-ping"
                                                         : "border-orange-600/80 bg-orange-500 animate-ping"
-                                                    } mr-1.5`}
+                                                    } mr-2`}
                                             ></div>
                                             <div
                                                 className={`relative h-1 w-1 rounded-full border-1 ${dotColor === "green"
                                                         ? "border-green-600/80 bg-green-500 animate-pulse"
                                                         : "border-orange-600/80 bg-orange-500 animate-pulse"
-                                                    } mr-1.5`}
+                                                    } mr-2`}
                                             ></div>
                                         </div>
-                                        <span className="whitespace-pre-wrap text-center font-semibold leading-none text-muted-foreground text-[10px] sm:text-sm py-[0.5]">
+                                        <span className="whitespace-pre-wrap text-center font-semibold leading-none text-muted-foreground text-xs sm:text-base py-[0.5]">
                                             {status}
                                         </span>
                                     </ShimmerButton>
@@ -144,7 +144,7 @@ function ContactIcons({
                                 })}
                             </a>
                         </TooltipTrigger>
-                        <TooltipContent>{link.label}</TooltipContent>
+                        <TooltipContent side="bottom" >{link.label}</TooltipContent>
                     </Tooltip>
                 ))}
         </div>

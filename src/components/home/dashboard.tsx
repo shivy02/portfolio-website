@@ -5,7 +5,7 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { IconLayoutDashboard, IconTool, IconLink, IconCoffee, IconClockHour4, IconMapPin, IconBrandSpotify, IconHeart } from "@tabler/icons-react";
 import { Globe } from "@/components/magicui/globe";
 import styles from "./dashboard.module.css";
-import { SectionHeading } from "../layout/section-heading";
+import { SectionHeading, headingIconClass } from "../layout/section-heading";
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import { contactLinks } from "@/data/data";
 import { Marquee } from "@/components/magicui/marquee";
@@ -26,7 +26,7 @@ export default function Dashboard() {
 
   return (
     <div className="flex flex-col w-full">
-      <SectionHeading icon={<IconLayoutDashboard className="h-5 w-5 text-secondary-foreground" />}>
+      <SectionHeading icon={<IconLayoutDashboard className={headingIconClass}/>}>
         Dashboard
       </SectionHeading>
       <ul
@@ -171,7 +171,7 @@ const Tool = ({ name, icon }: { name: string; icon: string }) => {
             />
           </div>
         </TooltipTrigger>
-        <TooltipContent>
+        <TooltipContent sideOffset={5}>
           <p className="text-sm font-semibold text-muted-foreground">{name}</p>
         </TooltipContent>
       </Tooltip>

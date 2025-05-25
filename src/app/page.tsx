@@ -1,8 +1,8 @@
 "use client";
-import Hero from "@/components/home/hero-section"
-import Experience from "@/components/home/experience-section"
+import Hero from "@/components/home/hero"
+import Experience from "@/components/home/experience"
 import Dashboard from "@/components/home/dashboard";
-import Projects from "@/components/home/project-section"
+import Projects from "@/components/home/projects"
 import { BlurFade } from "@/components/magicui/blur-fade";
 
 
@@ -11,7 +11,7 @@ const BLUR_FADE_DELAY = 0.005;
 export default function Home() {
   return (
     <div className="relative min-h-screen w-full bg-background">
-      <div className="mx-auto flex max-w-4xl flex-col space-y-12 sm:space-y-32 px-4">
+      <div className="mx-auto flex max-w-5xl flex-col space-y-12 sm:space-y-32 px-4">
         <BlurFade delay={BLUR_FADE_DELAY} inView>
           <section id="hero">
             <Hero />

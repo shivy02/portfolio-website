@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { FloatingNav } from "@/components/layout/navbar";
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
 import { navData } from "@/data/data";
 import Image from "next/image";
 
@@ -37,7 +38,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden relative`}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
-          <FloatingNav navItems={navData} />
+          <Navbar navItems={navData} />
           <Image
             src="/layout/background-ellipse2.svg"
             alt=""
@@ -49,6 +50,7 @@ export default function RootLayout({
             priority
           />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

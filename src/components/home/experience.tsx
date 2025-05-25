@@ -4,13 +4,13 @@ import { TracingBeam } from "../ui/tracing-beam"
 import Image from "next/image";
 import { experienceData } from "../../data/data"
 import { BlurFade } from "@/components/magicui/blur-fade";
-import { SectionHeading } from "@/components/layout/section-heading";
+import { SectionHeading, headingIconClass } from "@/components/layout/section-heading";
 import { IconBriefcase2, IconSchool } from "@tabler/icons-react"
 
 export default function Experience() {
   return (
     <div className="flex flex-col">
-      <SectionHeading icon={<IconBriefcase2 className="h-5 w-5 text-secondary-foreground" />}>
+      <SectionHeading icon={<IconBriefcase2 className={headingIconClass}/>}>
         Experience
       </SectionHeading>
       <TracingBeam>
@@ -33,7 +33,7 @@ export default function Experience() {
       </TracingBeam>
 
       <BlurFade delay={0.10} direction="right" inView>
-        <SectionHeading className="my-8" icon={<IconSchool className="h-5 w-5 text-secondary-foreground" />}>
+        <SectionHeading className="my-8" icon={<IconSchool className={headingIconClass} />}>
           Education
         </SectionHeading>
         <ExperienceItem
@@ -45,9 +45,7 @@ export default function Experience() {
           location="Lowell, MA"
           skills={["C", "C++", "Java", "Python", "JavaScript", "HTML/CSS", "SQL"]}
         />
-
       </BlurFade>
-
     </div>
   );
 }
@@ -88,7 +86,7 @@ export const ExperienceItem = ({
             <span className="mx-1"> • </span>
             {company}
           </p>
-          <p className="text-[10px] text-balance sm:text-xs md:text-sm font-normal text-muted-foreground ">
+          <p className=" text-balance text-xs md:text-sm font-normal text-muted-foreground ">
             {date}
             <span className="mx-0.5"> • </span>
             {location}
@@ -104,7 +102,7 @@ export const ExperienceItem = ({
         {skills.map((skill, index) => (
           <BlurFade key={skill} delay={0.05 + index * 0.05} direction="up" inView>
             <div key={index} className="flex items-center justify-center bg-secondary transition-colors px-2 py-1 rounded-sm">
-              <p className="leading-none text-[10px] sm:text-xs md:text-sm font-semibold transition-colors text-zinc-700 dark:text-slate-200 ">
+              <p className="leading-none text-xs md:text-sm font-semibold transition-colors text-zinc-700 dark:text-slate-200 ">
                 {skill}
               </p>
             </div>

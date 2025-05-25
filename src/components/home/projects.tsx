@@ -12,12 +12,12 @@ import Link from "next/link";
 import { BlurFade } from "../magicui/blur-fade";
 import { projectData } from "../../data/data"
 import { IconBrush } from "@tabler/icons-react";
-import { SectionHeading } from "@/components/layout/section-heading";
+import { SectionHeading, headingIconClass } from "@/components/layout/section-heading";
 
 export default function Projects() {
     return (
         <div className="flex flex-col">
-            <SectionHeading icon={<IconBrush className="h-5 w-5 text-secondary-foreground" />}>
+            <SectionHeading icon={<IconBrush className={headingIconClass}/>}>
                 Projects
             </SectionHeading>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mx-auto">
