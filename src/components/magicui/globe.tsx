@@ -73,33 +73,41 @@ export function Globe({
   };
 
   useEffect(() => {
-    const onResize = () => {
-      if (canvasRef.current) {
-        width = canvasRef.current.offsetWidth;
-      }
-    };
+  const onResize = () => {
+    if (canvasRef.current) {
+      width = canvasRef.current.offsetWidth;
+    }
+  };
 
-    window.addEventListener("resize", onResize);
-    onResize();
+  window.addEventListener("resize", onResize);
+  onResize();
 
-    const globe = createGlobe(canvasRef.current!, {
-      ...globeConfig,
-      width: width * 2,
-      height: width * 2,
-      onRender: (state) => {
-        if (!pointerInteracting.current) phi += 0.005;
-        state.phi = phi + rs.get();
-        state.width = width * 2;
-        state.height = width * 2;
-      },
-    });
+  // Only pass the properties COBE expects
+  const globe = createGlobe(canvasRef.current!, {
+    ...globeConfig,
+    width: width * 2,
+    height: width * 2,
+    onRender: (state) => {
+      if (!pointerInteracting.current) phi += 0.005;
+      state.phi = phi + rs.get();
+      state.width = width * 2;
+      state.height = width * 2;
+    },
+  } as COBEOptions); // <-- Explicitly cast if needed
 
-    setTimeout(() => (canvasRef.current!.style.opacity = "1"), 0);
-    return () => {
-      globe.destroy();
-      window.removeEventListener("resize", onResize);
-    };
-  }, [rs, globeConfig]);
+  setTimeout(() => (canvasRef.current!.style.opacity = "1"), 0);
+  return () => {
+    globe.destroy();
+    window.removeEventListener("resize", onResize);
+  };
+}, [rs, globeConfig]);
+
+  //   setTimeout(() => (canvasRef.current!.style.opacity = "1"), 0);
+  //   return () => {
+  //     globe.destroy();
+  //     window.removeEventListener("resize", onResize);
+  //   };
+  // }, [rs, globeConfig]);
 
   return (
     <div
