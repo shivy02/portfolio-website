@@ -53,7 +53,7 @@ export default function Hero() {
                         </div>
                         <div className="w-full space-y-8">
                             <BlurFade delay={0.005 * 1} inView>
-                                <p className="z-50 subpixel-antialiased leading-snug bg-gradient-to-b from-zinc-200 dark:from-zinc-50 to-zinc-950 dark:to-zinc-300 bg-clip-text text-6xl sm:text-7xl font-bold text-transparent text-center whitespace-nowrap">
+                                <p className="z-50 subpixel-antialiased leading-snug bg-gradient-to-b from-zinc-200 dark:from-zinc-50 to-zinc-950 dark:to-zinc-300 bg-clip-text text-5xl sm:text-7xl font-bold text-transparent text-center whitespace-nowrap">
                                     Hi. I&#39;m Shivam
                                 </p>
                                 <p className="text-base subpixel-antialiased font-medium sm:text-2xl text-center text-secondary-foreground">
