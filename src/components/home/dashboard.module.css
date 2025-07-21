@@ -11,7 +11,9 @@
     "contact hours"
     "contact coffees";
 }
-
+.dashboardGrid > li {
+  min-width: 0; /* Allow grid items to shrink */
+}
 @media (min-width: 600px) {
   .dashboardGrid {
     grid-template-columns: repeat(6, 1fr);

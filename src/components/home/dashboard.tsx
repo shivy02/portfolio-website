@@ -43,6 +43,7 @@ export default function Dashboard() {
           icon={<IconBrandSpotify className={dashboardIconClass} />}
           title="Last Played"
         >
+          <LastPlayed />
         </GridItem>
         <GridItem
           area="favorite"
@@ -111,7 +112,7 @@ const GridItem = ({ area, icon, title, children }: GridItemProps) => {
           proximity={64}
           inactiveZone={0.01}
         />
-        <div className="relative flex h-full flex-col justify-between gap-4 overflow-hidden rounded-lg border-0.75 p-4 shadow-[0px_0px_12px_0px_#ebecf0] dark:shadow-[0px_0px_27px_0px_#2D2D2D] bg-background transition-all duration-400">
+        <div className="relative flex h-full flex-col justify-between gap-2 overflow-hidden rounded-lg border-0.75 p-4 shadow-[0px_0px_12px_0px_#ebecf0] dark:shadow-[0px_0px_27px_0px_#2D2D2D] bg-background transition-all duration-400">
           <div className="relative flex flex-row items-center gap-2 sm:gap-3">
             <div className="pt-0">
               {icon}
@@ -155,7 +156,46 @@ const ContactMe = () => {
     </div>
   );
 };
-
+const LastPlayed = () => {
+  return (
+    <div className="flex flex-row items-center gap-2 w-full overflow-hidden">
+      <Image
+        src="/album-cover.jpeg"
+        alt="Last Played Song"
+        width={48}
+        height={48}
+        className="rounded-md shadow-lg sm:h-10 sm:w-10 h-8 w-8"
+      />
+      <div className="flex-1 min-w-0 max-w-full overflow-hidden">
+        <Marquee className="[--duration:10s]" pauseOnHover>
+          <p className="text-sm text-foreground whitespace-nowrap">
+          •  $$$ - Gunna feat. Normandi •&nbsp;
+          </p>
+        </Marquee>
+      </div>
+    </div>
+  );
+};
+// const LastPlayed = () => {
+//   return (
+//     <div className="flex flex-row gap-2 ">
+//       <Image
+//         src="/album-cover.jpeg"
+//         alt="Last Played Song"
+//         width={300}
+//         height={300}
+//         className="rounded-lg shadow-lg h-12 w-12"
+//       />
+//       <div className="flex-1 overflow-hidden">
+//         <Marquee className="[--duration:10s]" pauseOnHover>
+//           <p className="text-sm text-foreground">
+//             $$$ - Gunna feat. Normandi •
+//           </p>
+//         </Marquee>
+//       </div>
+//     </div>
+//   );
+// };
 const Tool = ({ name, icon }: { name: string; icon: string }) => {
   return (
     <TooltipProvider>
