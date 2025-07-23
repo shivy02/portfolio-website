@@ -87,7 +87,7 @@ export const projectData = [
     type: "Mobile and Desktop App",
     technologies: ["Vue", "Typescript", "HTML", "TailwindCSS", "Tauri", "Rust", "SQL"],
     description: "Decentralized communication platform with e2e encryption, ensuring user privacy without third party interference.",
-    image: "/cyfra.jpg",
+    image: "/projects/cyfra.png",
     links: [
       {
         type: "Source",

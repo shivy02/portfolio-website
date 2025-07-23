@@ -169,7 +169,7 @@ const LastPlayed = () => {
       <div className="flex-1 min-w-0 max-w-full overflow-hidden">
         <Marquee className="[--duration:10s]" pauseOnHover>
           <p className="text-sm text-foreground whitespace-nowrap">
-          • $$$ • Gunna feat. Normani • One of a Wun •&nbsp;
+          • $$$ (feat. Normani)• Gunna, Normani • One of a Wun •&nbsp;
           </p>
         </Marquee>
       </div>

@@ -66,7 +66,7 @@ export function ProjectCard({ title, href, description, tags, link, image, video
     return (
         <Card
             className={
-                "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
+                "flex flex-col overflow-hidden border hover:shadow-md transition-all duration-300 ease-out h-full"
             }
         >
             <Link
@@ -89,7 +89,7 @@ export function ProjectCard({ title, href, description, tags, link, image, video
                         alt={title}
                         width={500}
                         height={300}
-                        className="h-full w-full overflow-hidden object-cover object-top"
+                        className=" w-full h-55 overflow-hidden object-cover object-top"
                     />
                 )}
             </Link>
