@@ -63,14 +63,14 @@ export const projectData = [
     github: "github.link",
   },
   {
-    title: "SeedPlanter | Gardening Assistant",
+    title: "Seedlanter | Gardening Assistant",
     href: "asdfasdfds",
     dates: "Feb 2024 - May 2024",
     active: false,
     type: "Mobile Application",
     technologies: ["React Native", "Javascript", "Expo", "PerenualAPI", "MongoDB", "NodeJS", "Express"],
     description: "A unified solution for planters to journal, garden, track planting schedules, and learn about gardening using an AI chatbot.",
-    video: "/SeedPlanter.mp4",
+    video: "/projects/seedplanter.mp4",
     links: [
       {
         type: "Source",
