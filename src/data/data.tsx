@@ -6,7 +6,7 @@ export const data = {
       company: "Sterilite",
       role: "Software Engineer",
       date: "Present",
-      description: "",
+      description: "Data Engineering & Information Systems",
       location: "Townsend, MA",
       skills: ["Full-Stack", "HTML/CSS", "Javascript", "ASP.NET", "PL/SQL", "Data Warehousing", "Data Analysis", "ETL"],
     },
