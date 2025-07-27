@@ -37,7 +37,7 @@ export default function Projects() {
                             tags={item.technologies}
                             image={item.image}
                             video={item.video}
-                            links={item.links}
+                            // links={item.links}
                             />
                     </BlurFade>
                 ))}
