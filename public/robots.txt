@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://shivypatel.com
+
+# Sitemaps
+Sitemap: https://shivypatel.com/sitemap.xml
