@@ -76,7 +76,7 @@ export default function Dashboard() {
             // width="100%"
             // height="100%"
             minScratchPercentage={70}
-            className="flex items-center justify-center overflow-hidden rounded-2xl border-2 bg-gray-100"
+            className="flex items-center justify-center overflow-hidden rounded-2xl border-2 bg-background"
             gradientColors={["#A97CF9E6", "#F38CB9E6", "#FDCC92E6"]}
           >
       <p className="text-7xl">😎</p>
