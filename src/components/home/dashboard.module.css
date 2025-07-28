@@ -15,7 +15,7 @@
 .dashboardGrid > li {
   min-width: 0; /* Allow grid items to shrink */
 }
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   .dashboardGrid {
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(4, minmax(0, 1fr));

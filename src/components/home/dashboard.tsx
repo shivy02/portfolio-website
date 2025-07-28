@@ -73,13 +73,13 @@ export default function Dashboard() {
           title="Scratch Me"
         >
           <ScratchToReveal
-            // width="100%"
-            // height="100%"
+            // width={185}
+            // height={190}
             minScratchPercentage={15}
-            className="flex items-center justify-center overflow-hidden rounded-2xl border-2 bg-background"
+            className="flex items-center h-35 justify-center overflow-auto rounded-md border-1 bg-background"
             gradientColors={["#A97CF9E6", "#F38CB9E6", "#FDCC92E6"]}
           >
-      <p className="text-8xl sm:text-9xl">😎</p>
+      <p className="text-8xl lg:text-9xl">😎</p>
     </ScratchToReveal>
         </GridItem>
         <GridItem
