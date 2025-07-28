@@ -2,7 +2,7 @@
 "use client";
 import React, { useState, useEffect} from "react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { IconLayoutDashboard, IconTool, IconLink, IconCoffee, IconClockHour4, IconMapPin, IconBrandSpotify, IconHeart } from "@tabler/icons-react";
+import { IconLayoutDashboard, IconTool, IconLink, IconCoffee, IconClockHour4, IconMapPin, IconBrandSpotify, IconHeart, IconHandClick} from "@tabler/icons-react";
 import { Globe } from "@/components/ui/globe";
 import styles from "./dashboard.module.css";
 import { SectionHeading, headingIconClass } from "../layout/section-heading";
@@ -18,6 +18,7 @@ import {
 import Image from "next/image";
 import { data } from "@/data/data";
 import { useTheme } from "next-themes";
+import { ScratchToReveal } from "../magicui/scratch-to-reveal";
 
 
 export default function Dashboard() {
@@ -48,8 +49,9 @@ export default function Dashboard() {
         <GridItem
           area="favorite"
           icon={<IconHeart className={dashboardIconClass} />}
-          title="Fav Language"
+          title="Fav Framework"
         >
+          <FavoriteLanguage />
         </GridItem>
         <GridItem
           area="tools"
@@ -64,6 +66,21 @@ export default function Dashboard() {
           title="Connect"
         >
           <ContactMe />
+        </GridItem>
+        <GridItem
+          area="scratch"
+          icon={<IconHandClick className={dashboardIconClass} />}
+          title="Scratch Me"
+        >
+          <ScratchToReveal
+            // width="100%"
+            // height="100%"
+            minScratchPercentage={70}
+            className="flex items-center justify-center overflow-hidden rounded-2xl border-2 bg-gray-100"
+            gradientColors={["#A97CF9E6", "#F38CB9E6", "#FDCC92E6"]}
+          >
+      <p className="text-9xl">😎</p>
+    </ScratchToReveal>
         </GridItem>
         <GridItem
           area="hours"
@@ -235,3 +252,21 @@ const ToolsMarquee = () => {
     </div>
   );
 };
+
+const FavoriteLanguage = () => {
+  return (
+    <div className="flex items-center justify-start h-full">
+      <Image
+        src="/tools/react.svg"
+        alt="React Icon"
+        width={24}
+        height={24}
+        className="h-6 w-6 sm:h-8 sm:w-8"
+      />
+      
+      <span className="ml-2 sm:ml-3 text-md sm:text-lg font-normal tracking-tight text-muted-foreground">
+        React JS
+      </span>
+    </div>
+  );
+} 

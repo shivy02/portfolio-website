@@ -10,7 +10,7 @@ export const Footer = () => {
                     &copy; {new Date().getFullYear()} Shivam Patel. All rights reserved.
                 </p>
                 <p className="text-xs text-center align-text-bottom mt-2">
-                    Built with ❤️ using Next.js and Tailwind
+                    Built with ❤️ using React, Next.js and Tailwind
                 </p>
             </div>
              <Image
