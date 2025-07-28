@@ -79,7 +79,7 @@ export default function Dashboard() {
             className="flex items-center justify-center overflow-hidden rounded-2xl border-2 bg-gray-100"
             gradientColors={["#A97CF9E6", "#F38CB9E6", "#FDCC92E6"]}
           >
-      <p className="text-9xl">😎</p>
+      <p className="text-7xl">😎</p>
     </ScratchToReveal>
         </GridItem>
         <GridItem
