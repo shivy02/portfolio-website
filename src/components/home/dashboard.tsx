@@ -75,11 +75,11 @@ export default function Dashboard() {
           <ScratchToReveal
             // width="100%"
             // height="100%"
-            minScratchPercentage={70}
+            minScratchPercentage={30}
             className="flex items-center justify-center overflow-hidden rounded-2xl border-2 bg-background"
             gradientColors={["#A97CF9E6", "#F38CB9E6", "#FDCC92E6"]}
           >
-      <p className="text-8xl">😎</p>
+      <p className="text-8xl sm:text-9xl">😎</p>
     </ScratchToReveal>
         </GridItem>
         <GridItem
