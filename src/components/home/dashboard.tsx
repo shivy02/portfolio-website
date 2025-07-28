@@ -75,7 +75,7 @@ export default function Dashboard() {
           <ScratchToReveal
             // width="100%"
             // height="100%"
-            minScratchPercentage={30}
+            minScratchPercentage={15}
             className="flex items-center justify-center overflow-hidden rounded-2xl border-2 bg-background"
             gradientColors={["#A97CF9E6", "#F38CB9E6", "#FDCC92E6"]}
           >
