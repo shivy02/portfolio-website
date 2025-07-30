@@ -32,9 +32,9 @@ export const Footer = () => {
             src="/layout/background-ellipse2.svg"
             alt=""
             fill={false}
-            width={1000} 
+            width={100} 
             height={900} 
-            className="absolute bottom-0 blur-lg left-1/2 transform -translate-x-1/2 translate-y-2/3 w-auto z-0 pointer-events-none select-none"
+            className="absolute bottom-0 blur-lg left-1/2 transform -translate-x-1/2 translate-y-3/5 w-auto z-0 pointer-events-none select-none"
             aria-hidden="true"
             priority
           />
