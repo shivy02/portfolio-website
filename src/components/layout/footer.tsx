@@ -10,7 +10,7 @@ export const Footer = () => {
 
             <div className="container relative z-10 mx-auto flex flex-col h-full items-center justify-end px-4 py-4">
                 <div className="flex flex-col items-center justify-center h-full">
-                    <h2 className="mx-28 sm:mx-none text-center text-pretty text-xl sm:text-2xl font-bold mb-8">
+                    <h2 className="mx-16 sm:mx-none text-center text-pretty text-xl sm:text-2xl font-bold mb-8">
                         Have any questions, or just want to chat?
                     </h2>
                     <a href="mailto:shivypat@gmail.com">
