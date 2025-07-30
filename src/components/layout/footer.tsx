@@ -21,10 +21,10 @@ export const Footer = () => {
                         </RainbowButton>
                     </a>
                 </div>
-                <p className="text-sm text-center font-semibold leading-none">
+                <p className="text-sm text-center font-medium leading-none">
                     &copy; {new Date().getFullYear()} Shivam Patel. All rights reserved.
                 </p>
-                <p className="text-xs leading-none text-center align-text-bottom font-semibold mt-2">
+                <p className="text-xs leading-none text-center align-text-bottom mt-2">
                     Built with ❤️ using React, Next.js and Tailwind
                 </p>
             </div>

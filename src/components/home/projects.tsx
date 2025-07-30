@@ -8,12 +8,12 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { BlurFade } from "../ui/blur-fade";
 import { data } from "../../data/data"
-import { IconBrush } from "@tabler/icons-react";
+import { IconBrush, IconLink } from "@tabler/icons-react";
 import { SectionHeading, headingIconClass } from "@/components/layout/section-heading";
 
 export default function Projects() {
@@ -62,7 +62,7 @@ interface Props {
     className?: string;
 }
 
-export function ProjectCard({ title, href, description, tags, link, image, video, links, className }: Props) {
+export function ProjectCard({ title, href, description, tags, link, image, video, links }: Props) {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
@@ -101,78 +101,83 @@ export function ProjectCard({ title, href, description, tags, link, image, video
     }, []);
 
     return (
-        <Card
-            className={
-                "flex flex-col overflow-hidden border hover:shadow-md transition-all duration-300 ease-out h-full"
-            }
-        >
-            <Link
-                href={href || "#"}
-                className={cn("block cursor-pointer", className)}
+        <Link href={href || "#"} className="block h-full group">
+            <Card
+                className={
+                    "relative flex flex-col overflow-hidden border hover:shadow-md transition-all duration-300 ease-out h-full"
+                }
             >
-                {video && (
-                    <video
-                        ref={videoRef}
-                        src={video}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="auto"
-                        className="pointer-events-none mx-auto h-55 w-full object-cover object-top" // needed because random black line at bottom of video
-                    />
-                )}
-                {image && (
-                    <Image
-                        src={image}
-                        alt={title}
-                        width={500}
-                        height={300}
-                        className=" w-full h-55 overflow-hidden object-cover object-top"
-                    />
-                )}
-            </Link>
-            <CardHeader className="px-2">
-                <div className="space-y-1">
-                    <CardTitle className="mt-2 text-base">{title}</CardTitle>
-                    <div className="hidden text-xs underline print:visible">
-                        {link?.replace("https://", "").replace("www.", "").replace("/", "")}
-                    </div>
-                    <div className="prose max-w-full text-pretty text-sm mt-2 text-muted-foreground dark:prose-invert">
-                        {description}
+                <div className="relative">
+                    {video && (
+                        <video
+                            ref={videoRef}
+                            src={video}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            preload="auto"
+                            className="pointer-events-none mx-auto h-55 w-full object-cover object-top"
+                        />
+                    )}
+                    {image && (
+                        <Image
+                            src={image}
+                            alt={title}
+                            width={500}
+                            height={300}
+                            className="w-full h-55 overflow-hidden object-cover object-top"
+                        />
+                    )}
+                    {/* Link Icon */}
+                    <div
+                        className="absolute top-2 right-2 bg-black/20 text-white rounded-full p-1 
+                sm:opacity-0 sm:group-hover:opacity-100 opacity-100 transition-opacity duration-300"
+                    >
+                        <IconLink className="h-5 w-5" />
                     </div>
                 </div>
-            </CardHeader>
-            <CardContent className="mt-2 flex flex-col px-2">
-                {tags && tags.length > 0 && (
-                    <div className="mt-2 flex flex-wrap gap-2">
-                        {tags?.map((tag) => (
-                            <Badge
-                                className="px-1 py-0.5 text-[12px]"
-                                variant="secondary"
-                                key={tag}
-                            >
-                                {tag}
-                            </Badge>
-                        ))}
+                <CardHeader className="px-2">
+                    <div className="space-y-1">
+                        <CardTitle className="mt-2 text-base">{title}</CardTitle>
+                        <div className="hidden text-xs underline print:visible">
+                            {link?.replace("https://", "").replace("www.", "").replace("/", "")}
+                        </div>
+                        <div className="prose max-w-full text-pretty text-sm mt-2 text-muted-foreground dark:prose-invert">
+                            {description}
+                        </div>
                     </div>
-                )}
-            </CardContent>
-            <CardFooter className="px-2 pb-2">
-                {links && links.length > 0 && (
-                    <div className="flex flex-row flex-wrap items-start gap-1">
-                        {links?.map((link, idx) => (
-                            <Link href={link?.href} key={idx} target="_blank">
-                                <Badge key={idx} className="flex gap-2 text-[12px]">
-                                    {link.icon}
-                                    {link.type}
+                </CardHeader>
+                <CardContent className="mt-2 flex flex-col px-2">
+                    {tags && tags.length > 0 && (
+                        <div className="mt-2 flex flex-wrap gap-2">
+                            {tags?.map((tag) => (
+                                <Badge
+                                    className="px-1 py-0.5 text-[12px]"
+                                    variant="secondary"
+                                    key={tag}
+                                >
+                                    {tag}
                                 </Badge>
-                            </Link>
-                        ))}
-                    </div>
-                )}
-            </CardFooter>
-        </Card>
+                            ))}
+                        </div>
+                    )}
+                </CardContent>
+                <CardFooter className="px-2 pb-2">
+                    {links && links.length > 0 && (
+                        <div className="flex flex-row flex-wrap items-start gap-1">
+                            {links?.map((link, idx) => (
+                                <Link href={link?.href} key={idx} target="_blank">
+                                    <Badge key={idx} className="flex gap-2 text-[12px]">
+                                        {link.icon}
+                                        {link.type}
+                                    </Badge>
+                                </Link>
+                            ))}
+                        </div>
+                    )}
+                </CardFooter>
+            </Card>
+        </Link>
     );
 }
-
