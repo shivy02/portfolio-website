@@ -80,7 +80,7 @@ export default function Dashboard() {
         >
           <ScratchToReveal
             minScratchPercentage={15}
-            className="flex items-center h-35 justify-center overflow-hidden rounded-md border-1 bg-background"
+            className="flex items-center h-35 justify-center overflow-hidden rounded-md bg-background"
             gradientColors={["#A97CF9E6", "#F38CB9E6", "#FDCC92E6"]}
           >
             <p className="text-8xl lg:text-9xl">😎</p>
