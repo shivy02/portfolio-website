@@ -27,9 +27,9 @@ export default function Dashboard() {
 
   return (
     <div className="flex flex-col w-full">
-      <SectionHeading icon={<IconLayoutDashboard className={headingIconClass} />}>
+      {/* <SectionHeading icon={<IconLayoutDashboard className={headingIconClass} />}>
         About Me
-      </SectionHeading>
+      </SectionHeading> */}
       <ul
         className={`grid w-full gap-4 ${styles.dashboardGrid}`}>
         <GridItem
