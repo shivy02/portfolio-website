@@ -28,7 +28,7 @@ export default function Dashboard() {
   return (
     <div className="flex flex-col w-full">
       <SectionHeading icon={<IconLayoutDashboard className={headingIconClass} />}>
-        Dashboard
+        About Me
       </SectionHeading>
       <ul
         className={`grid w-full gap-4 ${styles.dashboardGrid}`}>
@@ -79,11 +79,21 @@ export default function Dashboard() {
           transitionDuration="600ms" // Add unique transition duration
         >
           <ScratchToReveal
-            minScratchPercentage={15}
+            minScratchPercentage={20}
             className="flex items-center h-35 justify-center overflow-hidden rounded-md bg-background"
             gradientColors={["#A97CF9E6", "#F38CB9E6", "#FDCC92E6"]}
           >
-            <p className="text-8xl lg:text-9xl">😎</p>
+            <Image
+        src="/dogs.svg"
+        alt="Next.js Icon"
+        width={100}
+        height={100}
+        className="h-40 w-40 sm:h-42 sm:w-42"
+      />
+            {/* <p className="flex items-center gap-2">
+              <span className="text-5xl">👋</span>
+              <span className="text-7xl">😎</span>
+            </p>           */}
           </ScratchToReveal>
         </GridItem>
         <GridItem
@@ -241,7 +251,7 @@ const ToolsMarquee = () => {
     return null; // Avoid rendering anything on the server
   }
 
-  const currentTheme = theme || resolvedTheme || "light"; // Default to "light" during SSR
+  const currentTheme = theme || resolvedTheme || "dark"; // Default to "light" during SSR
 
   // Process tools data based on the current theme
   const processedToolsData = data.tools.map(({ name, icon, themeDependent }) => ({
@@ -263,20 +273,36 @@ const ToolsMarquee = () => {
   );
 };
 
+
 const FavoriteLanguage = () => {
+  const { theme, resolvedTheme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true); // Ensure this component only renders after the client has mounted
+  }, []);
+
+  if (!isMounted) {
+    return null; // Avoid rendering anything on the server
+  }
+
+  const currentTheme = theme || resolvedTheme || "light"; // Default to "light" during SSR
+
+  const iconPath =
+    currentTheme === "dark" ? "/tools/nextjs-dark.svg" : "/tools/nextjs.svg";
+
   return (
     <div className="flex items-center justify-start h-full">
       <Image
-        src="/tools/react.svg"
-        alt="React Icon"
+        src={iconPath}
+        alt="Next.js Icon"
         width={24}
         height={24}
         className="h-6 w-6 sm:h-8 sm:w-8"
       />
-      
       <span className="ml-2 sm:ml-3 text-md sm:text-lg font-normal tracking-tight text-muted-foreground">
-        React JS
+        Next JS
       </span>
     </div>
   );
-} 
+};

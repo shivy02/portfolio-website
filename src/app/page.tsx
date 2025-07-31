@@ -17,6 +17,11 @@ export default function Home() {
             <Hero />
           </section>
         </BlurFade> 
+        <BlurFade delay={BLUR_FADE_DELAY * 2} inView>
+          <section id="dashboard">
+            <Dashboard />
+          </section>
+        </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 1} inView>
           <section id="experience">
             <Experience />
@@ -25,11 +30,6 @@ export default function Home() {
         <BlurFade delay={BLUR_FADE_DELAY * 3} inView>
           <section id="projects">
             <Projects />
-          </section>
-        </BlurFade>
-        <BlurFade delay={BLUR_FADE_DELAY * 2} inView>
-          <section id="dashboard">
-            <Dashboard />
           </section>
         </BlurFade>
       </div>
