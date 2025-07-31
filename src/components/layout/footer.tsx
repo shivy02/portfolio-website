@@ -14,7 +14,7 @@ export const Footer = () => {
                     <h2 className="mx-16 sm:mx-none text-center text-pretty text-xl sm:text-2xl font-bold mb-8">
                         Have any questions, or just want to chat?
                     </h2>
-                    <a href="mailto:shivypat@gmail.com">
+                    <a href="mailto:shivypat02@gmail.com">
                         <RainbowButton variant="default"  className="bg-background">
                             <IconSend />
                            <p className="tracking-tight">Contact Me</p> 
