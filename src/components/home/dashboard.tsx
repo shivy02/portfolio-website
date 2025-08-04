@@ -36,7 +36,7 @@ export default function Dashboard() {
           area="location"
           icon={<IconMapPin className={dashboardIconClass} />}
           title="Greater Boston, MA"
-          transitionDuration="100ms" // Add unique transition duration
+          transitionDuration="100ms" 
         >
           <Globe />
         </GridItem>
@@ -44,7 +44,7 @@ export default function Dashboard() {
           area="spotify"
           icon={<IconBrandSpotify className={dashboardIconClass} />}
           title="Last Played"
-          transitionDuration="200ms" // Add unique transition duration
+          transitionDuration="200ms" 
         >
           <LastPlayed />
         </GridItem>
@@ -52,7 +52,7 @@ export default function Dashboard() {
           area="favorite"
           icon={<IconHeart className={dashboardIconClass} />}
           title="Fav Framework"
-          transitionDuration="300ms" // Add unique transition duration
+          transitionDuration="300ms" 
         >
           <FavoriteLanguage />
         </GridItem>
@@ -60,7 +60,7 @@ export default function Dashboard() {
           area="tools"
           icon={<IconTool className={dashboardIconClass} />}
           title="Tools"
-          transitionDuration="400ms" // Add unique transition duration
+          transitionDuration="400ms" 
         >
           <ToolsMarquee />
         </GridItem>
@@ -68,7 +68,7 @@ export default function Dashboard() {
           area="contact"
           icon={<IconLink className={dashboardIconClass} />}
           title="Connect"
-          transitionDuration="500ms" // Add unique transition duration
+          transitionDuration="500ms" 
         >
           <ContactMe />
         </GridItem>
@@ -76,7 +76,7 @@ export default function Dashboard() {
           area="scratch"
           icon={<IconHandClick className={dashboardIconClass} />}
           title="Scratch Me"
-          transitionDuration="600ms" // Add unique transition duration
+          transitionDuration="600ms"
         >
           <ScratchToReveal
             minScratchPercentage={20}
@@ -100,7 +100,7 @@ export default function Dashboard() {
           area="hours"
           icon={<IconClockHour4 className={dashboardIconClass} />}
           title="Hours Coding"
-          transitionDuration="800ms" // Add unique transition duration
+          transitionDuration="800ms" 
         >
           <NumberTicker
             value={5223}
@@ -111,7 +111,7 @@ export default function Dashboard() {
           area="coffees"
           icon={<IconCoffee className={dashboardIconClass} />}
           title="Coffees Drank"
-          transitionDuration="700ms" // Add unique transition duration
+          transitionDuration="700ms" 
         >
           <NumberTicker
             value={1134}
