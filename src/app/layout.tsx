@@ -18,10 +18,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://shivypatel.com"),
   title: "Shivam Patel - Software Engineer",
   description: "A beautiful portfolio showcasing my work as a software engineer.",
-    icons: {
-    icon: "/favicon.ico",
+  icons: {
+    icon: [
+      { url: "/logo/logo.svg", type: "image/svg+xml" },       
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  openGraph: {
+    type: "website",
+    url: "https://shivypatel.com",
+    title: "Shivam Patel — Portfolio",
+    description: "Portfolio of Shivam Patel.",
+    images: [
+      { url: "/og/website-screenshot.jpg", width: 1200, height: 630, alt: "Website preview" },
+    ],
   },
 };
 
