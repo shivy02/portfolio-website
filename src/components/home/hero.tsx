@@ -102,7 +102,7 @@ const getStatus = () => {
 
   const currentHour = parseInt(bostonTime, 10);
 
-  if (currentHour >= 8 && currentHour < 18) {
+  if (currentHour >= 8 && currentHour < 22) {
     return { status: "Available", dotColor: "green" };
   } else {
     return { status: "Away", dotColor: "amber" };
@@ -145,6 +145,6 @@ function ContactIcons({
                         <TooltipContent side="bottom" >{link.label}</TooltipContent>
                     </Tooltip>
                 ))}
-                </div>
+    </div>
     );
 }

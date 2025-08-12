@@ -79,50 +79,50 @@ export const data = {
       //   },
       // ],
     },
-    {
-      title: "Cyfra | Secure Messaging Platform",
-      href: "https://www.uml.edu/differencemaker/meet-the-differencemakers/dm-cryptopigeon.aspx",
-      dates: "Feb 2022 - May 2023",
-      active: false,
-      type: "Mobile and Desktop App",
-      technologies: ["Vue", "Typescript", "HTML", "TailwindCSS", "Tauri", "Rust", "SQL"],
-      description: "Decentralized communication platform with e2e encryption, ensuring user privacy without third party interference.",
-      image: "/projects/cyfra.png",
-      // links: [ 
-      //   {
-      //     type: "Source",
-      //     href: "https://github.com",
-      //     icon: <IconBrandGithub className="size-8" />,
-      //   },
-      //   {
-      //     type: "Article",
-      //     href: "https://github.com",
-      //     icon: <IconWorld className="size-8" />,
-      //   },
-      // ],
-    },
-    {
-      title: "Portfolio Website | shivypatel.com",
-      href: "https://www.shivypatel.com",
-      dates: "2025",
-      active: false,
-      type: "Web Application",
-      technologies: ["React", "NextJS", "Typescript", "HTML", "TailwindCSS"],
-      description: "A personal portfolio website showcasing my projects, skills, and experiences.",
-      video: "/projects/portfolio.mp4",
-      // links: [ 
-      //   {
-      //     type: "Source",
-      //     href: "https://github.com",
-      //     icon: <IconBrandGithub className="size-8" />,
-      //   },
-      //   {
-      //     type: "Article",
-      //     href: "https://github.com",
-      //     icon: <IconWorld className="size-8" />,
-      //   },
-      // ],
-    },
+    // {
+    //   title: "Cyfra | Secure Messaging Platform",
+    //   href: "https://www.uml.edu/differencemaker/meet-the-differencemakers/dm-cryptopigeon.aspx",
+    //   dates: "Feb 2022 - May 2023",
+    //   active: false,
+    //   type: "Mobile and Desktop App",
+    //   technologies: ["Vue", "Typescript", "HTML", "TailwindCSS", "Tauri", "Rust", "SQL"],
+    //   description: "Decentralized communication platform with e2e encryption, ensuring user privacy without third party interference.",
+    //   image: "/projects/cyfra.png",
+    //   // links: [ 
+    //   //   {
+    //   //     type: "Source",
+    //   //     href: "https://github.com",
+    //   //     icon: <IconBrandGithub className="size-8" />,
+    //   //   },
+    //   //   {
+    //   //     type: "Article",
+    //   //     href: "https://github.com",
+    //   //     icon: <IconWorld className="size-8" />,
+    //   //   },
+    //   // ],
+    // },
+    // {
+    //   title: "Portfolio Website | shivypatel.com",
+    //   href: "https://www.shivypatel.com",
+    //   dates: "2025",
+    //   active: false,
+    //   type: "Web Application",
+    //   technologies: ["React", "NextJS", "Typescript", "HTML", "TailwindCSS"],
+    //   description: "A personal portfolio website showcasing my projects, skills, and experiences.",
+    //   video: "/projects/portfolio.mp4",
+    //   // links: [ 
+    //   //   {
+    //   //     type: "Source",
+    //   //     href: "https://github.com",
+    //   //     icon: <IconBrandGithub className="size-8" />,
+    //   //   },
+    //   //   {
+    //   //     type: "Article",
+    //   //     href: "https://github.com",
+    //   //     icon: <IconWorld className="size-8" />,
+    //   //   },
+    //   // ],
+    // },
   ],
 
   contact : [
