@@ -85,18 +85,17 @@ export function ProjectCard({ title, href, description, tags, link, image, video
     }, []);
 
     useEffect(() => {
+        const video = videoRef.current;
         const handlePlay = () => {
-            if (videoRef.current) {
-                videoRef.current.play().catch(() => {
-                    // Handle autoplay restrictions
-                });
-            }
+            video?.play().catch(() => {
+                // Handle autoplay restrictions
+            });
         };
 
-        videoRef.current?.addEventListener("pause", handlePlay);
+        video?.addEventListener("pause", handlePlay);
 
         return () => {
-            videoRef.current?.removeEventListener("pause", handlePlay);
+            video?.removeEventListener("pause", handlePlay);
         };
     }, []);
 
