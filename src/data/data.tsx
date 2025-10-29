@@ -25,7 +25,7 @@ export const data = {
       role: "Cloud Engineer Intern | Lead",
       date: "Jun 2023 - Aug 2023",
       description:
-        "Spearheaded the migration of mission-critical applications to Microsoft Azure, enhancing system reliability and scalability. Developed and implemented CI/CD pipelines, improving deployment efficiency for STIG VMs by 90%.",
+        "Cloud Engineering & DevSecOps, Air Force Cloud One",
       location: "Hanscom Air Force Base, MA",
       skills: ["Microsoft Azure", "Powershell", "Azure DevOps", "CI/CD", "Cloud Engineering", "DevSecOps"],
     },
@@ -35,7 +35,7 @@ export const data = {
       role: "Software Engineer Intern",
       date: " Jun 2021 - Oct 2022",
       description:
-        "Developed features for an AI-powered healthcare platform, enhancing patient experience and engagement.",
+        "AI Powered Healthcare Automation",
       location: "Boston, MA",
       skills: ["Full-Stack", "HTML/CSS", "JavaScript", "TypeScript", "Angular", "Node.js", "Express", "MongoDB" ],
 
