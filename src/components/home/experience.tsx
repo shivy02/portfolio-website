@@ -17,9 +17,8 @@ export default function Experience() {
       <TracingBeam>
         <div className="space-y-4">
           {data.experience.map((item, index) => (
-            <BlurFade key={item.role || index} delay={0.10 + index * .05} direction="right" inView>
+            <BlurFade key={`${item.company}-${item.role}-${index}`} delay={0.10 + index * .05} direction="right" inView>
               <ExperienceItem
-                key={index}
                 image={item.image}
                 company={item.company}
                 role={item.role}
@@ -101,8 +100,8 @@ export const ExperienceItem = ({
       )}
       <div className="mt-4 flex flex-row flex-wrap gap-y-2 gap-x-2">
         {skills.map((skill, index) => (
-          <BlurFade key={skill} delay={0.05 + index * 0.05} direction="up" inView>
-            <div key={index} className="flex items-center justify-center bg-secondary transition-colors px-2 py-1 rounded-sm">
+          <BlurFade key={`${skill}-${index}`} delay={0.05 + index * 0.05} direction="up" inView>
+            <div className="flex items-center justify-center bg-secondary transition-colors px-2 py-1 rounded-sm">
               <p className="leading-none tracking-tight text-xs md:text-sm font-semibold transition-colors text-zinc-700 dark:text-slate-200 ">
                 {skill}
               </p>

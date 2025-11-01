@@ -62,6 +62,7 @@ export const data = {
       technologies: ["React", "Javascript", "HTML", "TailwindCSS", "Plaid API", "OpenAI API", "MUI", "MongoDB", "NodeJS", "Express"],
       description: "AI integrated personal financial dashboard enabling users to connect multiple accounts and analyze their entire financial landscape.",
       video: "/projects/breadbox.mp4",
+      thumbnail: "/projects/breadbox-img.png",
       // links: [
       //   {
       //     type: "Source",
@@ -80,6 +81,7 @@ export const data = {
       technologies: ["React Native", "Javascript", "Expo", "Perenual API", "OpenAI API", "MongoDB", "NodeJS", "Express"],
       description: "A unified solution for planters to journal, garden, track planting schedules, and learn about gardening using an AI chatbot.",
       video: "/projects/seedplanter.mp4",
+      thumbnail: "/projects/seedplanter-img.png",
       // links: [
       //   {
       //     type: "Source",

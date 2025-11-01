@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import {
     Card,
@@ -15,6 +15,7 @@ import { BlurFade } from "../ui/blur-fade";
 import { data } from "../../data/data"
 import { IconBrush, IconLink } from "@tabler/icons-react";
 import { SectionHeading, headingIconClass } from "@/components/layout/section-heading";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Projects() {
     return (
@@ -37,6 +38,7 @@ export default function Projects() {
                             tags={item.technologies}
                             // image={item.image}
                             video={item.video}
+                            thumbnail={item.thumbnail}
                             // links={item.links}
                             />
                     </BlurFade>
@@ -49,11 +51,12 @@ interface Props {
     title: string;
     href?: string;
     description: string;
-    dates: string;  
+    dates: string;
     tags: readonly string[];
     link?: string;
     image?: string;
     video?: string;
+    thumbnail?: string;
     links?: readonly {
         icon: React.ReactNode;
         type: string;
@@ -62,8 +65,9 @@ interface Props {
     className?: string;
 }
 
-export function ProjectCard({ title, href, description, tags, link, image, video, links }: Props) {
+export function ProjectCard({ title, href, description, tags, link, image, video, thumbnail, links }: Props) {
     const videoRef = useRef<HTMLVideoElement>(null);
+    const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
     useEffect(() => {
         const handleVisibilityChange = () => {
@@ -99,6 +103,37 @@ export function ProjectCard({ title, href, description, tags, link, image, video
         };
     }, []);
 
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const handleVideoReady = () => {
+            setIsVideoLoaded(true);
+        };
+
+        // Check if video is already loaded
+        if (video.readyState >= 3) {
+            setIsVideoLoaded(true);
+        }
+
+        // Listen for multiple events to catch when video is ready
+        video.addEventListener("loadeddata", handleVideoReady);
+        video.addEventListener("canplay", handleVideoReady);
+        video.addEventListener("canplaythrough", handleVideoReady);
+
+        // Fallback: force show video after 2 seconds even if events don't fire
+        const fallbackTimer = setTimeout(() => {
+            setIsVideoLoaded(true);
+        }, 2000);
+
+        return () => {
+            video.removeEventListener("loadeddata", handleVideoReady);
+            video.removeEventListener("canplay", handleVideoReady);
+            video.removeEventListener("canplaythrough", handleVideoReady);
+            clearTimeout(fallbackTimer);
+        };
+    }, []);
+
     return (
         <Link href={href || "#"} className="block h-full group">
             <Card
@@ -106,7 +141,8 @@ export function ProjectCard({ title, href, description, tags, link, image, video
                     "relative flex flex-col overflow-hidden border hover:shadow-md transition-all duration-300 ease-out h-full"
                 }
             >
-                <div className="relative">
+                <div className="relative overflow-hidden h-55">
+                    {/* Video Layer */}
                     {video && (
                         <video
                             ref={videoRef}
@@ -116,21 +152,41 @@ export function ProjectCard({ title, href, description, tags, link, image, video
                             muted
                             playsInline
                             preload="auto"
-                            className="pointer-events-none mx-auto h-55 w-full object-cover object-top"
+                            className="pointer-events-none absolute top-0 left-0 w-full h-full object-cover object-top"
                         />
                     )}
-                    {image && (
+                    {/* Thumbnail Overlay with Blur */}
+                    <AnimatePresence>
+                        {video && thumbnail && !isVideoLoaded && (
+                            <motion.div
+                                key="thumbnail"
+                                initial={{ opacity: 1, filter: "blur(8px)" }}
+                                exit={{ opacity: 0, filter: "blur(0px)" }}
+                                transition={{ duration: 0.6, ease: "easeInOut" }}
+                                className="absolute top-0 left-0 w-full h-full z-10"
+                            >
+                                <Image
+                                    src={thumbnail}
+                                    alt={title}
+                                    fill
+                                    className="object-cover object-top scale-105"
+                                    priority
+                                />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                    {/* Static Image (fallback) */}
+                    {!video && image && (
                         <Image
                             src={image}
                             alt={title}
-                            width={500}
-                            height={300}
-                            className="w-full h-55 overflow-hidden object-cover object-top"
+                            fill
+                            className="object-cover object-top"
                         />
                     )}
                     {/* Link Icon */}
                     <div
-                        className="absolute top-2 right-2 bg-black/20 text-white rounded-full p-1 
+                        className="absolute top-2 right-2 bg-black/20 text-white rounded-full p-1 z-20
                 sm:opacity-0 sm:group-hover:opacity-100 opacity-100 transition-opacity duration-300"
                     >
                         <IconLink className="h-5 w-5" />
