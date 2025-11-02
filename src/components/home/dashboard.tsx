@@ -141,35 +141,31 @@ interface GridItemProps {
 const GridItem = ({ area, icon, title, children, transitionDuration = "300ms", tooltip }: GridItemProps) => {
   const [showTooltip, setShowTooltip] = useState(false);
   const itemRef = useRef<HTMLLIElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
+  const handleTap = () => {
     if (!tooltip) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setShowTooltip(true);
-            // Hide tooltip after 2 seconds
-            setTimeout(() => {
-              setShowTooltip(false);
-            }, 2000);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+    setShowTooltip(true);
 
-    if (itemRef.current) {
-      observer.observe(itemRef.current);
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
     }
 
+    // Hide tooltip after 2 seconds
+    timeoutRef.current = setTimeout(() => {
+      setShowTooltip(false);
+    }, 2000);
+  };
+
+  useEffect(() => {
     return () => {
-      if (itemRef.current) {
-        observer.unobserve(itemRef.current);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
       }
     };
-  }, [tooltip]);
+  }, []);
 
   const content = (
     <li
@@ -212,14 +208,15 @@ const GridItem = ({ area, icon, title, children, transitionDuration = "300ms", t
     return (
       <TooltipProvider>
         <Tooltip open={showTooltip} delayDuration={0}>
-          <TooltipTrigger asChild onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
+          <TooltipTrigger
+            asChild
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
+            onClick={handleTap}
+          >
             {content}
           </TooltipTrigger>
-          <TooltipContent
-            sideOffset={-16}
-            sticky="always"
-            avoidCollisions={false}
-          >
+          <TooltipContent sideOffset={-16}>
             <p>{tooltip}</p>
           </TooltipContent>
         </Tooltip>
