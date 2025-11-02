@@ -47,13 +47,44 @@ export default function Dashboard() {
           </div>
         </GridItem>
         <GridItem
-          area="spotify"
+          area="music"
           icon={<IconBrandSpotify className={dashboardIconClass} />}
           title="Last Played"
           transitionDuration="200ms"
           tooltip="Spotify"
         >
-          <LastPlayed track={track} />
+          <div className="flex flex-col-reverse sm:flex-row-reverse items-center gap-4 sm:gap-6 w-full">
+            {/* Dancing Animation Section */}
+            <div className="relative flex items-center justify-center w-full sm:w-auto overflow-visible">
+              {/* Right spotlight from top-right corner - mirrored */}
+              <div className="absolute -top-36 -right-20 md:-top-72 md:-right-32 w-64 h-64 md:w-96 md:h-96 pointer-events-none z-0 scale-x-[-1]" style={{ opacity: 1 }}>
+                <Spotlight
+                  className="!opacity-100 scale-75"
+                  fill="rgba(255, 255, 255, 0.6)"
+                />
+              </div>
+              <Image
+                src="https://www.animatedimages.org/data/media/202/animated-dog-image-0931.gif"
+                alt="Dog"
+                width={200}
+                height={80}
+                className="absolute inset-0 w-full h-full object-contain sm:hidden opacity-60"
+                unoptimized
+              />
+              <Image
+                src="https://www.animatedimages.org/data/media/107/animated-dancing-image-0472.gif"
+                alt="Dancing"
+                width={80}
+                height={80}
+                className="w-16 h-16 sm:w-12 sm:h-12 relative z-10"
+                unoptimized
+              />
+            </div>
+            {/* Spotify Last Played Section */}
+            <div className="flex-1 min-w-0 w-full">
+              <LastPlayed track={track} />
+            </div>
+          </div>
         </GridItem>
         <GridItem
           area="favorite"
@@ -62,38 +93,6 @@ export default function Dashboard() {
           transitionDuration="300ms"
         >
           <FavoriteLanguage />
-        </GridItem>
-        <GridItem
-          area="dancing"
-          icon={<></>}
-          title=""
-          transitionDuration="300ms"
-        >
-          <div className="relative flex items-center justify-center max-h-[80px] sm:max-h-none overflow-visible">
-            {/* Right spotlight from top-right corner - mirrored */}
-            <div className="absolute -top-36 -right-20 md:-top-72 md:-right-32 w-64 h-64 md:w-96 md:h-96 pointer-events-none z-0 scale-x-[-1]" style={{ opacity: 1 }}>
-              <Spotlight
-                className="!opacity-100 scale-75"
-                fill="rgba(255, 255, 255, 0.6)"
-              />
-            </div>
-            <Image
-              src="https://www.animatedimages.org/data/media/202/animated-dog-image-0931.gif"
-              alt="Dog"
-              width={200}
-              height={80}
-              className="absolute inset-0 w-full h-full object-contain sm:hidden opacity-60"
-              unoptimized
-            />
-            <Image
-              src="https://www.animatedimages.org/data/media/107/animated-dancing-image-0472.gif"
-              alt="Dancing"
-              width={80}
-              height={80}
-              className="w-16 h-16 sm:w-20 sm:h-20 relative z-10"
-              unoptimized
-            />
-          </div>
         </GridItem>
         <GridItem
           area="tools"
@@ -127,7 +126,7 @@ export default function Dashboard() {
               alt="Dog"
               width={100}
               height={100}
-              className="h-20 w-20 sm:h-30 sm:w-30"
+              className="h-14 w-14 sm:h-16 sm:w-16"
               unoptimized
             />
             {/* <p className="flex items-center gap-2">

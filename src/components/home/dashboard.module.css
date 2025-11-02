@@ -7,8 +7,8 @@
     "location location"
     "location location"
     "tools tools"
-    "favorite spotify"
-    "contact dancing"
+    "favorite music"
+    "contact music"
     "contact scratch"
     "coffees hours";
 }
@@ -18,11 +18,11 @@
 @media (min-width: 700px) {
   .dashboardGrid {
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(4, minmax(0, 1fr));
+    grid-template-rows: auto auto minmax(0, min-content) minmax(0, min-content);
     grid-template-areas:
       "location location location scratch scratch contact contact contact"
       "location location location scratch scratch contact contact contact"
-      "spotify spotify spotify dancing favorite favorite coffees coffees"
+      "music music music music favorite favorite coffees coffees"
       "tools tools tools tools tools tools hours hours";
   }
 }     
