@@ -117,7 +117,7 @@ export default function Dashboard() {
           icon={<IconCoffee className={dashboardIconClass} />}
           title="Coffees Drank"
           transitionDuration="700ms"
-          tooltip="Hours Coding / 4 (rounded up)"
+          tooltip="4 Hours Coding = 1 Coffee ☕"
         >
           <NumberTicker
             value={totalCoffees}
