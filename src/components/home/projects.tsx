@@ -8,14 +8,13 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-// import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { BlurFade } from "../ui/blur-fade";
 import { data } from "../../data/data"
 import { IconBrush, IconLink } from "@tabler/icons-react";
 import { SectionHeading, headingIconClass } from "@/components/layout/section-heading";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Projects() {
     return (
@@ -70,52 +69,16 @@ export function ProjectCard({ title, href, description, tags, link, image, video
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
     useEffect(() => {
-        const handleVisibilityChange = () => {
-            if (document.visibilityState === "visible" && videoRef.current) {
-                videoRef.current.load(); // Reset the video
-                videoRef.current.play().catch(() => {
-                    // Handle autoplay restrictions
-                });
-            } else if (document.visibilityState === "hidden" && videoRef.current) {
-                videoRef.current.pause();
-            }
-        };
-
-        document.addEventListener("visibilitychange", handleVisibilityChange);
-
-        return () => {
-            document.removeEventListener("visibilitychange", handleVisibilityChange);
-        };
-    }, []);
-
-    useEffect(() => {
-        const video = videoRef.current;
-        const handlePlay = () => {
-            video?.play().catch(() => {
-                // Handle autoplay restrictions
-            });
-        };
-
-        video?.addEventListener("pause", handlePlay);
-
-        return () => {
-            video?.removeEventListener("pause", handlePlay);
-        };
-    }, []);
-
-    useEffect(() => {
         const video = videoRef.current;
         if (!video) return;
 
         const handleVideoPlaying = () => {
-            // Only hide thumbnail after video is actually playing and visible
             setIsVideoPlaying(true);
         };
 
-        // Listen for playing event to ensure video is actually rendering
         video.addEventListener("playing", handleVideoPlaying);
 
-        // Fallback: force show video after 3 seconds even if events don't fire
+        // Fallback: show video after 3 seconds if event doesn't fire
         const fallbackTimer = setTimeout(() => {
             setIsVideoPlaying(true);
         }, 3000);
@@ -134,7 +97,7 @@ export function ProjectCard({ title, href, description, tags, link, image, video
                 }
             >
                 <div className="relative overflow-hidden h-55 bg-muted">
-                    {/* Thumbnail Layer - Shows immediately, stays blurred until video plays */}
+                    {/* Thumbnail - Shows immediately, stays blurred until video plays */}
                     {video && thumbnail && (
                         <div className="absolute top-0 left-0 w-full h-full blur-sm scale-105">
                             <Image
@@ -147,32 +110,9 @@ export function ProjectCard({ title, href, description, tags, link, image, video
                             />
                         </div>
                     )}
-                    {/* Video Layer - Renders on top when playing */}
-                    <AnimatePresence>
-                        {video && isVideoPlaying && (
-                            <motion.div
-                                key="video"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ duration: 0.3 }}
-                                className="absolute top-0 left-0 w-full h-full z-10"
-                            >
-                                <video
-                                    ref={videoRef}
-                                    src={video}
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                    preload="auto"
-                                    className="pointer-events-none w-full h-full object-cover object-top"
-                                />
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                    {/* Hidden video to trigger loading/playing events */}
-                    {video && !isVideoPlaying && (
-                        <video
+                    {/* Video - Fades in on top when playing */}
+                    {video && (
+                        <motion.video
                             ref={videoRef}
                             src={video}
                             autoPlay
@@ -180,10 +120,13 @@ export function ProjectCard({ title, href, description, tags, link, image, video
                             muted
                             playsInline
                             preload="auto"
-                            className="pointer-events-none absolute top-0 left-0 w-full h-full object-cover object-top opacity-0"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: isVideoPlaying ? 1 : 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="pointer-events-none absolute top-0 left-0 w-full h-full object-cover object-top z-10"
                         />
                     )}
-                    {/* Static Image (fallback for projects without video) */}
+                    {/* Static Image fallback */}
                     {!video && image && (
                         <Image
                             src={image}
@@ -194,10 +137,7 @@ export function ProjectCard({ title, href, description, tags, link, image, video
                         />
                     )}
                     {/* Link Icon */}
-                    <div
-                        className="absolute top-2 right-2 bg-black/20 text-white rounded-full p-1 z-20
-                sm:opacity-0 sm:group-hover:opacity-100 opacity-100 transition-opacity duration-300"
-                    >
+                    <div className="absolute top-2 right-2 bg-black/20 text-white rounded-full p-1 z-20 sm:opacity-0 sm:group-hover:opacity-100 opacity-100 transition-opacity duration-300">
                         <IconLink className="h-5 w-5" />
                     </div>
                 </div>
