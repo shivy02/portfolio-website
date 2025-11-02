@@ -123,11 +123,12 @@ export default function Dashboard() {
             gradientColors={["#A97CF9E6", "#F38CB9E6", "#FDCC92E6"]}
           >
             <Image
-              src="/dogs.svg"
-              alt="Next.js Icon"
+              src="https://www.animatedimages.org/data/media/202/animated-dog-image-0161.gif"
+              alt="Dog"
               width={100}
               height={100}
               className="h-20 w-20 sm:h-40 sm:w-40"
+              unoptimized
             />
             {/* <p className="flex items-center gap-2">
               <span className="text-5xl">👋</span>
