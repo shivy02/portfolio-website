@@ -22,7 +22,7 @@
     grid-template-areas:
       "location location location scratch scratch contact contact contact"
       "location location location scratch scratch contact contact contact"
-      "spotify spotify spotify favorite favorite dancing coffees coffees"
+      "spotify spotify spotify dancing favorite favorite coffees coffees"
       "tools tools tools tools tools tools hours hours";
   }
 }     
