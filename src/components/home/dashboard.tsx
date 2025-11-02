@@ -39,9 +39,11 @@ export default function Dashboard() {
           area="location"
           icon={<IconMapPin className={dashboardIconClass} />}
           title="Greater Boston, MA"
-          transitionDuration="100ms" 
+          transitionDuration="100ms"
         >
-          <Globe />
+          <div className="min-h-[200px] sm:min-h-0">
+            <Globe />
+          </div>
         </GridItem>
         <GridItem
           area="spotify"
@@ -56,9 +58,34 @@ export default function Dashboard() {
           area="favorite"
           icon={<IconHeart className={dashboardIconClass} />}
           title="Fav Framework"
-          transitionDuration="300ms" 
+          transitionDuration="300ms"
         >
           <FavoriteLanguage />
+        </GridItem>
+        <GridItem
+          area="dancing"
+          icon={<></>}
+          title=""
+          transitionDuration="300ms"
+        >
+          <div className="relative flex items-center justify-center max-h-[80px] sm:max-h-none">
+            <Image
+              src="https://www.animatedimages.org/data/media/202/animated-dog-image-0931.gif"
+              alt="Dog"
+              width={200}
+              height={80}
+              className="absolute inset-0 w-full h-full object-contain sm:hidden opacity-60"
+              unoptimized
+            />
+            <Image
+              src="https://www.animatedimages.org/data/media/107/animated-dancing-image-0472.gif"
+              alt="Dancing"
+              width={80}
+              height={80}
+              className="w-16 h-16 sm:w-20 sm:h-20 relative z-10"
+              unoptimized
+            />
+          </div>
         </GridItem>
         <GridItem
           area="tools"
@@ -84,16 +111,16 @@ export default function Dashboard() {
         >
           <ScratchToReveal
             minScratchPercentage={20}
-            className="flex items-center h-35 justify-center overflow-hidden rounded-md bg-background"
+            className="flex items-center h-24 sm:h-35 justify-center overflow-hidden rounded-md bg-background"
             gradientColors={["#A97CF9E6", "#F38CB9E6", "#FDCC92E6"]}
           >
             <Image
-        src="/dogs.svg"
-        alt="Next.js Icon"
-        width={100}
-        height={100}
-        className="h-40 w-40 sm:h-42 sm:w-42"
-      />
+              src="/dogs.svg"
+              alt="Next.js Icon"
+              width={100}
+              height={100}
+              className="h-20 w-20 sm:h-40 sm:w-40"
+            />
             {/* <p className="flex items-center gap-2">
               <span className="text-5xl">👋</span>
               <span className="text-7xl">😎</span>

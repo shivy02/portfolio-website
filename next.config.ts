@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: 'i.scdn.co',
         pathname: '/image/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.animatedimages.org',
+        pathname: '/data/media/**',
+      },
     ],
   },
 };
