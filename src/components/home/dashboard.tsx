@@ -42,7 +42,7 @@ export default function Dashboard() {
           title="Greater Boston, MA"
           transitionDuration="100ms"
         >
-          <div className="min-h-[200px] sm:min-h-0">
+          <div className="min-h-[200px] md:min-h-0">
             <Globe />
           </div>
         </GridItem>
