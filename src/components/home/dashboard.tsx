@@ -127,7 +127,7 @@ export default function Dashboard() {
               alt="Dog"
               width={100}
               height={100}
-              className="h-20 w-20 sm:h-40 sm:w-40"
+              className="h-20 w-20 sm:h-30 sm:w-30"
               unoptimized
             />
             {/* <p className="flex items-center gap-2">
