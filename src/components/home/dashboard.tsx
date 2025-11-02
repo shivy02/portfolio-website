@@ -336,12 +336,13 @@ const LastPlayed = ({ track }: LastPlayedProps) => {
         height={48}
         className="rounded-md shadow-lg sm:h-10 sm:w-10 h-8 w-8"
       />
-      <div className="flex-1 min-w-0 max-w-full overflow-hidden">
+      <div className="flex-1 min-w-0 max-w-full overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-8 sm:w-16 h-full bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
         {isReady ? (
-          <Marquee className="[--duration:8s] [--gap:2rem]" pauseOnHover repeat={5}>
+          <Marquee className="[--duration:12s] sm:[--duration:15s] [--gap:0.5rem]" pauseOnHover repeat={5}>
             <p className="text-sm whitespace-nowrap">
               <span className="text-foreground">{displayTrack.title}</span>
-              <span className="text-muted-foreground"> • {displayTrack.artist} • {displayTrack.album}</span>
+              <span className="text-muted-foreground"> • {displayTrack.artist} • {displayTrack.album} •</span>
             </p>
           </Marquee>
         ) : (
