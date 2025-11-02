@@ -19,6 +19,7 @@ import { useTheme } from "next-themes";
 import { ScratchToReveal } from "../magicui/scratch-to-reveal";
 import { useWakaTime } from "@/hooks/useWakaTime";
 import { useSpotify } from "@/hooks/useSpotify";
+import { Spotlight } from "@/components/ui/spotlight";
 
 
 export default function Dashboard() {
@@ -68,7 +69,14 @@ export default function Dashboard() {
           title=""
           transitionDuration="300ms"
         >
-          <div className="relative flex items-center justify-center max-h-[80px] sm:max-h-none">
+          <div className="relative flex items-center justify-center max-h-[80px] sm:max-h-none overflow-visible">
+            {/* Right spotlight from top-right corner - mirrored */}
+            <div className="absolute -top-36 -right-20 md:-top-72 md:-right-32 w-64 h-64 md:w-96 md:h-96 pointer-events-none z-0 scale-x-[-1]" style={{ opacity: 1 }}>
+              <Spotlight
+                className="!opacity-100 scale-75"
+                fill="rgba(255, 255, 255, 0.6)"
+              />
+            </div>
             <Image
               src="https://www.animatedimages.org/data/media/202/animated-dog-image-0931.gif"
               alt="Dog"
