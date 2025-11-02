@@ -93,20 +93,20 @@ export default function Hero() {
 }
 
 const getStatus = () => {
-  const now = new Date();
-  const bostonTime = new Intl.DateTimeFormat("en-US", {
-    timeZone: "America/New_York",
-    hour: "numeric",
-    hour12: false,
-  }).format(now);
+    const now = new Date();
+    const bostonTime = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/New_York",
+        hour: "numeric",
+        hour12: false,
+    }).format(now);
 
-  const currentHour = parseInt(bostonTime, 10);
+    const currentHour = parseInt(bostonTime, 10);
 
-  if (currentHour >= 8 && currentHour < 22) {
-    return { status: "Available", dotColor: "green" };
-  } else {
-    return { status: "Away", dotColor: "amber" };
-  }
+    if (currentHour >= 8 && currentHour < 22) {
+        return { status: "Available", dotColor: "green" };
+    } else {
+        return { status: "Away", dotColor: "amber" };
+    }
 };
 
 
@@ -123,18 +123,18 @@ function ContactIcons({
     wiggleIcon: string | null;
     handleIconClick: (label: string) => void;
 }) {
-        return (
-    <div className="flex flex-row items-center justify-center space-x-6">
+    return (
+        <div className="flex flex-row items-center justify-center space-x-6">
             {data.contact
                 .filter(link => link.label !== "Instagram")
-                        .map(link => (
-                <Tooltip key={link.label}>
+                .map(link => (
+                    <Tooltip key={link.label}>
                         <TooltipTrigger asChild>
                             <a
                                 href={link.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label={link. aria}
+                                aria-label={link.aria}
                                 onClick={() => handleIconClick(link.label.toLowerCase())}
                             >
                                 {React.cloneElement(link.icon, {
@@ -145,6 +145,6 @@ function ContactIcons({
                         <TooltipContent side="bottom" >{link.label}</TooltipContent>
                     </Tooltip>
                 ))}
-    </div>
+        </div>
     );
 }

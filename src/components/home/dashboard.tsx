@@ -2,7 +2,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { IconTool, IconLink, IconCoffee, IconClockHour4, IconMapPin, IconBrandSpotify, IconHeart, IconHandClick} from "@tabler/icons-react";
+import { IconTool, IconLink, IconCoffee, IconClockHour4, IconMapPin, IconBrandSpotify, IconHeart, IconHandClick } from "@tabler/icons-react";
 import { Globe } from "@/components/ui/globe";
 import styles from "./dashboard.module.css";
 import { NumberTicker } from "@/components/ui/number-ticker";
@@ -56,7 +56,6 @@ export default function Dashboard() {
           <div className="flex flex-col-reverse sm:flex-row-reverse items-center gap-4 sm:gap-6 w-full">
             {/* Dancing Animation Section */}
             <div className="relative flex items-center justify-center w-full sm:w-auto overflow-visible">
-              {/* Right spotlight from top-right corner - mirrored */}
               <div className="absolute -top-36 -right-20 md:-top-72 md:-right-32 w-64 h-64 md:w-96 md:h-96 pointer-events-none z-0 scale-x-[-1]" style={{ opacity: 1 }}>
                 <Spotlight
                   className="!opacity-100 scale-75"
@@ -98,7 +97,7 @@ export default function Dashboard() {
           area="tools"
           icon={<IconTool className={dashboardIconClass} />}
           title="Tools"
-          transitionDuration="400ms" 
+          transitionDuration="400ms"
         >
           <ToolsMarquee />
         </GridItem>
@@ -106,7 +105,7 @@ export default function Dashboard() {
           area="contact"
           icon={<IconLink className={dashboardIconClass} />}
           title="Connect"
-          transitionDuration="500ms" 
+          transitionDuration="500ms"
         >
           <ContactMe />
         </GridItem>
@@ -129,10 +128,6 @@ export default function Dashboard() {
               className="h-14 w-14 sm:h-16 sm:w-16"
               unoptimized
             />
-            {/* <p className="flex items-center gap-2">
-              <span className="text-5xl">👋</span>
-              <span className="text-7xl">😎</span>
-            </p>           */}
           </ScratchToReveal>
         </GridItem>
         <GridItem
@@ -369,7 +364,7 @@ const Tool = ({ name, icon }: { name: string; icon: string }) => {
               height={30}
               className="h-8 w-8"
               loading="eager"
-              
+
             />
           </div>
         </TooltipTrigger>
@@ -396,7 +391,7 @@ const ToolsMarquee = () => {
   const currentTheme = theme || resolvedTheme || "dark";
 
   const processedToolsData = data.tools.map(({ name, icon, themeDependent }) => ({
-    name, 
+    name,
     icon: `/tools/${icon}${themeDependent && currentTheme === "dark" ? "-dark" : ""}.svg`,
   }));
   return (

@@ -19,7 +19,7 @@ import { motion } from "framer-motion";
 export default function Projects() {
     return (
         <div className="flex flex-col">
-            <SectionHeading icon={<IconBrush className={headingIconClass}/>}>
+            <SectionHeading icon={<IconBrush className={headingIconClass} />}>
                 Projects
             </SectionHeading>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mx-auto">
@@ -38,8 +38,8 @@ export default function Projects() {
                             // image={item.image}
                             video={item.video}
                             thumbnail={item.thumbnail}
-                            // links={item.links}
-                            />
+                        // links={item.links}
+                        />
                     </BlurFade>
                 ))}
             </div>
