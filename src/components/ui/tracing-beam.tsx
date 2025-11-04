@@ -111,11 +111,11 @@ export const TracingBeam = ({
               y1={y1} // set y1 for gradient
               y2={y2} // set y2 for gradient
             >
-              <stop stopColor="#18CCFC" stopOpacity="0"></stop>
-              <stop stopColor="#ffd566"></stop>
-              <stop offset="0.225" stopOpacity="0.5" stopColor="#ff82f7"></stop>
-              <stop offset="0.325" stopColor="#6344F5"></stop>
-              <stop offset="1" stopColor="#4acbff" stopOpacity="0"></stop>
+              <stop stopColor="#5dd9ff" stopOpacity="0"></stop>
+              <stop stopColor="#ffe499"></stop>
+              <stop offset="0.225" stopOpacity="0.9" stopColor="#ffb0fc"></stop>
+              <stop offset="0.325" stopColor="#8c7aff"></stop>
+              <stop offset="1" stopColor="#7ddfff" stopOpacity="0"></stop>
             </motion.linearGradient>
           </defs>
         </svg>

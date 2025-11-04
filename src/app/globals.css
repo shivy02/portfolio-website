@@ -132,11 +132,11 @@ body {
   --sidebar-accent-foreground: oklch(0.21 0.034 264.665);
   --sidebar-border: oklch(0.928 0.006 264.531);
   --sidebar-ring: oklch(0.707 0.022 261.325);
-  --color-1: oklch(66.2% 0.225 25.9);
-  --color-2: oklch(60.4% 0.26 302);
-  --color-3: oklch(69.6% 0.165 251);
-  --color-4: oklch(80.2% 0.134 225);
-  --color-5: oklch(90.7% 0.231 133);
+  --color-1: oklch(95% 0.13 95);
+  --color-2: oklch(87% 0.26 315);
+  --color-3: oklch(72% 0.24 280);
+  --color-4: oklch(88% 0.14 215);
+  --color-5: oklch(83% 0.15 210);
 }
 
 .dark {
@@ -171,11 +171,11 @@ body {
   --sidebar-accent-foreground: oklch(0.985 0.002 247.839);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
-  --color-1: oklch(66.2% 0.225 25.9);
-  --color-2: oklch(60.4% 0.26 302);
-  --color-3: oklch(69.6% 0.165 251);
-  --color-4: oklch(80.2% 0.134 225);
-  --color-5: oklch(90.7% 0.231 133);
+  --color-1: oklch(95% 0.13 95);
+  --color-2: oklch(87% 0.26 315);
+  --color-3: oklch(72% 0.24 280);
+  --color-4: oklch(88% 0.14 215);
+  --color-5: oklch(83% 0.15 210);
 }
 /* Left fade effect */
 .fade-mask-left {
