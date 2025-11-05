@@ -76,7 +76,7 @@ export default function Hero() {
                                     Hi. I&#39;m Shivam
                                 </p>
                                 <p className="text-base subpixel-antialiased tracking-tight font-medium sm:text-2xl text-center text-secondary-foreground">
-                                    A Software Engineer who likes building things!
+                                    A Software Engineer who likes building things.
                                 </p>
                             </BlurFade>
                             <BlurFade delay={0.005 * 2} direction="down" inView>
