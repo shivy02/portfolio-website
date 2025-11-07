@@ -37,7 +37,7 @@ export default function Hero() {
                     <div className="relative flex-col space-y-1">
                         <div className="relative flex flex-col items-center justify-center">
                             <Meteors number={30} angle={130} />
-                            <BackgroundGradient className="z-50 h-16 w-16 sm:w-20 sm:h-20 md:w-24 md:h-24 ">
+                            <BackgroundGradient className="z-50 h-16 w-16 sm:w-20 sm:h-20 md:w-20 md:h-20 ">
                                 <Image
                                     src={profilePic}
                                     alt="Profile Picture"

@@ -12,6 +12,7 @@ interface ScratchToRevealProps {
   className?: string;
   onComplete?: () => void;
   gradientColors?: [string, string, string];
+  resetKey?: string | number;
 }
 
 export const ScratchToReveal: React.FC<ScratchToRevealProps> = ({
@@ -22,6 +23,7 @@ export const ScratchToReveal: React.FC<ScratchToRevealProps> = ({
   children,
   className,
   gradientColors = ["#A97CF8", "#F38CB8", "#FDCC92"],
+  resetKey,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isScratching, setIsScratching] = useState(false);
@@ -29,7 +31,7 @@ export const ScratchToReveal: React.FC<ScratchToRevealProps> = ({
 
   const controls = useAnimation();
 
-  useEffect(() => {
+  const initializeCanvas = () => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (canvas && ctx) {
@@ -47,7 +49,17 @@ export const ScratchToReveal: React.FC<ScratchToRevealProps> = ({
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
+  };
+
+  useEffect(() => {
+    initializeCanvas();
   }, [gradientColors]);
+
+  useEffect(() => {
+    // Reset the scratch area when resetKey changes
+    setIsComplete(false);
+    initializeCanvas();
+  }, [resetKey]);
 
   useEffect(() => {
     const handleDocumentMouseMove = (event: MouseEvent) => {

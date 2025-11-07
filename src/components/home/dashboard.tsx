@@ -36,6 +36,13 @@ export default function Dashboard() {
     setScratchGif(randomGif);
   }, []);
 
+  const handleScratchComplete = () => {
+    // Select a new random GIF that's different from the current one
+    const availableGifs = data.scratchGifs.filter(gif => gif !== scratchGif);
+    const randomGif = availableGifs[Math.floor(Math.random() * availableGifs.length)];
+    setScratchGif(randomGif);
+  };
+
   return (
     <div className="flex flex-col w-full">
       {/* <SectionHeading icon={<IconLayoutDashboard className={headingIconClass} />}>
@@ -126,6 +133,8 @@ export default function Dashboard() {
             minScratchPercentage={20}
             className="flex items-center h-24 sm:h-35 justify-center overflow-hidden rounded-md bg-background"
             gradientColors={["#A97CF933", "#F38CB933", "#FDCC9233"]}
+            onComplete={handleScratchComplete}
+            resetKey={scratchGif}
           >
             {scratchGif && (
               <Image

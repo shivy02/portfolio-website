@@ -78,6 +78,24 @@ export function ProjectCard({ title, href, description, tags, link, image, video
 
         video.addEventListener("playing", handleVideoPlaying);
 
+        // Explicitly try to play the video
+        const playPromise = video.play();
+
+        if (playPromise !== undefined) {
+            playPromise
+                .then(() => {
+                    // Video started playing successfully
+                    setIsVideoPlaying(true);
+                })
+                .catch((error) => {
+                    // Autoplay was prevented, show video anyway after a short delay
+                    console.log("Autoplay prevented:", error);
+                    setTimeout(() => {
+                        setIsVideoPlaying(true);
+                    }, 500);
+                });
+        }
+
         // Fallback: show video after 3 seconds if event doesn't fire
         const fallbackTimer = setTimeout(() => {
             setIsVideoPlaying(true);
