@@ -22,14 +22,14 @@ export default function Home() {
             <Dashboard />
           </section>
         </BlurFade>
-        <BlurFade delay={BLUR_FADE_DELAY * 1} inView>
-          <section id="experience">
-            <Experience />
-          </section>
-        </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 3} inView>
           <section id="projects">
             <Projects />
+          </section>
+        </BlurFade>
+        <BlurFade delay={BLUR_FADE_DELAY * 1} inView>
+          <section id="experience">
+            <Experience />
           </section>
         </BlurFade>
       </div>
