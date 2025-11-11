@@ -2,7 +2,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { IconTool, IconLink, IconCoffee, IconClockHour4, IconMapPin, IconBrandSpotify, IconHeart, IconHandClick } from "@tabler/icons-react";
+import { IconTool, IconLink, IconCoffee, IconClockHour4, IconMapPin, IconBrandSpotify, IconHeart, IconHandClick, IconBrandGithub } from "@tabler/icons-react";
 import { Globe } from "@/components/ui/globe";
 import styles from "./dashboard.module.css";
 import { NumberTicker } from "@/components/ui/number-ticker";
@@ -19,14 +19,17 @@ import { useTheme } from "next-themes";
 import { ScratchToReveal } from "../magicui/scratch-to-reveal";
 import { useWakaTime } from "@/hooks/useWakaTime";
 import { useSpotify } from "@/hooks/useSpotify";
+import { useGitHub } from "@/hooks/useGitHub";
 import { Spotlight } from "@/components/ui/spotlight";
 import { useAlbumColor } from "@/hooks/useAlbumColor";
+import { GitHubHeatmap } from "./github-heatmap";
 
 
 export default function Dashboard() {
   const { totalHours } = useWakaTime();
   const totalCoffees = Math.ceil(totalHours / 4);
   const { track } = useSpotify();
+  const { data: githubData, isLoading: isLoadingGitHub } = useGitHub();
   const [scratchGif, setScratchGif] = useState("");
   const spotlightColor = useAlbumColor(track?.albumImageUrl || null);
 
@@ -58,7 +61,7 @@ export default function Dashboard() {
           title="Greater Boston, MA"
           transitionDuration="100ms"
         >
-          <div className="min-h-[200px] md:min-h-0">
+          <div className="min-h-[160px] md:min-h-0">
             <Globe />
           </div>
         </GridItem>
@@ -104,7 +107,7 @@ export default function Dashboard() {
         <GridItem
           area="favorite"
           icon={<IconHeart className={dashboardIconClass} />}
-          title="Fav Framework"
+          title="Fav Tool"
           transitionDuration="300ms"
         >
           <FavoriteLanguage />
@@ -173,6 +176,36 @@ export default function Dashboard() {
             value={totalCoffees}
             className="whitespace-pre-wrap text-3xl font-semibold tracking-tighter text-muted-foreground"
           />
+        </GridItem>
+        <GridItem
+          area="github"
+          icon={<IconBrandGithub className={dashboardIconClass} />}
+          title="Activity"
+          transitionDuration="900ms"
+          tooltip="Last 6 Weeks"
+        >
+          <div className="flex flex-col gap-6 h-full">
+            {/* Heatmap */}
+            <div className="flex-1">
+              <GitHubHeatmap
+                contributions={githubData?.contributions || []}
+                isLoading={isLoadingGitHub}
+              />
+            </div>
+
+            {/* Legend */}
+            <div className="flex items-center justify-center gap-2 sm:gap-1.5 text-xs sm:text-[11px] text-neutral-400">
+              <span>Less</span>
+              <div className="flex gap-1 sm:gap-[3px]">
+                <div className="w-3 h-3 sm:w-2.5 sm:h-2.5 rounded-[2px] bg-neutral-800/50 border border-neutral-700/30" />
+                <div className="w-3 h-3 sm:w-2.5 sm:h-2.5 rounded-[2px] bg-green-900/70 border border-neutral-700/30" />
+                <div className="w-3 h-3 sm:w-2.5 sm:h-2.5 rounded-[2px] bg-green-700/80 border border-neutral-700/30" />
+                <div className="w-3 h-3 sm:w-2.5 sm:h-2.5 rounded-[2px] bg-green-500/90 border border-neutral-700/30" />
+                <div className="w-3 h-3 sm:w-2.5 sm:h-2.5 rounded-[2px] bg-green-400 border border-neutral-700/30" />
+              </div>
+              <span>More</span>
+            </div>
+          </div>
         </GridItem>
       </ul>
     </div>
