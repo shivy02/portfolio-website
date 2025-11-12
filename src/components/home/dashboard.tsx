@@ -2,7 +2,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { IconTool, IconLink, IconCoffee, IconClockHour4, IconMapPin, IconBrandSpotify, IconHeart, IconHandClick, IconBrandGithub } from "@tabler/icons-react";
+import { IconTool, IconLink, IconCoffee, IconClockHour4, IconMapPin, IconHeart, IconHandClick, IconBrandGithub } from "@tabler/icons-react";
 import { Globe } from "@/components/ui/globe";
 import styles from "./dashboard.module.css";
 import { NumberTicker } from "@/components/ui/number-ticker";
@@ -23,6 +23,7 @@ import { useGitHub } from "@/hooks/useGitHub";
 import { Spotlight } from "@/components/ui/spotlight";
 import { useAlbumColor } from "@/hooks/useAlbumColor";
 import { GitHubHeatmap } from "./github-heatmap";
+import { SoundWave } from "@/components/ui/sound-wave";
 
 
 export default function Dashboard() {
@@ -67,7 +68,7 @@ export default function Dashboard() {
         </GridItem>
         <GridItem
           area="music"
-          icon={<IconBrandSpotify className={dashboardIconClass} />}
+          icon={<SoundWave className={dashboardIconClass} color={spotlightColor} />}
           title="Last Played"
           transitionDuration="200ms"
           tooltip="Spotify"
@@ -184,7 +185,7 @@ export default function Dashboard() {
           transitionDuration="900ms"
           tooltip="Last 6 Weeks"
         >
-          <div className="flex flex-col gap-6 h-full">
+          <div className="flex flex-col gap-[22px] sm:gap-6 h-full">
             {/* Heatmap */}
             <div className="flex-1">
               <GitHubHeatmap
