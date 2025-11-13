@@ -35,9 +35,12 @@ export async function GET() {
   }
 
   try {
-    // Calculate date range for past 44 days (6+ weeks)
+    // Calculate date range for past 48 days (7 weeks)
+    // Set 'to' to end of current day in UTC to avoid timezone-based date shifting
     const to = new Date();
-    const from = new Date();
+    to.setUTCHours(23, 59, 59, 999);
+
+    const from = new Date(to);
     from.setDate(from.getDate() - 48);
 
     // GitHub GraphQL query for contribution calendar
