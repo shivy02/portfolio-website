@@ -16,7 +16,7 @@ export const data = {
       role: "Software Engineer | Consultant",
       date: "Sep 2025 - Nov 2025",
       description: "Mobile Application Development",
-      location: "San Fransico, CA",
+      location: "San Francisco Bay, CA",
       skills: ["Typescript", "React Native", "Expo", "Svelte", "SQL", "UI/UX", "HTML/CSS"],
     },
     {
