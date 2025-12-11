@@ -13,7 +13,7 @@ export const data = {
     {
       image: "/experience/stealth_logo.png",
       company: "Pre-Launch Startup",
-      role: "Software Engineer | Consultant",
+      role: "Software Engineer, Consultant",
       date: "Sep 2025 - Nov 2025",
       description: "Mobile Application Development",
       location: "San Francisco Bay, CA",
