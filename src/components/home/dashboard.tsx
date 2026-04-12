@@ -75,27 +75,32 @@ export default function Dashboard() {
         >
           <div className="flex flex-col-reverse sm:flex-row-reverse items-center gap-4 sm:gap-6 w-full">
             {/* Dancing Animation Section */}
-            <div className="relative flex items-center justify-center w-full sm:w-auto overflow-visible">
+            <div className="relative flex items-center justify-center w-full sm:w-12 h-16 sm:h-12 overflow-visible">
               <div className="absolute -top-36 -right-20 sm:-top-72 sm:-right-32 w-64 h-64 sm:w-96 sm:h-96 pointer-events-none z-0 scale-x-[-1]" style={{ opacity: 1 }}>
                 <Spotlight
                   className="!opacity-100 scale-75 z-50"
                   fill={spotlightColor}
                 />
               </div>
+              <div
+                aria-hidden
+                className="absolute left-1/2 top-1/2 w-40 sm:w-32 aspect-[480/65] overflow-hidden opacity-60 z-0 pointer-events-none"
+                style={{ transform: "translate(-50%, calc(-50% + 20px))" }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3N3J5dzE3dW9icXhlMHM0a2wwMzZhMDVmNmJ2bXNtZTZlcnljenhmayZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/GZQGgGtosl3Fm4k0A9/giphy.gif"
+                  alt=""
+                  className="absolute top-0 left-0 w-full aspect-square max-w-none"
+                  style={{ transform: "translateY(-67.7%)" }}
+                />
+              </div>
               <Image
-                src="https://www.animatedimages.org/data/media/202/animated-dog-image-0931.gif"
-                alt="Dog"
-                width={200}
-                height={80}
-                className="absolute inset-0 w-full h-full object-contain sm:hidden opacity-60"
-                unoptimized
-              />
-              <Image
-                src="https://www.animatedimages.org/data/media/107/animated-dancing-image-0472.gif"
+                src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3OXBwZGkzbG4zc2N1dTU4bmgyZDBkenk1amxoZG5meWcydWp2aGU0MyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/NawOC2k0SQ5pYjTXLt/giphy.gif"
                 alt="Dancing"
                 width={80}
                 height={80}
-                className="w-16 h-16 sm:w-12 sm:h-12 relative z-10"
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 sm:w-20 sm:h-20 object-contain z-10 pointer-events-none"
                 unoptimized
               />
             </div>
