@@ -32,7 +32,7 @@ export default function Hero() {
 
     return (
         <div className="pt-32 pb-16 sm:pt-56 relative flex items-center justify-center overflow-hidden">
-            <HeroConstellation desktopDots={200} mobileDots={50} />
+            <HeroConstellation desktopDots={300} mobileDots={75} />
             <TooltipProvider>
                 <BlurFade delay={0.005} inView>
                     <div className="relative flex-col space-y-1">
