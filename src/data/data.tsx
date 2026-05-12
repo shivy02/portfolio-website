@@ -165,7 +165,7 @@ export const data = {
       aria: "GitHub",
     },
     {
-      href: "https://instagram.com/your-instagram",
+      href: "https://instagram.com/shivy_02",
       label: "Instagram",
       icon: <IconBrandInstagram className="h-5 w-5" />,
       aria: "Instagram",
