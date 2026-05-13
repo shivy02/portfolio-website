@@ -171,11 +171,18 @@ function AnimatedDots({ desktopDots = 1500, mobileDots = 250 }: { desktopDots?: 
     initDots();
     animationId = requestAnimationFrame(animate);
 
+    let lastWidth = window.innerWidth;
     const onResize = () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
+        const widthChanged = window.innerWidth !== lastWidth;
+        lastWidth = window.innerWidth;
         resize();
-        initDots();
+        // Only reshuffle dots when width actually changes (e.g. orientation change).
+        // Mobile address-bar show/hide fires resize but only changes height — keep dots stable.
+        if (widthChanged) {
+          initDots();
+        }
       }, 200);
     };
     window.addEventListener("resize", onResize);
