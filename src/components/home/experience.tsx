@@ -26,6 +26,7 @@ export default function Experience() {
                 description={item.description}
                 location={item.location}
                 skills={item.skills}
+                href={item.href}
               />
             </BlurFade>
           ))}
@@ -44,6 +45,7 @@ export default function Experience() {
           description=" "
           location="Lowell, MA"
           skills={["C", "C++", "Java", "Python", "JavaScript", "HTML/CSS", "SQL"]}
+          href="https://www.uml.edu"
         />
       </BlurFade>
     </div>
@@ -58,6 +60,7 @@ interface ExperienceItemProps {
   description?: string;
   location: string;
   skills: string[];
+  href?: string;
 }
 
 export const ExperienceItem = ({
@@ -68,18 +71,35 @@ export const ExperienceItem = ({
   description = "",
   location,
   skills,
+  href,
 }: ExperienceItemProps) => {
+  const logo = (
+    <Image
+      src={image}
+      width={100}
+      height={100}
+      alt={`${company} logo`}
+      priority
+      className="h-8 w-8 rounded-sm sm:h-10 sm:w-10 sm:rounded-md mt-1"
+    />
+  );
+
   return (
     <div className="p-4 border rounded-xl sm:rounded-lg bg-background transition-all duration-400">
       <div className="flex flex-row space-x-2">
-        <Image
-          src={image}
-          width={100}
-          height={100}
-          alt={`${company} logo`}
-          priority
-          className="h-8 w-8 rounded-sm sm:h-10 sm:w-10 sm:rounded-md mt-1"
-        />
+        {href ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit ${company} website`}
+            className="shrink-0 transition-opacity hover:opacity-80"
+          >
+            {logo}
+          </a>
+        ) : (
+          logo
+        )}
         <div className="flex flex-col mb-2">
           <p className="font-bold tracking-tight leading-normal text-balance text-sm sm:text-base text-primary">
             {role}

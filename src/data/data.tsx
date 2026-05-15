@@ -2,6 +2,16 @@ import { IconHome, IconBrandGithub, IconBrush, IconBriefcase2, IconBrandLinkedin
 export const data = {
   experience: [
     {
+      image: "/experience/celebrin_logo.png",
+      company: "Celebrin.ai",
+      role: "Co-founder",
+      date: "Present",
+      description: "Multi-Agent Orchestration Infra",
+      location: "Boston, MA",
+      skills: ["Typescript", "React", "NextJS", "AI Agents", "LLMs", "Infrastructure"],
+      href: "https://celebrin.ai",
+    },
+    {
       image: "/experience/ai12z.jpeg",
       company: "ai12z",
       role: "Software Engineer",
@@ -9,6 +19,7 @@ export const data = {
       description: "AI Search & Digital Assistants",
       location: "Boston, MA",
       skills: ["Typescript", "NextJS", "React", "Cypress", "HTML/CSS", "MongoDB"],
+      href: "https://ai12z.com",
     },
     {
       image: "/experience/stealth_logo.png",
@@ -27,6 +38,7 @@ export const data = {
       description: "Data Engineering & Information Systems",
       location: "Townsend, MA",
       skills: ["Full-Stack", "HTML/CSS", "Javascript", "ASP.NET", "PL/SQL", "Data Warehousing", "Data Analysis", "ETL"],
+      href: "https://www.sterilite.com",
     },
     {
       image: "/experience/saic_logo.jpeg",
@@ -37,6 +49,7 @@ export const data = {
         "Cloud Engineering & DevSecOps, Air Force Cloud One",
       location: "Hanscom Air Force Base, MA",
       skills: ["Microsoft Azure", "Powershell", "Azure DevOps", "CI/CD", "Cloud Engineering", "DevSecOps"],
+      href: "https://www.saic.com",
     },
     {
       image: "/experience/orbitahealth_logo.jpeg",
@@ -47,7 +60,7 @@ export const data = {
         "AI Powered Healthcare Automation",
       location: "Boston, MA",
       skills: ["Full-Stack", "HTML/CSS", "JavaScript", "TypeScript", "Angular", "Node.js", "Express", "MongoDB" ],
-
+      href: "https://orbita.ai",
     },
     {
       image: "/experience/umasslowell_logo.jpg",
@@ -58,6 +71,7 @@ export const data = {
       //   "Hello asdfasdf a Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam itaque obcaecati, odio blanditiis ullam iste tempora commodi quidem ea incidunt, sint officia voluptatum accusantium, dolorem sunt expedita veritatis atque. Amet?",
       location: "Lowell, MA",
       skills: ["Leadership", "Communication", "Conflict Resolution", "Event Planning"],
+      href: "https://www.uml.edu",
     },
   ],
 
