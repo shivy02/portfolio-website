@@ -42,11 +42,16 @@ export default function BlogPage() {
         ) : (
           <ul className="flex flex-col divide-y divide-border/60">
             {posts.map((post, idx) => (
-              <BlurFade key={post.slug} delay={0.01 + idx * 0.05} inView>
+              <BlurFade
+                key={post.slug}
+                delay={0.01 + idx * 0.05}
+                inView
+                className="pt-8 pb-8 first:pt-0"
+              >
                 <li>
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="group block py-8 first:pt-0"
+                    className="group block"
                   >
                     <div className="flex items-baseline justify-between gap-6 mb-2">
                       <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-primary transition-colors">

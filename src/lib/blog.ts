@@ -2,6 +2,9 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
+import { slugify, type Heading } from "@/lib/blog-utils";
+
+export type { Heading };
 
 const BLOG_DIR = path.join(process.cwd(), "src/content/blog");
 
@@ -13,6 +16,29 @@ export interface BlogPost {
   tags: string[];
   readingTime: string;
   content: string;
+  headings: Heading[];
+}
+
+// Extract level-2 and level-3 headings from markdown, skipping code blocks.
+// Slugs are plain slugify(text) — see MarkdownRenderer for why we deliberately
+// don't track uniqueness (Strict Mode double-invocation would mismatch).
+export function extractHeadings(content: string): Heading[] {
+  const lines = content.split("\n");
+  const headings: Heading[] = [];
+  let inCodeBlock = false;
+  for (const line of lines) {
+    if (line.startsWith("```")) {
+      inCodeBlock = !inCodeBlock;
+      continue;
+    }
+    if (inCodeBlock) continue;
+    const match = line.match(/^(#{2,3})\s+(.*)$/);
+    if (!match) continue;
+    const level = match[1].length;
+    const text = match[2].trim();
+    headings.push({ level, text, slug: slugify(text) });
+  }
+  return headings;
 }
 
 export function getAllPosts(): BlogPost[] {
@@ -33,6 +59,7 @@ export function getAllPosts(): BlogPost[] {
       tags: data.tags ?? [],
       readingTime: stats.text,
       content,
+      headings: extractHeadings(content),
     };
   });
 
@@ -59,5 +86,6 @@ export function getPostBySlug(slug: string): BlogPost | null {
     tags: data.tags ?? [],
     readingTime: stats.text,
     content,
+    headings: extractHeadings(content),
   };
 }

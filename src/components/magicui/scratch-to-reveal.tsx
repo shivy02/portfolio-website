@@ -54,12 +54,16 @@ export const ScratchToReveal: React.FC<ScratchToRevealProps> = ({
 
   useEffect(() => {
     initializeCanvas();
+    // initializeCanvas is a stable closure over gradientColors; tracking it
+    // as a dep would re-run on every render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gradientColors]);
 
   useEffect(() => {
     // Reset the scratch area when resetKey changes
     setIsComplete(false);
     initializeCanvas();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resetKey]);
 
   useEffect(() => {
@@ -101,6 +105,9 @@ export const ScratchToReveal: React.FC<ScratchToRevealProps> = ({
       document.removeEventListener("touchend", handleDocumentTouchEnd);
       document.removeEventListener("touchcancel", handleDocumentTouchEnd);
     };
+    // checkCompletion / scratch are stable closures; only isScratching should
+    // re-attach the document listeners.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isScratching]);
 
   const handleMouseDown = () => setIsScratching(true);
