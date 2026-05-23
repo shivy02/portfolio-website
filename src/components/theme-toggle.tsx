@@ -11,25 +11,29 @@ export function ModeToggle() {
   const [isToggling, setIsToggling] = useState(false);
 
   const handleToggle = () => {
-    setIsToggling(true);
-    setTimeout(() => setIsToggling(false), 500);
-
     const next = theme === "dark" ? "light" : "dark";
+
+    // Triggers the spin-grow keyframe (500ms, defined in tailwind.config.js).
+    const spinIcon = () => {
+      setIsToggling(true);
+      setTimeout(() => setIsToggling(false), 500);
+    };
+
     const doc = document as Document & {
-      startViewTransition?: (cb: () => unknown) => unknown;
+      startViewTransition?: (cb: () => unknown) => { finished: Promise<void> };
     };
 
     if (typeof doc.startViewTransition !== "function") {
       setTheme(next);
+      spinIcon();
       return;
     }
 
-    // setTheme is synchronous (next-themes writes the class to <html>
-    // immediately), so passing a sync callback is enough — the browser
-    // captures the post-theme DOM as the "new" snapshot.
-    doc.startViewTransition(() => {
-      setTheme(next);
-    });
+    // Run the view transition first so the page palette cross-fades, THEN
+    // spin the now-visible icon. Otherwise the cross-fade snapshot freezes
+    // the icon mid-spin and the animation reads as a flicker.
+    const transition = doc.startViewTransition(() => setTheme(next));
+    transition.finished.then(spinIcon).catch(() => spinIcon());
   };
 
   return (

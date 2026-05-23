@@ -61,7 +61,7 @@ export default function Writing({ posts }: { posts: HomeWritingPost[] }) {
                                                 className="text-base sm:text-lg font-semibold tracking-tight text-primary"
                                                 style={{ viewTransitionName: `post-title-${post.slug}` }}
                                             >
-                                                <span className="bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px] bg-left-bottom bg-no-repeat transition-[background-size] duration-300 group-hover:bg-[length:100%_1px]">
+                                                <span className="pb-1 bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px] bg-left-bottom bg-no-repeat transition-[background-size] duration-300 group-hover:bg-[length:100%_1px]">
                                                     {post.title}
                                                 </span>
                                                 <IconArrowUpRight className="inline-block ml-1 h-3.5 w-3.5 text-muted-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />

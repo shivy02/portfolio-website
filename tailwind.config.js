@@ -16,7 +16,7 @@ module.exports = {
         "shimmer-slide":
         "shimmer-slide var(--speed) ease-in-out infinite alternate",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
-        "spin-grow": "spin-grow 0.3s ease-in-out",
+        "spin-grow": "spin-grow 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
         wiggle: "wiggle 0.8s ease-out 1",
         "sound-wave": "sound-wave ease-in-out infinite alternate",
       },
@@ -60,8 +60,8 @@ module.exports = {
           "100%": { transform: "rotate(0deg)" }, 
         },
         "spin-grow": {
-          "0%": { transform: "scale(0.5) rotate(0deg)" },
-          "100%": { transform: "scale(1) rotate(360deg)" },
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
         },
         "sound-wave": {
           "0%": {
