@@ -4,7 +4,7 @@
 
 A modern, animated personal portfolio built with **Next.js 15**, **React 19**, **TypeScript**, and **Tailwind CSS** — featuring live Spotify & WakaTime integrations and a Markdown-powered blog.
 
-[![Live Site](https://img.shields.io/badge/Live-shivampatel.dev-000?style=for-the-badge&logo=vercel&logoColor=white)](https://shivampatel.dev)
+[![Live Site](https://img.shields.io/badge/Live-shivypatel.com-000?style=for-the-badge&logo=vercel&logoColor=white)](https://shivypatel.com)
 &nbsp;
 [![Stars](https://img.shields.io/github/stars/shivy02/portfolio-website?style=for-the-badge&logo=github&color=f5c518)](https://github.com/shivy02/portfolio-website/stargazers)
 &nbsp;
