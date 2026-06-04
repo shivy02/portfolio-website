@@ -12,6 +12,10 @@ A modern, animated personal portfolio built with **Next.js 15**, **React 19**, *
 
 **If this project helps or inspires you, please consider leaving a ⭐ — it genuinely helps and motivates me to keep building in the open.**
 
+<br />
+
+[![Website screenshot](./public/website_screenshot.png)](https://shivypatel.com)
+
 </div>
 
 ---
