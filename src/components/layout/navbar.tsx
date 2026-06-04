@@ -12,6 +12,10 @@ import { useTheme } from "next-themes";
 import { AnimatedLogo } from "../ui/logo-animation"
 import { useTransitionRouter } from "next-view-transitions";
 import { CommandPaletteButton } from "../command-palette/command-palette-button";
+import { IconBrandGithub, IconStar } from "@tabler/icons-react";
+import { useGitHubStars } from "@/hooks/useGitHubStars";
+
+const FALLBACK_REPO_URL = "https://github.com/shivy02/portfolio-website";
 // import Link from "next/link";
 // import Image from "next/image";
 
@@ -30,6 +34,9 @@ export const Navbar = ({
 
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { data: starsData } = useGitHubStars();
+  const repoUrl = starsData?.url ?? FALLBACK_REPO_URL;
+  const stars = starsData?.stars ?? 0;
   const { scrollY } = useScroll();
   const [visible, setVisible] = useState(true);
   const router = useTransitionRouter();
@@ -124,6 +131,23 @@ export const Navbar = ({
                 <span className="hidden sm:block text-sm">{navItem.name}</span>
               </button>
             ))}
+            <span
+              aria-hidden
+              className="h-5 w-px self-center bg-zinc-300/60 dark:bg-zinc-700/60"
+            />
+            <a
+              href={repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Star this site on GitHub (${stars} stars)`}
+              className="group inline-flex items-center gap-1.5 rounded-md border border-border/60 bg-background/40 hover:bg-background/70 hover:border-border px-2 py-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <IconBrandGithub className="h-3.5 w-3.5" />
+              <span className="flex items-center gap-0.5 tabular-nums">
+                <IconStar className="h-3 w-3 transition-colors group-hover:text-amber-400" />
+                {stars}
+              </span>
+            </a>
             <CommandPaletteButton />
             <ModeToggle />
           </div>

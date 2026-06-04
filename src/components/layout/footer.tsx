@@ -2,13 +2,16 @@
 
 import Image from "next/image";
 import { RainbowButton } from "@/components/magicui/rainbow-button";
-import { IconRss, IconSend } from "@tabler/icons-react";
+import { IconRss, IconSend, IconBrandGithub, IconStar } from "@tabler/icons-react";
 import { motion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 import { AnimatedLogo } from "@/components/ui/logo-animation";
+import { useGitHubStars } from "@/hooks/useGitHubStars";
 import { data } from "@/data/data";
+
+const FALLBACK_REPO_URL = "https://github.com/shivy02/portfolio-website";
 
 export const Footer = () => {
     const [sent, setSent] = useState(false);
@@ -19,6 +22,10 @@ export const Footer = () => {
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
     const router = useRouter();
+
+    const { data: starsData } = useGitHubStars();
+    const repoUrl = starsData?.url ?? FALLBACK_REPO_URL;
+    const stars = starsData?.stars ?? 0;
 
     useEffect(() => {
         setMounted(true);
@@ -111,6 +118,18 @@ export const Footer = () => {
                             </motion.span>
                             <p className="tracking-tight">Contact Me</p>
                         </RainbowButton>
+                    </a>
+                    <a
+                        href={repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Star this site's repository on GitHub"
+                        className="group mt-6 inline-flex items-center gap-1.5 text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                        <IconBrandGithub className="h-4 w-4" />
+                        <span>This site is open source: star it on GitHub</span>
+                        <IconStar className="h-3.5 w-3.5 transition-colors group-hover:text-amber-400" />
+                        <span className="tabular-nums font-medium">{stars}</span>
                     </a>
                 </div>
 
