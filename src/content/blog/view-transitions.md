@@ -1,5 +1,5 @@
 ---
-title: "Three View Transitions Worth Shipping"
+title: "3 View Transitions Worth Shipping"
 description: "The browser's View Transitions API earns its keep in three places: theme swaps, shared elements between pages, and plain old route changes."
 date: "2026-05-16"
 tags: ["css", "animation", "nextjs", "view-transitions"]
