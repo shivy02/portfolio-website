@@ -107,7 +107,7 @@ export const Navbar = ({
 
         >
           {/* Logo on the left */}
-          <div className="flex items-center mr-16">
+          <div className="flex items-center mr-4 sm:mr-16">
             {mounted && (
               <AnimatedLogo
                 theme={resolvedTheme === "dark" ? "dark" : "light"}
@@ -118,7 +118,7 @@ export const Navbar = ({
           </div>
 
           {/* Links in the center */}
-          <div className="flex gap-6 ml-auto mr-4">
+          <div className="flex items-center gap-3 sm:gap-6 ml-auto mr-0 sm:mr-4">
             {navItems.map((navItem, idx) => (
               <button
                 key={`link=${idx}`}

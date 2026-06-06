@@ -7,7 +7,7 @@ import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { HeroConstellation } from "@/components/ui/hero-constellation"
 import { BlurFade } from "@/components/ui/blur-fade";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
-import { BorderBeam } from "@/components/ui/border-beam";
+import { ShimmerBorder } from "@/components/ui/shimmer-border";
 import { IconArrowRight } from "@tabler/icons-react";
 import {
     AnimatedName,
@@ -164,7 +164,7 @@ export default function Hero() {
                                         />
                                         <span className="relative">View my work</span>
                                         <IconArrowRight className="relative h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                                        <BorderBeam size={60} duration={5} />
+                                        <ShimmerBorder />
                                     </a>
                                 </div>
                             </BlurFade>

@@ -16,6 +16,7 @@ module.exports = {
         "shimmer-slide":
         "shimmer-slide var(--speed) ease-in-out infinite alternate",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
+        "button-shine": "button-shine var(--speed) ease-in-out infinite",
         "spin-grow": "spin-grow 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
         wiggle: "wiggle 0.8s ease-out 1",
         "sound-wave": "sound-wave ease-in-out infinite alternate",
@@ -24,6 +25,10 @@ module.exports = {
       keyframes: {
         "border-beam": {
           "100%": { "offset-distance": "100%" },
+        },
+        "button-shine": {
+          "0%": { transform: "translateX(-150%) skewX(-20deg)" },
+          "30%, 100%": { transform: "translateX(350%) skewX(-20deg)" },
         },
         meteor: {
           "0%": {

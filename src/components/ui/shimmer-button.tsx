@@ -1,12 +1,12 @@
-import React, { CSSProperties, ComponentPropsWithoutRef, useEffect, useState} from "react";
-import { useTheme } from "next-themes";
+import React, { CSSProperties, ComponentPropsWithoutRef } from "react";
 
 import { cn } from "@/lib/utils";
 
 export interface ShimmerButtonProps extends ComponentPropsWithoutRef<"button"> {
+  /** Color of the shine that sweeps across the button. */
   shimmerColor?: string;
-  shimmerSize?: string;
   borderRadius?: string;
+  /** One full glint cycle (sweep + pause). */
   shimmerDuration?: string;
   background?: string;
   className?: string;
@@ -19,87 +19,57 @@ export const ShimmerButton = React.forwardRef<
 >(
   (
     {
-      shimmerSize = "0.05em",
-      shimmerDuration = "3s",
+      shimmerColor = "#ffffff",
+      shimmerDuration = "4.5s",
       borderRadius = "200px",
-      background,
       className,
       children,
       ...props
     },
     ref,
   ) => {
-
-    const { resolvedTheme } = useTheme(); // Get the current theme
-    const [mounted, setMounted] = useState(false); // Track if the component is mounted
-
-    useEffect(() => {
-      setMounted(true); // Set mounted to true after the component is mounted
-    }, []);
-
-    const shimmerColor = mounted
-      ? resolvedTheme === "dark"
-        ? "#ffffff"
-        : "#ffffff"
-      : "transparent";
-
     return (
       <button
         style={
           {
-            "--spread": "90deg",
-            "--shimmer-color": shimmerColor,
-            "--radius": borderRadius,
             "--speed": shimmerDuration,
-            "--cut": shimmerSize,
-            "--bg": background,
+            "--radius": borderRadius,
+            "--shine-color": shimmerColor,
           } as CSSProperties
         }
         className={cn(
-          "inset-0 group relative z-50 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap border-[.8] px-2 py-1 text-white bg-zinc-400 dark:[background:var(--bg)] [border-radius:var(--radius)] dark:text-zinc-300",
+          "group relative z-50 flex cursor-pointer items-center justify-center overflow-hidden whitespace-nowrap",
+          "border border-black/10 bg-zinc-200/60 px-2 py-1 text-zinc-700",
+          "dark:border-white/10 dark:bg-background dark:text-zinc-300",
+          "[border-radius:var(--radius)]",
           "transform-gpu transition-transform duration-300 ease-in-out active:translate-y-px",
           className,
         )}
         ref={ref}
         {...props}
       >
-        {/* spark container */}
-        <div
-          className={cn(
-            "-z-30 blur-[2px]",
-            "absolute inset-0 overflow-visible [container-type:size]",
-          )}
-        >
-          {/* spark */}
-          <div className="absolute inset-0 h-[100cqh] animate-shimmer-slide [aspect-ratio:2] [border-radius:0] [mask:none]">
-            {/* spark before */}
-            <div className="absolute -inset-full w-auto rotate-0 animate-spin-around [background:conic-gradient(from_calc(270deg-(var(--spread)*0.5)),transparent_0,var(--shimmer-color)_var(--spread),transparent_var(--spread))] [translate:0_0]" />
-          </div>
-        </div>
         {children}
 
-        {/* Highlight */}
-        <div
+        {/* Shine — a slanted highlight band that glints across left→right, then
+            waits off-screen for the rest of the cycle. Sits behind the content
+            (-z-10) so it glides over the surface without washing out the text. */}
+        <span
+          aria-hidden
           className={cn(
-            "insert-0 absolute size-full",
-
-            "rounded-2xl px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_#ffffff1f]",
-
-            // transition
-            "transform-gpu transition-all duration-300 ease-in-out",
-
-            // on hover
-            "group-hover:shadow-[inset_0_-6px_10px_#ffffff3f]",
-
-            // on click
-            "group-active:shadow-[inset_0_-10px_10px_#ffffff3f]",
+            "pointer-events-none absolute inset-y-0 left-0 -z-10 w-1/3",
+            "animate-button-shine opacity-50 dark:opacity-40",
+            "[background:linear-gradient(to_right,transparent,var(--shine-color),transparent)]",
           )}
         />
 
-        {/* backdrop */}
-        <div
+        {/* Highlight — inset gloss that intensifies on hover and press. */}
+        <span
+          aria-hidden
           className={cn(
-            "absolute -z-20 bg-background [border-radius:var(--radius)] [inset:var(--cut)]",
+            "pointer-events-none absolute inset-0 [border-radius:var(--radius)]",
+            "shadow-[inset_0_-8px_10px_#ffffff1f] transition-shadow duration-300 ease-in-out",
+            "group-hover:shadow-[inset_0_-6px_10px_#ffffff3f]",
+            "group-active:shadow-[inset_0_-10px_10px_#ffffff3f]",
           )}
         />
       </button>
@@ -108,4 +78,3 @@ export const ShimmerButton = React.forwardRef<
 );
 
 ShimmerButton.displayName = "ShimmerButton";
- 
