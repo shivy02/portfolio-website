@@ -144,7 +144,7 @@ export const Navbar = ({
             >
               <IconBrandGithub className="h-3.5 w-3.5" />
               <span className="flex items-center gap-0.5 tabular-nums">
-                <IconStar className="h-3 w-3 transition-colors group-hover:text-amber-400" />
+                <IconStar className="h-3 w-3 transition-colors group-hover:text-amber-400 group-hover:animate-spin-grow" />
                 {stars}
               </span>
             </a>

@@ -128,7 +128,7 @@ export const Footer = () => {
                     >
                         <IconBrandGithub className="h-4 w-4" />
                         <span>This site is open source: star it on GitHub</span>
-                        <IconStar className="h-3.5 w-3.5 transition-colors group-hover:text-amber-400" />
+                        <IconStar className="h-3.5 w-3.5 transition-colors group-hover:text-amber-400 group-hover:animate-spin-grow" />
                         <span className="tabular-nums font-medium">{stars}</span>
                     </a>
                 </div>
