@@ -21,6 +21,8 @@ module.exports = {
         wiggle: "wiggle 0.8s ease-out 1",
         "sound-wave": "sound-wave ease-in-out infinite alternate",
         "border-beam": "border-beam calc(var(--duration)) infinite linear",
+        marquee: "marquee var(--duration) linear infinite",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       },
       keyframes: {
         "border-beam": {
@@ -79,6 +81,14 @@ module.exports = {
           "100%": {
             transform: "scaleY(1)",
           },
+        },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+        },
+        "marquee-vertical": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(calc(-100% - var(--gap)))" },
         },
       },
     },
