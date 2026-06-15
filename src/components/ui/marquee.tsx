@@ -30,6 +30,11 @@ interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
    * @default 4
    */
   repeat?: number;
+  /**
+   * Whether to pause the animation regardless of hover
+   * @default false
+   */
+  paused?: boolean;
 }
 
 export function Marquee({
@@ -39,6 +44,7 @@ export function Marquee({
   children,
   vertical = false,
   repeat = 4,
+  paused = false,
   ...props
 }: MarqueeProps) {
   return (
@@ -62,6 +68,7 @@ export function Marquee({
               "animate-marquee flex-row": !vertical,
               "animate-marquee-vertical flex-col": vertical,
               "group-hover:[animation-play-state:paused]": pauseOnHover,
+              "[animation-play-state:paused]": paused,
               "[animation-direction:reverse]": reverse,
             })}
           >

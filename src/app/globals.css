@@ -292,6 +292,21 @@ html.dark code[data-theme] span {
   font-weight: inherit;
 }
 
+/* Sunset photo viewer: ease the grow/shrink morph driven by the View
+ * Transitions API, and disable it under reduced-motion. */
+::view-transition-group(sunset-zoom) {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
 .prose code[data-line-numbers] {
   counter-reset: line;
 }
