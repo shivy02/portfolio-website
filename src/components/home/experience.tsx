@@ -7,6 +7,7 @@ import { data } from "@/data/data"
 import { BlurFade } from "@/components/ui/blur-fade";
 import { SectionHeading, headingIconClass } from "@/components/layout/section-heading";
 import { IconBriefcase2, IconSchool } from "@tabler/icons-react"
+import { SpotlightGlow } from "@/components/ui/spotlight-glow";
 
 export default function Experience() {
   return (
@@ -85,7 +86,8 @@ export const ExperienceItem = ({
   );
 
   return (
-    <div className="p-4 border rounded-xl sm:rounded-lg bg-background transition-all duration-400">
+    <div className="group/glow relative overflow-hidden p-4 border rounded-xl sm:rounded-lg bg-background transition-all duration-400">
+      <SpotlightGlow />
       <div className="flex flex-row space-x-2">
         {href ? (
           <a

@@ -25,6 +25,7 @@ import { useAlbumColor } from "@/hooks/useAlbumColor";
 import { GitHubHeatmap } from "./github-heatmap";
 import { SoundWave } from "@/components/ui/sound-wave";
 import { CustomCursor } from "@/components/ui/custom-cursor";
+import { SpotlightGlow } from "@/components/ui/spotlight-glow";
 
 
 export default function Dashboard() {
@@ -302,11 +303,12 @@ const GridItem = ({ area, icon, title, children, transitionDuration = "300ms", t
           inactiveZone={0.01}
         />
         <div
-          className="relative flex h-full flex-col justify-between gap-2 overflow-hidden rounded-lg border-0.75 p-4 shadow-[0px_0px_12px_0px_#ebecf0] dark:shadow-[0px_0px_27px_0px_#2D2D2D] bg-background transition-all"
+          className="group/glow relative flex h-full flex-col justify-between gap-2 overflow-hidden rounded-lg border-0.75 p-4 shadow-[0px_0px_12px_0px_#ebecf0] dark:shadow-[0px_0px_27px_0px_#2D2D2D] bg-background transition-all"
           style={{
             transitionDuration,
           }}
         >
+          <SpotlightGlow />
           <div className="relative flex flex-row items-center gap-2 sm:gap-3">
             <div className="pt-0">{icon}</div>
             <div className="space-y-2">
