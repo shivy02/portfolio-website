@@ -10,8 +10,6 @@ A modern, animated personal portfolio built with **Next.js 15**, **React 19**, *
 &nbsp;
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue?style=for-the-badge)](./LICENSE)
 
-If this project helps or inspires you, a ⭐ is genuinely appreciated.
-
 <br />
 
 [![Website screenshot](./public/website_screenshot.png)](https://shivypatel.com)
@@ -189,6 +187,6 @@ If you want to use it in a way the license does not cover, [open an issue](https
 
 <div align="center">
 
-Made by [Shivam Patel](https://github.com/shivy02). If you got this far, drop a ⭐
+Made by [Shivam Patel](https://github.com/shivy02).
 
 </div>
