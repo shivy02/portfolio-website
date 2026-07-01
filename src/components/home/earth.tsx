@@ -15,6 +15,7 @@ import {
     type LightboxState,
 } from "@/components/home/sunset-lightbox";
 import type { SunsetPhoto } from "@/lib/sunsets";
+import { cn } from "@/lib/utils";
 
 // Shared between the clicked thumbnail and the expanded image so the View
 // Transitions API morphs one into the other.
@@ -34,6 +35,12 @@ function withViewTransition(update: () => void): { finished: Promise<void> } {
 
 export default function Earth({ photos }: { photos: SunsetPhoto[] }) {
     const [active, setActive] = useState<LightboxState | null>(null);
+    // Track which sources have decoded so we can swap the skeleton for the
+    // real image. Keyed by src, so all of the marquee's duplicated copies
+    // reveal together the moment that photo loads once.
+    const [loaded, setLoaded] = useState<Set<string>>(new Set());
+    const markLoaded = (src: string) =>
+        setLoaded((prev) => (prev.has(src) ? prev : new Set(prev).add(src)));
 
     if (photos.length === 0) return null;
 
@@ -110,12 +117,34 @@ export default function Earth({ photos }: { photos: SunsetPhoto[] }) {
                             />
                             <Lens zoomFactor={1.75} lensSize={110} ariaLabel={photo.alt}>
                                 <div className="relative aspect-[3/4] h-48 sm:h-64 overflow-hidden rounded-xl">
+                                    {/* Fallback for the rare photo without a
+                                        generated blur: a pulsing placeholder so the
+                                        row never looks empty while it streams in.
+                                        When a blur exists, next/image renders it in
+                                        the SSR HTML (visible before hydration) and
+                                        this is skipped. */}
+                                    {!photo.blurDataURL && !loaded.has(photo.src) && (
+                                        <div className="absolute inset-0 animate-pulse rounded-xl bg-muted" />
+                                    )}
                                     <Image
                                         src={photo.src}
                                         alt={photo.alt}
                                         fill
                                         sizes="(min-width: 640px) 336px, 252px"
-                                        className="object-cover"
+                                        placeholder={photo.blurDataURL ? "blur" : "empty"}
+                                        blurDataURL={photo.blurDataURL}
+                                        onLoad={() => markLoaded(photo.src)}
+                                        className={cn(
+                                            "object-cover",
+                                            // Only hand-fade when there is no native
+                                            // blur; otherwise next/image manages the
+                                            // placeholder-to-photo swap itself.
+                                            !photo.blurDataURL &&
+                                                "transition-opacity duration-500 motion-reduce:transition-none",
+                                            !photo.blurDataURL && !loaded.has(photo.src)
+                                                ? "opacity-0"
+                                                : "opacity-100",
+                                        )}
                                     />
                                 </div>
                             </Lens>

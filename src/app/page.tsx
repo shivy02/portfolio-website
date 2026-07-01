@@ -11,8 +11,8 @@ import { getSunsetPhotos } from "@/lib/sunsets";
 
 const BLUR_FADE_DELAY = 0.005;
 
-export default function Home() {
-  const sunsetPhotos = getSunsetPhotos();
+export default async function Home() {
+  const sunsetPhotos = await getSunsetPhotos();
   const recentPosts = getAllPosts()
     .slice(0, 3)
     .map((p) => ({
