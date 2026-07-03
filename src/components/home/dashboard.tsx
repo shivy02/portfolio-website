@@ -403,6 +403,11 @@ const LastPlayed = ({ track }: LastPlayedProps) => {
     songUrl: "#",
   };
 
+  // A real track can still arrive without cover art (the API returns an
+  // optional images[0]?.url), so guard the image source independently of the
+  // whole-track fallback above — next/image throws on an undefined src.
+  const albumImageUrl = displayTrack.albumImageUrl || "/album-cover.jpeg";
+
   useEffect(() => {
     // Delay showing marquee to prevent flash on initial load
     const timer = setTimeout(() => {
@@ -419,7 +424,7 @@ const LastPlayed = ({ track }: LastPlayedProps) => {
       className="flex flex-row items-center gap-2 w-full overflow-hidden group"
     >
       <Image
-        src={displayTrack.albumImageUrl}
+        src={albumImageUrl}
         alt={`${displayTrack.title} album cover`}
         width={48}
         height={48}

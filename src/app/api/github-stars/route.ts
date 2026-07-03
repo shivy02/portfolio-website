@@ -24,6 +24,7 @@ export async function GET() {
 
     const response = await fetch(`https://api.github.com/repos/${GITHUB_REPO}`, {
       headers,
+      signal: AbortSignal.timeout(6000), // Fail fast instead of hanging the function
       next: { revalidate: 3600 }, // Cache for 1 hour
     });
 

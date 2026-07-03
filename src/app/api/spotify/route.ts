@@ -8,6 +8,10 @@ const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
 const RECENTLY_PLAYED_ENDPOINT = 'https://api.spotify.com/v1/me/player/recently-played?limit=1';
 
+// Abandon a hung upstream call rather than letting the function sit until the
+// platform's (now 300s) timeout — a fast failure degrades far more gracefully.
+const FETCH_TIMEOUT_MS = 6000;
+
 async function getAccessToken() {
   const response = await fetch(TOKEN_ENDPOINT, {
     method: 'POST',
@@ -19,6 +23,7 @@ async function getAccessToken() {
       grant_type: 'refresh_token',
       refresh_token: refresh_token!,
     }),
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
   });
 
   return response.json();
@@ -31,6 +36,7 @@ async function getRecentlyPlayed() {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
   });
 }
 

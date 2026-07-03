@@ -77,6 +77,7 @@ export async function GET() {
           to: to.toISOString(),
         },
       }),
+      signal: AbortSignal.timeout(6000), // Fail fast instead of hanging the function
       next: { revalidate: 600 }, // Cache for 10 minutes
     });
 

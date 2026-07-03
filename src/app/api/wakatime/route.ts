@@ -17,6 +17,7 @@ export async function GET() {
         headers: {
           Authorization: `Basic ${Buffer.from(apiKey).toString('base64')}`,
         },
+        signal: AbortSignal.timeout(6000), // Fail fast instead of hanging the function
         next: { revalidate: 3600 }, // Cache for 1 hour
       }
     );
