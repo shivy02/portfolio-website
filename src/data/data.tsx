@@ -87,6 +87,28 @@ export const data = {
 
   projects :[
     {
+      title: "Reframe Labs | Lab Testing Platform",
+      href: "https://labs.joinreframeapp.com",
+      dates: "2026",
+      active: true,
+      type: "Web Application",
+      technologies: ["Typescript", "Next.js", "React", "Supabase", "AWS", "Stripe"],
+      description: "Lab testing from Reframe: panels built around drinking less, plus focused checks for nutrients, hormones, heart, thyroid, gut and inflammation.",
+      video: "/projects/reframe-labs.mp4",
+      thumbnail: "/projects/reframe-labs-img.png",
+    },
+    {
+      title: "Ohm Ring | Smart Ring by Reframe",
+      href: "https://ohm-ring-site.vercel.app",
+      dates: "2026",
+      active: true,
+      type: "Web Application",
+      technologies: ["Typescript", "Next.js", "React", "TailwindCSS"],
+      description: "Marketing site for Ohm Ring, a personal health tracker on your finger that turns sleep, heart rate and temperature into a recovery score, craving outlook and energy forecast.",
+      video: "/projects/ohm-ring.mp4",
+      thumbnail: "/projects/ohm-ring-img.png",
+    },
+    {
       title: "Breadbox | Personal Finance Analytics Dashboard",
       href: "https://github.com/BreadBoxOrg/breadbox-web",
       dates: "Feb 2024 - May 2024",
