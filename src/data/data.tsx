@@ -2,6 +2,16 @@ import { IconHome, IconBrandGithub, IconBrush, IconBriefcase2, IconBrandLinkedin
 export const data = {
   experience: [
     {
+      image: "/experience/reframe_logo.png",
+      company: "Reframe",
+      role: "Product Engineer",
+      date: "Jul 2026 - Present",
+      description: "#1 Alcohol Reduction App (YC S21). Building some cool stuff, ask me about it :)",
+      location: "Remote",
+      skills: ["Typescript", "Next.js", "React", "Supabase", "Hasura", "AWS", "Lambda", "Stripe"],
+      href: "https://www.joinreframeapp.com",
+    },
+    {
       image: "/experience/celebrin_logo.png",
       company: "Celebrin.ai",
       role: "Co-founder",
